@@ -4,5 +4,7 @@
   "trailingComma": "es5",
   "bracketSpacing": false,
   "bracketSameLine": true,
-  "arrowParens": "avoid"
+  "arrowParens": "avoid",
+  "plugins": ["prettier-plugin-tailwindcss"]
 }
+
