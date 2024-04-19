@@ -1,6 +1,7 @@
+
 import {Outlet} from 'react-router-dom';
 
-function App() {
+export function App() {
   return (
     <div>
       <Outlet />
@@ -8,4 +9,3 @@ function App() {
   );
 }
 
-export default App;
