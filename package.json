@@ -11,9 +11,12 @@
     "test": "husky"
   },
   "dependencies": {
+    "@types/react-router-dom": "^5.3.3",
     "axios": "^1.6.8",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-router": "^6.22.3",
+    "react-router-dom": "^6.22.3"
   },
   "devDependencies": {
     "@commitlint/cli": "^19.2.2",
