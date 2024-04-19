@@ -7,6 +7,7 @@ module.exports = {
   extends: [
     require.resolve('@vercel/style-guide/eslint/react'),
     require.resolve('@vercel/style-guide/eslint/typescript'),
+    require.resolve('@vercel/style-guide/eslint/browser'),
     'plugin:tailwindcss/recommended',
   ],
   parserOptions: {
@@ -20,5 +21,8 @@ module.exports = {
     },
   },
   ignorePatterns: ['dist', '.eslintrc.cjs', 'vite.config.ts', 'index.d.ts'],
-  rules: {},
+  rules: {
+    'unicorn/filename-case': 'off',
+    'object-curly-spacing': ['error', 'always'],
+  },
 };
