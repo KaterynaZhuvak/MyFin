@@ -29,8 +29,5 @@ jobs:
       - name: Run ESLint
         run: npm run lint --if-present
 
-      - name: Run Prettier
-        run: npm run format --if-present
-
       - name: Build application
         run: npm run build
