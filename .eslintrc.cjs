@@ -20,7 +20,13 @@ module.exports = {
       },
     },
   },
-  ignorePatterns: ['dist', '.eslintrc.cjs', 'vite.config.ts', 'index.d.ts'],
+  ignorePatterns: [
+    'dist',
+    '.eslintrc.cjs',
+    'vite.config.ts',
+    'index.d.ts',
+    '*.css',
+  ],
   rules: {
     'unicorn/filename-case': 'off',
     'object-curly-spacing': ['error', 'always'],
