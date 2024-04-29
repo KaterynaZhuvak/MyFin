@@ -1,6 +1,6 @@
 import config from '@vercel/style-guide/prettier';
 
-export default {
+export const prettierConfig = {
   ...config,
   jsxSingleQuote: true,
   trailingComma: 'es5',
