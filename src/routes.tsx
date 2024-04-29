@@ -1,15 +1,15 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import type { FC } from 'react';
 import { App } from './App.tsx';
-import { HomePage } from './pages/HomePage/index.tsx';
-import { SignInPage } from './pages/SignInPage/index.tsx';
-import { SignUpPage } from './pages/SignUpPage/index.tsx';
-import { SpendingJournalPage } from './pages/SpendingJournalPage/index.tsx';
-import { StatisticsPage } from './pages/StatisticsPage/index.tsx';
-import { BudgetingPage } from './pages/BudgetingPage/index.tsx';
-import { SettingsPage } from './pages/SettingsPage/index.tsx';
-import { ChangeAvatarPage } from './pages/ChangeAvatarPage/index.tsx';
-import { NotFoundPage } from './pages/NotFoundPage/index.tsx';
+import { HomePage } from './pages/homePage/index.tsx';
+import { SignInPage } from './pages/signInPage/index.tsx';
+import { SignUpPage } from './pages/signUpPage/index.tsx';
+import { SpendingJournalPage } from './pages/spendingJournalPage/index.tsx';
+import { StatisticsPage } from './pages/statisticsPage/index.tsx';
+import { BudgetingPage } from './pages/budgetingPage/index.tsx';
+import { SettingsPage } from './pages/settingsPage/index.tsx';
+import { ChangeAvatarPage } from './pages/changeAvatarPage/index.tsx';
+import { NotFoundPage } from './pages/notFoundPage/index.tsx';
 
 export const Router: FC = () => {
   return (
