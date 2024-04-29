@@ -1,15 +1,15 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import type { FC } from 'react';
-import { App } from './App.tsx';
-import { HomePage } from './pages/homePage/index.tsx';
-import { SignInPage } from './pages/signInPage/index.tsx';
-import { SignUpPage } from './pages/signUpPage/index.tsx';
-import { SpendingJournalPage } from './pages/spendingJournalPage/index.tsx';
-import { StatisticsPage } from './pages/statisticsPage/index.tsx';
-import { BudgetingPage } from './pages/budgetingPage/index.tsx';
-import { SettingsPage } from './pages/settingsPage/index.tsx';
-import { ChangeAvatarPage } from './pages/changeAvatarPage/index.tsx';
-import { NotFoundPage } from './pages/notFoundPage/index.tsx';
+import { App } from './App';
+import { HomePage } from './pages/homePage';
+import { SpendingJournalPage } from './pages/spendingJournalPage';
+import { StatisticsPage } from './pages/statisticsPage';
+import { BudgetingPage } from './pages/budgetingPage';
+import { SettingsPage } from './pages/settingsPage';
+import { ChangeAvatarPage } from './pages/changeAvatarPage';
+import { SignInPage } from './pages/signInPage';
+import { SignUpPage } from './pages/signUpPage';
+import { NotFoundPage } from './pages/notFoundPage';
 
 export const Router: FC = () => {
   return (
