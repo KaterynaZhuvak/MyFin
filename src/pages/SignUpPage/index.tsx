@@ -1,7 +1,5 @@
-import React from 'react';
+import type { FC } from 'react';
 
-const SignUpPage = () => {
+export const SignUpPage: FC = () => {
   return <div>SignUpPage</div>;
 };
-
-export default SignUpPage;

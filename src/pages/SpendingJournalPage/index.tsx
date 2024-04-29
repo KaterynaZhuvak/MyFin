@@ -1,9 +1,5 @@
-import React from 'react'
+import type { FC } from 'react';
 
-const SpendingJournalPage = () => {
-  return (
-    <div>SpendingJournalPage</div>
-  )
-}
-
-export default SpendingJournalPage
+export const SpendingJournalPage: FC = () => {
+  return <div>SpendingJournalPage</div>;
+};

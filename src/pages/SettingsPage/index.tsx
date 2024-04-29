@@ -1,9 +1,5 @@
-import React from 'react'
+import type { FC } from 'react';
 
-const SettingsPage = () => {
-  return (
-    <div>SettingsPage</div>
-  )
-}
-
-export default SettingsPage
+export const SettingsPage: FC = () => {
+  return <div>SettingsPage</div>;
+};

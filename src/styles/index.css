@@ -1,7 +1,16 @@
+@import url('./reset.css');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
   --get-strated-btn-gradient: red;
+}
+
+@font-face {
+  font-family: 'Audiowide';
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+  src: url('../fonts/Audiowide-Regular.ttf') format('truetype');
 }

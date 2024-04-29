@@ -20,9 +20,22 @@ module.exports = {
       },
     },
   },
-  ignorePatterns: ['dist', '.eslintrc.cjs', 'vite.config.ts', 'index.d.ts'],
+  ignorePatterns: [
+    'dist',
+    '.eslintrc.cjs',
+    'vite.config.ts',
+    'index.d.ts',
+    '*.css',
+  ],
   rules: {
     'unicorn/filename-case': 'off',
     'object-curly-spacing': ['error', 'always'],
+    "react/function-component-definition": [
+      2,
+      {
+        namedComponents: "arrow-function",
+        unnamedComponents: "arrow-function",
+      },
+    ],
   },
 };

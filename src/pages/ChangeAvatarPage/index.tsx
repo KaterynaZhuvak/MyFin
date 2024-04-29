@@ -1,7 +1,5 @@
-import React from 'react';
+import type { FC } from 'react';
 
-const ChangeAvatarPage = () => {
+export const ChangeAvatarPage: FC = () => {
   return <div>ChangeAvatarPage</div>;
 };
-
-export default ChangeAvatarPage;

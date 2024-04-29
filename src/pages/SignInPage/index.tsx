@@ -1,7 +1,5 @@
-import React from 'react';
+import type { FC } from 'react';
 
-const SignInPage = () => {
+export const SignInPage: FC = () => {
   return <div>SignInPage</div>;
 };
-
-export default SignInPage;
