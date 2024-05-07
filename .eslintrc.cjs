@@ -4,7 +4,6 @@ const project = resolve(__dirname, 'tsconfig.json');
 
 module.exports = {
   root: true,
-  plugins: ['import'],
   extends: [
     require.resolve('@vercel/style-guide/eslint/react'),
     require.resolve('@vercel/style-guide/eslint/typescript'),
@@ -28,6 +27,7 @@ module.exports = {
     'index.d.ts',
     '*.css',
   ],
+  plugins: ['import'],
   rules: {
     'unicorn/filename-case': 'off',
     'object-curly-spacing': ['error', 'always'],
@@ -38,6 +38,7 @@ module.exports = {
         unnamedComponents: 'arrow-function',
       },
     ],
-    'import/no-unresolved': 'off',
+    'import/no-commonjs': 'error',
+    'import/no-amd': 'error',
   },
 };
