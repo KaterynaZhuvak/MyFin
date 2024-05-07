@@ -27,7 +27,7 @@ module.exports = {
     'index.d.ts',
     '*.css',
   ],
-  plugins: ['import'],
+
   rules: {
     'unicorn/filename-case': 'off',
     'object-curly-spacing': ['error', 'always'],
@@ -38,8 +38,5 @@ module.exports = {
         unnamedComponents: 'arrow-function',
       },
     ],
-    'import/no-unresolved': 'off',
-    'import/no-commonjs': 'error',
-    'import/no-amd': 'error',
   },
 };
