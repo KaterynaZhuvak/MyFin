@@ -1,11 +1,11 @@
-import type { ReactNode } from 'react';
+import type { FC } from 'react';
+import { Outlet } from 'react-router-dom';
+import { SharedLayout } from '../shared/layouts/SharedLayout';
 
-export function App(): ReactNode {
+export const App: FC = () => {
   return (
-    <div>
-      <p className='bg-sky-700 px-4 py-2 text-white hover:bg-sky-800 sm:px-8 sm:py-3'>
-        App
-      </p>
-    </div>
+    <SharedLayout>
+      <Outlet />
+    </SharedLayout>
   );
-}
+};
