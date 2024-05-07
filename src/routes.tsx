@@ -1,6 +1,6 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import type { FC } from 'react';
-import { App } from './App';
+import { App } from './app/App';
 import { HomePage } from './pages/HomePage';
 import { SpendingJournalPage } from './pages/SpendingJournalPage';
 import { StatisticsPage } from './pages/StatisticsPage';
