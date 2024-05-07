@@ -38,6 +38,7 @@ module.exports = {
         unnamedComponents: 'arrow-function',
       },
     ],
+    'import/no-unresolved': 'off',
     'import/no-commonjs': 'error',
     'import/no-amd': 'error',
   },
