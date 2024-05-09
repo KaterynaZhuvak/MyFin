@@ -38,5 +38,6 @@ module.exports = {
         unnamedComponents: 'arrow-function',
       },
     ],
+    'no-console': 'off',
   },
 };

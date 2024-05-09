@@ -23,6 +23,12 @@ export default {
           },
         },
       },
+      fontFamily: {
+        helveticaReg: 'Helvetica',
+      },
+      borderRadius: {
+        15: '15px',
+      },
     },
   },
   plugins: [],
