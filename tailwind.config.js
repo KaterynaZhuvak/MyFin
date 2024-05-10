@@ -24,22 +24,6 @@ export default {
         },
         'neutral-white-2': '#fbfbfb',
       },
-      fontFamily: {
-        helveticaReg: 'Helvetica',
-      },
-      borderRadius: {
-        '15px': '15px',
-        '26px': '26px',
-      },
-      padding: {
-        '52px': '52px',
-      },
-      maxWidth: {
-        '416px': '416px',
-      },
-      height: {
-        '52px': '52px', // Власна висота
-      },
     },
   },
   plugins: [],

@@ -38,7 +38,7 @@ module.exports = {
         unnamedComponents: 'arrow-function',
       },
     ],
-    'no-console': 'off',
-    'react/hook-use-state': ['off', { allowDestructuredState: true }],
+    // 'no-console': 'off',
+    // 'react/hook-use-state': ['off', { allowDestructuredState: true }],
   },
 };

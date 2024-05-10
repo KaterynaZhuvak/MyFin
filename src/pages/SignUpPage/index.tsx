@@ -1,6 +1,7 @@
 import type { FC } from 'react';
 import { Form, Formik } from 'formik';
-import { Input } from '../../shared/UI/Input/Input';
+import { Input } from '../../shared/ui/Input';
+import { CheckIcon } from '../../shared/icons';
 
 interface FormValues {
   username: string;
@@ -15,7 +16,8 @@ export const SignUpPage: FC = () => {
   };
 
   const handleSubmit = (values: FormValues): void => {
-    console.log(values);
+    // console.log(values);
+    values;
   };
 
   return (
@@ -25,11 +27,11 @@ export const SignUpPage: FC = () => {
           <Input
             name='username'
             placeholder='Enter your email'
-            type='email'
-            icon='check'
+            type='password'
+            inputProps={{
+              endPosition: <CheckIcon />,
+            }}
           />
-          {/* <p>x</p>
-          </Input> */}
         </Form>
       </Formik>
     </div>
