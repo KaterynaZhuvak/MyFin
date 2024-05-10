@@ -24,8 +24,9 @@ export const SignUpPage: FC = () => {
         <Form>
           <Input
             name='username'
-            label='Username'
-            placeholder='Enter your username'
+            placeholder='Enter your email'
+            type='email'
+            icon='check'
           />
           {/* <p>x</p>
           </Input> */}

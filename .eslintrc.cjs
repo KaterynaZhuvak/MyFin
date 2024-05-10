@@ -39,5 +39,6 @@ module.exports = {
       },
     ],
     'no-console': 'off',
+    'react/hook-use-state': ['off', { allowDestructuredState: true }],
   },
 };
