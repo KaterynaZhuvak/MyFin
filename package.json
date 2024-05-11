@@ -19,7 +19,7 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router": "^6.22.3",
-    "react-router-dom": "^6.23.0",
+    "react-router-dom": "^6.23.1",
     "yup": "^1.4.0"
   },
   "devDependencies": {
@@ -27,6 +27,7 @@
     "@commitlint/config-conventional": "^19.2.2",
     "@types/react": "^18.2.66",
     "@types/react-dom": "^18.2.22",
+    "@types/react-router-dom": "^5.3.3",
     "@vercel/style-guide": "^6.0.0",
     "@vitejs/plugin-react-swc": "^3.6.0",
     "autoprefixer": "^10.4.19",
