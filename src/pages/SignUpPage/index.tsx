@@ -1,13 +1,10 @@
 import type { FC } from 'react';
 import { Form, Formik } from 'formik';
 import { Input } from '../../shared/ui/Input';
-import { CheckIcon } from '../../shared/icons';
+import { EyeOffIcon } from '../../shared/icons';
 
 interface FormValues {
   username: string;
-  // email: string;
-  // password:string;
-  // repeatPassword:string;
 }
 
 export const SignUpPage: FC = () => {
@@ -28,7 +25,7 @@ export const SignUpPage: FC = () => {
             name='username'
             placeholder='Enter your email'
             iconPosition='end'
-            icon={<CheckIcon />}
+            icon={<EyeOffIcon />}
           />
         </Form>
       </Formik>

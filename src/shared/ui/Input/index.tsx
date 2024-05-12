@@ -1,7 +1,7 @@
 import { type ReactNode, type FC, type InputHTMLAttributes } from 'react';
 import { Field, ErrorMessage } from 'formik';
 import { type VariantProps, cva } from 'class-variance-authority';
-import { cn } from '../../../utils/cn';
+import { cn } from '../../lib/cn';
 
 const inputVariants = cva(
   'w-full border border-solid bg-transparent text-base text-white',
