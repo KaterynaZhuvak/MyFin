@@ -16,7 +16,6 @@ export const SignUpPage: FC = () => {
   };
 
   const handleSubmit = (values: FormValues): void => {
-    // console.log(values);
     values;
   };
 
@@ -25,12 +24,11 @@ export const SignUpPage: FC = () => {
       <Formik initialValues={initialValues} onSubmit={handleSubmit}>
         <Form>
           <Input
+            type='password'
             name='username'
             placeholder='Enter your email'
-            type='password'
-            inputProps={{
-              endPosition: <CheckIcon />,
-            }}
+            iconPosition='end'
+            icon={<CheckIcon />}
           />
         </Form>
       </Formik>
