@@ -22,6 +22,7 @@ export default {
             950: '#050505',
           },
         },
+        'neutral-white-2': '#fbfbfb',
       },
     },
   },
