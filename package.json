@@ -13,7 +13,7 @@
     "preview": "vite preview",
     "test": "husky",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "storybook:build": "storybook build"
   },
   "dependencies": {
     "axios": "^1.6.8",
