@@ -26,6 +26,7 @@ module.exports = {
     'vite.config.ts',
     'index.d.ts',
     '*.css',
+    '*.stories.ts',
     '*.md',
   ],
 

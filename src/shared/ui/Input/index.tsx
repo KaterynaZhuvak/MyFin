@@ -50,9 +50,7 @@ export const Input: FC<InputProps> = ({
   ...rest
 }) => {
   return (
-    <div
-      className={`${label ? 'flex flex-col gap-3' : ''} font-[Helvetica] text-xl`}
-    >
+    <div className={`${label ? 'flex flex-col gap-3' : ''} font-sans text-xl`}>
       <label className='text-white' htmlFor={name}>
         {label}
       </label>
