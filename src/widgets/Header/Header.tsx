@@ -7,11 +7,7 @@ export const Header: FC = () => {
   return (
     <header className='relative bg-header-background'>
       <div className='container flex items-center justify-between py-[15px] tablet:py-[31px]'>
-        <NavigationButton
-          title='Log in'
-          styles='tablet:hidden'
-          path='/signin'
-        />
+        <NavigationButton title='Log in' variant='logInMobile' path='/signin' />
         <a href='/home'>
           <Icon
             id='logo'

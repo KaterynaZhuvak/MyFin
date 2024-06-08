@@ -9,7 +9,7 @@ interface IconProps {
 export const Icon: FC<IconProps> = ({ id, className }) => {
   return (
     <svg className={className}>
-      <use href={`${Icons}#icon-${id}`} />
+      <use href={`${Icons}#${id}-icon`} />
     </svg>
   );
 };

@@ -59,11 +59,7 @@ export const NavigationList: FC = () => {
             </ul>
           </nav>
 
-          <NavigationButton
-            title='Log in'
-            styles='gradient rounded-[15px] desktop:blok tablet:block mobile:hidden py-[6px] px-[31px] text-[20px] font-semibold '
-            path='/signin'
-          />
+          <NavigationButton title='Log in' variant='logIn' path='/signin' />
         </div>
       ) : null}
     </>
