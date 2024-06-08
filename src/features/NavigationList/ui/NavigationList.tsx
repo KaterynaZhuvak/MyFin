@@ -1,9 +1,8 @@
 import { useState, useEffect } from 'react';
 import type { FC } from 'react';
-import { Link } from '../../shared/ui/Link/Link';
-import { ButtonForNavigation } from '../../shared/ui/ButtonForNavigation/ButtonForNavigation';
-import { BurgerMenu } from '../../shared/ui/BurgerMenu/BurgerMenu';
-import { CloseButton } from '../../shared/ui/CloseButton/CloseButton';
+import { Link } from '../../../shared/ui/Link/Link';
+import { NavigationButton } from '../../../shared/ui/NavigationButton/NavigationButton';
+import { Icon } from '../../../shared/icons/Icon';
 
 export const NavigationList: FC = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
@@ -29,14 +28,25 @@ export const NavigationList: FC = () => {
 
   return (
     <>
-      {isMobile ? <BurgerMenu onClick={openMenu} /> : null}
+      {isMobile ? (
+        <button onClick={openMenu} type='button'>
+          <Icon id='menu' className='h-[22px] w-[30px]' />
+        </button>
+      ) : null}
       {isOpen || !isMobile ? (
         <div
-          className={`tablet:flex tablet:items-center tablet:gap-[40px] ${isOpen ? 'block' : 'hidden'} max-[767px]:absolute max-[767px]:inset-x-0 max-[767px]:top-0 `}
+          className={`max-[767px]:absolute max-[767px]:inset-x-0 max-[767px]:top-0 max-[767px]:bg-header-background tablet:flex tablet:items-center tablet:gap-[40px] ${isOpen ? 'block' : 'hidden'}`}
         >
-          <CloseButton onClick={openMenu} />
-          <nav>
-            <ul className='flex max-[767px]:flex-col max-[767px]:gap-[24px] max-[767px]:bg-[#151515] max-[767px]:px-[24px] max-[767px]:py-[32px] tablet:gap-[40px]'>
+          <nav className='max-[767px]:container max-[767px]:relative'>
+            <button
+              onClick={openMenu}
+              type='button'
+              className='absolute right-[24px] top-[15px] z-10 tablet:hidden'
+            >
+              <Icon id='close' className='size-[16px]' />
+            </button>
+
+            <ul className='flex max-[767px]:flex-col max-[767px]:gap-[24px] max-[767px]:px-[24px] max-[767px]:py-[32px] tablet:gap-[40px]'>
               <li>
                 <Link href='#home' title='Home' />
               </li>
@@ -48,7 +58,8 @@ export const NavigationList: FC = () => {
               </li>
             </ul>
           </nav>
-          <ButtonForNavigation
+
+          <NavigationButton
             title='Log in'
             styles='gradient rounded-[15px] desktop:blok tablet:block mobile:hidden py-[6px] px-[31px] text-[20px] font-semibold '
             path='/signin'

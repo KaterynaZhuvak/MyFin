@@ -1,9 +1,9 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { ButtonWithGradient } from './ButtonWithGradient';
+import { GradientButton } from './GradientButton';
 
-const meta: Meta<typeof ButtonWithGradient> = {
-  title: 'ui/ButtonWithGradient',
-  component: ButtonWithGradient,
+const meta: Meta<typeof GradientButton> = {
+  title: 'ui/GradientButton',
+  component: GradientButton,
 };
 
 export default meta;

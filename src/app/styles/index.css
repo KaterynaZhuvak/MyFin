@@ -50,26 +50,3 @@ body {
     rgba(68, 255, 221, 0.7) 141.248%
   );
 }
-
-.container {
-  margin: 0 auto;
-  max-width: 375px;
-  padding-right: 16px;
-  padding-left: 16px;
-}
-
-@media screen and (min-width: 768px) {
-  .container {
-    max-width: 768px;
-    padding-right: 50px;
-    padding-left: 50px;
-  }
-}
-
-@media screen and (min-width: 1440px) {
-  .container {
-    max-width: 1440px;
-    padding-right: 72px;
-    padding-left: 72px;
-  }
-}

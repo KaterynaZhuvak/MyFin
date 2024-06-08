@@ -1,13 +1,13 @@
 import type { FC } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-interface ButtonForNavigationProps {
+interface NavigationButtonProps {
   title: string;
   styles: string;
   path: string;
 }
 
-export const ButtonForNavigation: FC<ButtonForNavigationProps> = ({
+export const NavigationButton: FC<NavigationButtonProps> = ({
   title,
   styles,
   path,

@@ -1,14 +1,11 @@
 import type { FC } from 'react';
 
-interface ButtonWithGradientProps {
+interface GradientButtonProps {
   title: string;
   styles: string;
 }
 
-export const ButtonWithGradient: FC<ButtonWithGradientProps> = ({
-  title,
-  styles,
-}) => {
+export const GradientButton: FC<GradientButtonProps> = ({ title, styles }) => {
   return (
     <button
       type='button'

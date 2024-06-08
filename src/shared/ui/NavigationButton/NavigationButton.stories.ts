@@ -1,16 +1,16 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { ButtonForNavigation } from './ButtonForNavigation';
+import { NavigationButton } from './NavigationButton';
 import { withRouter } from 'storybook-addon-remix-react-router';
 
-const meta: Meta<typeof ButtonForNavigation> = {
-  title: 'ui/ButtonForNavigation',
-  component: ButtonForNavigation,
+const meta: Meta<typeof NavigationButton> = {
+  title: 'ui/NavigationButton',
+  component: NavigationButton,
   decorators: [withRouter],
 };
 
 export default meta;
 
-type Story = StoryObj<typeof ButtonForNavigation>;
+type Story = StoryObj<typeof NavigationButton>;
 
 export const GetStarted: Story = {
   args: {
