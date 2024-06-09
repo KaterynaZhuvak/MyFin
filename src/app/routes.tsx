@@ -7,8 +7,8 @@ import { StatisticsPage } from '../pages/StatisticsPage';
 import { BudgetingPage } from '../pages/BudgetingPage';
 import { SettingsPage } from '../pages/SettingsPage';
 import { ChangeAvatarPage } from '../pages/ChangeAvatarPage';
-import { SignInPage } from '../pages/SignInPage';
-import { SignUpPage } from '../pages/SignUpPage';
+import { LoginPage } from '../pages/LoginPage';
+import { RegistrationPage } from '../pages/RegistrationPage';
 import { App } from './App';
 
 export const Router: FC = () => {
@@ -23,8 +23,8 @@ export const Router: FC = () => {
           <Route path='settings' element={<SettingsPage />} />
           <Route path='settings/change-avatar' element={<ChangeAvatarPage />} />
 
-          <Route path='signin' element={<SignInPage />} />
-          <Route path='signup' element={<SignUpPage />} />
+          <Route path='login' element={<LoginPage />} />
+          <Route path='registration' element={<RegistrationPage />} />
           <Route path='*' element={<NotFoundPage />} />
         </Route>
       </Routes>

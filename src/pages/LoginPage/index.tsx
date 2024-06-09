@@ -1,5 +1,5 @@
 import type { FC } from 'react';
 
-export const SignInPage: FC = () => {
+export const LoginPage: FC = () => {
   return <div>SignInPage</div>;
 };
