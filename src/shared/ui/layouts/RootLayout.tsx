@@ -1,11 +1,11 @@
 import type { FC, ReactNode } from 'react';
-import { Header } from '../../widgets/Header/Header';
+import { Header } from '../../../widgets/Header/Header';
 
-interface SharedLayoutProps {
+interface RootLayoutProps {
   children: ReactNode;
 }
 
-export const SharedLayout: FC<SharedLayoutProps> = ({ children }) => {
+export const RootLayout: FC<RootLayoutProps> = ({ children }) => {
   return (
     <div>
       <Header />

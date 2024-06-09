@@ -12,21 +12,21 @@ type Story = StoryObj<typeof Icon>;
 
 export const Logo: Story = {
   args: {
-    id: 'logo',
+    name: 'logo',
     className: 'w-[151px] h-[34px] tablet:w-[183px] tablet:h-[41px]',
   },
 };
 
 export const Close: Story = {
   args: {
-    id: 'close',
+    name: 'close',
     className: 'h-[16px] w-[16px]',
   },
 };
 
 export const BurgerMenu: Story = {
   args: {
-    id: 'menu',
+    name: 'menu',
     className: 'h-[22px] w-[30px]',
   },
 };

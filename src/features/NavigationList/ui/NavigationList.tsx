@@ -30,7 +30,7 @@ export const NavigationList: FC = () => {
     <>
       {isMobile ? (
         <button onClick={openMenu} type='button'>
-          <Icon id='menu' className='h-[22px] w-[30px]' />
+          <Icon name='menu' className='h-[22px] w-[30px]' />
         </button>
       ) : null}
       {isOpen || !isMobile ? (
@@ -43,7 +43,7 @@ export const NavigationList: FC = () => {
               type='button'
               className='absolute right-[24px] top-[15px] z-10 tablet:hidden'
             >
-              <Icon id='close' className='size-[16px]' />
+              <Icon name='close' className='size-[16px]' />
             </button>
 
             <ul className='flex max-[767px]:flex-col max-[767px]:gap-[24px] max-[767px]:px-[24px] max-[767px]:py-[32px] tablet:gap-[40px]'>

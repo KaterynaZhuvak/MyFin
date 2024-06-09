@@ -10,7 +10,7 @@ export const Header: FC = () => {
         <NavigationButton title='Log in' variant='logInMobile' path='/signin' />
         <a href='/home'>
           <Icon
-            id='logo'
+            name='logo'
             className='h-[34px] w-[151px] tablet:h-[41px] tablet:w-[183px]'
           />
         </a>
