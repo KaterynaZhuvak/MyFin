@@ -12,6 +12,7 @@ const config: StorybookConfig = {
     '@storybook/addon-styling-webpack',
     'storybook-addon-remix-react-router',
     '@storybook/addon-viewport',
+    '@storybook/addon-actions',
   ],
   framework: {
     name: '@storybook/react-vite',
