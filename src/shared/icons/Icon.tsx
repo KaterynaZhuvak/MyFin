@@ -12,7 +12,7 @@ export const Icon: FC<IconProps> = ({ name, className, onClick }) => {
     <svg
       className={className}
       onClick={onClick}
-      role={onClick ? 'buttton' : null}
+      role={onClick ? 'buttton' : undefined}
     >
       <use href={`${Icons}#${name}-icon`} />
     </svg>
