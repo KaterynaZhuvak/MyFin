@@ -1,18 +1,14 @@
 import { useState, useEffect } from 'react';
 import type { FC } from 'react';
-import { useNavigate } from 'react-router';
 import { Link } from '../../../shared/ui/Link';
 import { Icon } from '../../../shared/icons/Icon';
 import { Button } from '../../../shared/ui/Button';
+import { useChangeURL } from '../../../shared/hooks/useChangeURL';
 
 export const NavigationList: FC = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [isMobile, setIsMobile] = useState<boolean>(window.innerWidth < 768);
-  const navigate = useNavigate();
-
-  const changeURL = (): void => {
-    navigate('/signin');
-  };
+  const changeURL = useChangeURL();
 
   const openMenu = (): void => {
     setIsOpen(!isOpen);
@@ -68,7 +64,9 @@ export const NavigationList: FC = () => {
             title='Log in'
             variant='gradient'
             size='s'
-            onClick={changeURL}
+            onClick={() => {
+              changeURL('/signin');
+            }}
           />
         </div>
       ) : null}
