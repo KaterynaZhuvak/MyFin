@@ -14,7 +14,7 @@ export const Header: FC = () => {
           title='Log in'
           variant='withoutOutline'
           onClick={() => {
-            changeURL('/login');
+            changeURL('/signin');
           }}
         />
         <a href='/home'>
