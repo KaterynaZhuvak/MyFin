@@ -7,7 +7,7 @@ export const buttonVariants = cva(['text-center font-sans'], {
     variant: {
       gradient: 'gradient rounded-[15px] text-white',
       outline:
-        'rounded-[15px] border-DEFAULT border-bright-green bg-transparent text-bright-green hover:border-pale-green hover:text-pale-green',
+        'rounded-[15px] border border-solid border-bright-green bg-transparent text-bright-green hover:border-pale-green hover:text-pale-green',
       ghost: 'text-white hover:text-bright-green',
     },
     size: {
