@@ -11,10 +11,10 @@ export const Header: FC = () => {
     <header className='relative bg-header-background'>
       <div className='container flex items-center justify-between py-[15px] tablet:py-[31px]'>
         <Button
-          title='Log in'
+          title='Login'
           variant='ghost'
           onClick={() => {
-            changeURL('/signin');
+            changeURL('/login');
           }}
         />
         <Icon

@@ -61,12 +61,12 @@ export const NavigationList: FC = () => {
           </nav>
 
           <Button
-            title='Log in'
+            title='Login'
             variant='gradient'
             size='s'
             className='px-[31px] mobile:hidden tablet:block'
             onClick={() => {
-              changeURL('/signin');
+              changeURL('/login');
             }}
           />
         </div>
