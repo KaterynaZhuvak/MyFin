@@ -7,7 +7,7 @@ interface FormValues {
   username: string;
 }
 
-export const SignUpPage: FC = () => {
+export const RegisterPage: FC = () => {
   const initialValues: FormValues = {
     username: '',
   };
