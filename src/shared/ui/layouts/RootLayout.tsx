@@ -1,15 +1,12 @@
-import type { FC, ReactNode } from 'react';
+import type { FC } from 'react';
+import { Outlet } from 'react-router';
 import { Header } from '../../../widgets/Header/Header';
 
-interface RootLayoutProps {
-  children: ReactNode;
-}
-
-export const RootLayout: FC<RootLayoutProps> = ({ children }) => {
+export const RootLayout: FC = () => {
   return (
-    <div>
+    <>
       <Header />
-      <main>{children}</main>
-    </div>
+      <Outlet />
+    </>
   );
 };
