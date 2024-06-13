@@ -1,14 +1,13 @@
 import { useState, useEffect } from 'react';
 import type { FC } from 'react';
-import { Link } from '../../../shared/ui/Link';
-import { Icon } from '../../../shared/icons/Icon';
-import { Button } from '../../../shared/ui/Button';
-import { useChangeURL } from '../../../shared/hooks/useChangeURL';
+import { NavLink } from 'react-router-dom';
+import { Link } from '@shared/ui/Link';
+import { Icon } from '@shared/icons/Icon';
+import { Button } from '@shared/ui/Button';
 
 export const NavigationList: FC = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [isMobile, setIsMobile] = useState<boolean>(window.innerWidth < 768);
-  const changeURL = useChangeURL();
 
   const openMenu = (): void => {
     setIsOpen(!isOpen);
@@ -59,16 +58,14 @@ export const NavigationList: FC = () => {
               </li>
             </ul>
           </nav>
-
-          <Button
-            title='Login'
-            variant='gradient'
-            size='s'
-            className='px-[31px] mobile:hidden tablet:block'
-            onClick={() => {
-              changeURL('/login');
-            }}
-          />
+          <NavLink to='/login'>
+            <Button
+              title='Login'
+              variant='gradient'
+              size='s'
+              className='px-[31px] mobile:hidden tablet:block'
+            />
+          </NavLink>
         </div>
       ) : null}
     </>
