@@ -10,10 +10,6 @@ export const NavigationList: FC = () => {
   const [isMobile, setIsMobile] = useState<boolean>(window.innerWidth < 768);
   const navigate = useNavigate();
 
-  const changeURL = (path: string): void => {
-    navigate(path);
-  };
-
   const openMenu = (): void => {
     setIsOpen(!isOpen);
   };
@@ -69,7 +65,7 @@ export const NavigationList: FC = () => {
             size='s'
             className='px-[31px] mobile:hidden tablet:block'
             onClick={() => {
-              changeURL('/login');
+              navigate('/login');
             }}
           />
         </div>
