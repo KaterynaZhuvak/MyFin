@@ -8,12 +8,8 @@ export const Header: FC = () => {
   return (
     <header className='relative bg-header-background'>
       <div className='container flex items-center justify-between py-[15px] tablet:py-[31px]'>
-        <NavLink to='/'>
-          <Button
-            title='Login'
-            variant='outline'
-            className='h-[34px] w-[151px] cursor-pointer tablet:h-[41px] tablet:w-[183px]'
-          />
+        <NavLink className='tablet:hidden' to='/login'>
+          <Button title='Login' variant='ghost' />
         </NavLink>
         <NavLink to='/'>
           <Icon
