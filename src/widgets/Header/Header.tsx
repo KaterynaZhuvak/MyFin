@@ -12,20 +12,18 @@ export const Header: FC = () => {
       <div className='container flex items-center justify-between py-[15px] tablet:py-[31px]'>
         <Button
           title='Log in'
-          variant='withoutOutline'
+          variant='ghost'
           onClick={() => {
             changeURL('/signin');
           }}
         />
-        <a href='/home'>
-          <Icon
-            name='logo'
-            className='h-[34px] w-[151px] cursor-pointer tablet:h-[41px] tablet:w-[183px]'
-            onClick={() => {
-              changeURL('/home');
-            }}
-          />
-        </a>
+        <Icon
+          name='logo'
+          className='h-[34px] w-[151px] cursor-pointer tablet:h-[41px] tablet:w-[183px]'
+          onClick={() => {
+            changeURL('/');
+          }}
+        />
         <NavigationList />
       </div>
     </header>

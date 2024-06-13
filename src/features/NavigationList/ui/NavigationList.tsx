@@ -64,6 +64,7 @@ export const NavigationList: FC = () => {
             title='Log in'
             variant='gradient'
             size='s'
+            className='px-[31px] mobile:hidden tablet:block'
             onClick={() => {
               changeURL('/signin');
             }}
