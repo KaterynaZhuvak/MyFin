@@ -5,4 +5,5 @@ export default {
   jsxSingleQuote: true,
   trailingComma: 'es5',
   plugins: [...config.plugins, 'prettier-plugin-tailwindcss'],
+  tailwindConfig: './tailwind.config.js',
 };

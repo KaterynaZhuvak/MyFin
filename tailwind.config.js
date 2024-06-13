@@ -5,6 +5,19 @@ export default {
     fontFamily: {
       sans: ['Helvetica'],
     },
+    screens: {
+      mobile: '375px',
+      tablet: '768px',
+      desktop: '1440px',
+    },
+    container: {
+      center: true,
+      padding: {
+        mobile: '16px',
+        tablet: '50px',
+        desktop: '72px',
+      },
+    },
     extend: {
       colors: {
         vp: {
@@ -25,6 +38,7 @@ export default {
             950: '#050505',
           },
         },
+        'header-background': '#151515',
         'neutral-white-2': '#fbfbfb',
       },
     },

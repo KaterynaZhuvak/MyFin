@@ -10,6 +10,9 @@ const config: StorybookConfig = {
     '@storybook/addon-interactions',
     '@storybook/addon-docs',
     '@storybook/addon-styling-webpack',
+    'storybook-addon-remix-react-router',
+    '@storybook/addon-viewport',
+    '@storybook/addon-actions',
   ],
   framework: {
     name: '@storybook/react-vite',
@@ -19,4 +22,5 @@ const config: StorybookConfig = {
     autodocs: 'tag',
   },
 };
+
 export default config;

@@ -48,4 +48,26 @@ body {
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
   background: #396f4b;
+  .gradient {
+    background: linear-gradient(
+      -18.47deg,
+      rgb(191, 252, 186) -76.08%,
+      rgba(155, 255, 182, 0.82) -3.269%,
+      rgba(122, 250, 199, 0.48) 11.343%,
+      rgb(21, 255, 192) 116.98%,
+      rgba(68, 255, 221, 0.7) 135.735%
+    );
+  }
+
+  .gradient:hover,
+  .gradient:focus {
+    background: linear-gradient(
+      -18.47deg,
+      rgb(163, 233, 157) -85.276%,
+      rgba(9, 52, 35, 0.48) 10.289%,
+      rgb(5, 166, 123) 121.192%,
+      rgba(155, 255, 182, 0.82) 141.226%,
+      rgba(68, 255, 221, 0.7) 141.248%
+    );
+  }
 }
