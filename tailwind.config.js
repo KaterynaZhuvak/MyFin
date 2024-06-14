@@ -21,8 +21,8 @@ export default {
     },
     extend: {
       backgroundImage: {
-        'hero-desktop': "url('/dist/assets/hero-desktop.png')",
-        'hero-mobile': "url('/dist/assets/hero-mobile.png')",
+        'hero-desktop': "url('/src/shared/assets/images/hero-desktop.png')",
+        'hero-mobile': "url('/src/shared/assets/images/hero-mobile.png')",
       },
       colors: {
         vp: {
