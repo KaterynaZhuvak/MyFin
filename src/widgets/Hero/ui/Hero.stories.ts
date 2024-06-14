@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { withRouter } from 'storybook-addon-remix-react-router';
-import { Hero } from '.';
+import { Hero } from './Hero';
 
 const meta: Meta<typeof Hero> = {
   title: 'widgets/Hero',
