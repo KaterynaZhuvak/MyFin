@@ -6,7 +6,7 @@ export const Hero: FC = () => {
   const navigate = useNavigate();
 
   return (
-    <div className='flex h-[580px] flex-col justify-end bg-hero-mobile bg-auto bg-[center_top_56px] bg-no-repeat tablet:h-[875px] tablet:justify-center tablet:bg-hero-desktop'>
+    <div className='flex h-[580px] flex-col justify-end bg-hero-mobile bg-auto bg-no-repeat max-[767px]:bg-[center_top_56px] tablet:h-[875px] tablet:justify-center tablet:bg-hero-desktop tablet:bg-top'>
       <div className='container '>
         <h1 className='mb-[30px] text-[25px] font-bold tracking-[0.01rem] tablet:w-[600px] tablet:text-[36px]'>
           MyFin — your daily assistant in financial matters
