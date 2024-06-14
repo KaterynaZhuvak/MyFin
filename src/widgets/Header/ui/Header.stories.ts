@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { withRouter } from 'storybook-addon-remix-react-router';
-import { Header } from './Header';
+import { Header } from '..';
 
 const meta: Meta<typeof Header> = {
   title: 'widgets/Header',

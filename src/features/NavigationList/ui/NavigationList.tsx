@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import type { FC } from 'react';
-import { NavLink } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { Link } from '@shared/ui/Link';
 import { Icon } from '@shared/icons/Icon';
 import { Button } from '@shared/ui/Button';
@@ -8,6 +8,7 @@ import { Button } from '@shared/ui/Button';
 export const NavigationList: FC = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [isMobile, setIsMobile] = useState<boolean>(window.innerWidth < 768);
+  const navigate = useNavigate();
 
   const openMenu = (): void => {
     setIsOpen(!isOpen);
@@ -58,9 +59,15 @@ export const NavigationList: FC = () => {
               </li>
             </ul>
           </nav>
-          <NavLink to='/login'>
-            <Button title='Login' variant='gradient' size='s' />
-          </NavLink>
+          <Button
+            title='Login'
+            variant='gradient'
+            size='s'
+            className='px-[31px] mobile:hidden tablet:block'
+            onClick={() => {
+              navigate('/login');
+            }}
+          />
         </div>
       ) : null}
     </>
