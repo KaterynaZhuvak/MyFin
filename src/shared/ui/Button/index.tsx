@@ -15,7 +15,7 @@ export const buttonVariants = cva(['text-center font-sans'], {
       s: 'py-[6px] text-[20px]',
       m: 'py-[8px] text-[28px]',
       l: 'py-[8px] text-[32px]',
-      xl: 'py-[18px] text-[40px]',
+      xl: 'tablet:py-[18px] tablet:text-[40px]',
     },
   },
 });

@@ -19,6 +19,10 @@ export default {
       },
     },
     extend: {
+      backgroundImage: {
+        'hero-desktop': "url('./src/shared/assets/images/hero-desktop.png')",
+        'hero-mobile': "url('./src/shared/assets/images/hero-mobile.png')",
+      },
       colors: {
         vp: {
           teal: {
