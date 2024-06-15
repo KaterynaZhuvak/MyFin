@@ -28,36 +28,15 @@ body {
   color: white;
 }
 
-/* width */
-::-webkit-scrollbar {
-  width: 10px;
-}
-
-/* Track */
-::-webkit-scrollbar-track {
-  background: inherit;
-}
-
-/* Handle */
-::-webkit-scrollbar-thumb {
-  /* background-image: linear-gradient(#105535, #7b6d3d, #105535); */
-  background: #396f4bbb;
-  border-radius: 5px;
-}
-
-/* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
-  background: #396f4b;
-  .gradient {
-    background: linear-gradient(
-      -18.47deg,
-      rgb(191, 252, 186) -76.08%,
-      rgba(155, 255, 182, 0.82) -3.269%,
-      rgba(122, 250, 199, 0.48) 11.343%,
-      rgb(21, 255, 192) 116.98%,
-      rgba(68, 255, 221, 0.7) 135.735%
-    );
-  }
+.gradient {
+  background: linear-gradient(
+    -18.47deg,
+    rgb(191, 252, 186) -76.08%,
+    rgba(155, 255, 182, 0.82) -3.269%,
+    rgba(122, 250, 199, 0.48) 11.343%,
+    rgb(21, 255, 192) 116.98%,
+    rgba(68, 255, 221, 0.7) 135.735%
+  );
 
   .gradient:hover,
   .gradient:focus {
@@ -70,4 +49,21 @@ body {
       rgba(68, 255, 221, 0.7) 141.248%
     );
   }
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: inherit;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #396f4bbb;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #396f4b;
 }
