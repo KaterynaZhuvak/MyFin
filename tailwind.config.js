@@ -1,4 +1,5 @@
 /** @type {import('tailwindcss').Config} */
+
 export default {
   content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
   theme: {
@@ -19,6 +20,10 @@ export default {
       },
     },
     extend: {
+      backgroundImage: {
+        'hero-desktop': "url('/src/shared/assets/images/hero-desktop.png')",
+        'hero-mobile': "url('/src/shared/assets/images/hero-mobile.png')",
+      },
       colors: {
         vp: {
           teal: {
