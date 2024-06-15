@@ -1,10 +1,11 @@
 import type { FC } from 'react';
-import { Hero } from '@widgets/Hero';
+import { Hero } from '@entities/Hero';
 
 export const HomePage: FC = () => {
   return (
-    <div>
+    <>
       <Hero />
-    </div>
+      <div>About</div>
+    </>
   );
 };
