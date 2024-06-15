@@ -3,7 +3,7 @@ import Icons from './sprite.svg';
 
 interface IconProps {
   name: string;
-  className: string;
+  className?: string;
   onClick?: () => void;
 }
 

@@ -48,6 +48,7 @@ export default {
         'bright-green': '#3CCEA1',
         'pale-green': '#B9DCD0',
         'hover-green': '#4FDBA9',
+        'title-green': '#B9F6B4',
       },
     },
   },
