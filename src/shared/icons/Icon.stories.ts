@@ -31,3 +31,22 @@ export const BurgerMenu: Story = {
     className: 'h-[22px] w-[30px]',
   },
 };
+export const Clock: Story = {
+  args: {
+    name: 'clock',
+    className: '',
+  },
+};
+
+export const Coins: Story = {
+  args: {
+    name: 'coins',
+    className: '',
+  },
+};
+export const Graph: Story = {
+  args: {
+    name: 'graph',
+    className: '',
+  },
+};

@@ -6,8 +6,8 @@ export const Hero: FC = () => {
   const navigate = useNavigate();
 
   return (
-    <div className='flex h-[580px] flex-col justify-end bg-hero-mobile bg-auto bg-no-repeat max-[767px]:bg-[center_top_56px] tablet:h-[875px] tablet:justify-center tablet:bg-hero-desktop tablet:bg-top'>
-      <div className='container '>
+    <section className='mb-[56px] flex h-[580px] flex-col justify-end bg-hero-mobile bg-auto bg-no-repeat max-[767px]:bg-[center_top_56px] tablet:mb-[104px] tablet:h-[875px] tablet:justify-center tablet:bg-hero-desktop tablet:bg-top'>
+      <div className='container mb-[56px] tablet:mb-[104px]'>
         <h1 className='mb-[30px] text-[25px] font-bold tracking-[0.01rem] tablet:w-[600px] tablet:text-[36px]'>
           MyFin — your daily assistant in financial matters
         </h1>
@@ -25,6 +25,6 @@ export const Hero: FC = () => {
           }}
         />
       </div>
-    </div>
+    </section>
   );
 };
