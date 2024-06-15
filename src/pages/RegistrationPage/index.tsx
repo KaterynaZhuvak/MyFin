@@ -81,8 +81,7 @@ export const RegistrationPage: FC = () => {
                   icon={
                     <Icon
                       name={isVisiblePassword ? 'eye' : 'eye-off'}
-                      width='24'
-                      height='24'
+                      className='size-[24px]'
                       onClick={() => {
                         setIsVisiblePassword(!isVisiblePassword);
                       }}
@@ -100,8 +99,7 @@ export const RegistrationPage: FC = () => {
                   icon={
                     <Icon
                       name={isVisiblePassword ? 'eye' : 'eye-off'}
-                      width='24'
-                      height='24'
+                      className='size-[24px]'
                       onClick={() => {
                         setIsVisiblePassword(!isVisiblePassword);
                       }}
@@ -133,7 +131,7 @@ export const RegistrationPage: FC = () => {
                   title='Continue with Google'
                   className='flex h-[64px] w-[372px] items-center justify-center gap-[16px] text-[20px]'
                   iconPosition='start'
-                  icon={<Icon name='google' width='24' height='24' />}
+                  icon={<Icon name='google' className='size-[24px]' />}
                 />
 
                 <Button
@@ -143,7 +141,7 @@ export const RegistrationPage: FC = () => {
                   title='Continue with Apple'
                   className='flex h-[64px] w-[372px] items-center justify-center gap-[16px] text-[20px]'
                   iconPosition='start'
-                  icon={<Icon name='apple' width='24' height='28' />}
+                  icon={<Icon name='apple' className='h-[28px] w-[24px]' />}
                 />
 
                 <span className='w-full text-center'>
