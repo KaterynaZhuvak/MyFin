@@ -116,7 +116,7 @@ export const RegistrationPage: FC = () => {
                 variant='gradient'
                 size='m'
                 title='Register'
-                className='mt-[40px] text-[32px] font-bold'
+                className='mt-[40px] h-[64px] w-[378px] text-[32px] font-bold'
               />
 
               <div className='mt-[40px] flex h-[41px] w-[378px] items-center justify-center gap-[12px]'>
@@ -131,7 +131,7 @@ export const RegistrationPage: FC = () => {
                   variant='outline'
                   size='m'
                   title='Continue with Google'
-                  className='flex items-center justify-center gap-[16px] text-[20px]'
+                  className='flex h-[64px] w-[372px] items-center justify-center gap-[16px] text-[20px]'
                   iconPosition='start'
                   icon={<Icon name='google' width='24' height='24' />}
                 />
@@ -141,7 +141,7 @@ export const RegistrationPage: FC = () => {
                   variant='outline'
                   size='m'
                   title='Continue with Apple'
-                  className='flex items-center justify-center gap-[16px] text-[20px]'
+                  className='flex h-[64px] w-[372px] items-center justify-center gap-[16px] text-[20px]'
                   iconPosition='start'
                   icon={<Icon name='apple' width='24' height='28' />}
                 />

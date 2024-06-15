@@ -4,6 +4,7 @@ import { Link } from '.';
 const meta: Meta<typeof Link> = {
   title: 'ui/Link',
   component: Link,
+  parameters: { layout: 'centered' },
 };
 
 export default meta;

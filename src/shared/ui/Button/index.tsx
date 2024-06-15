@@ -9,25 +9,16 @@ export const buttonVariants = cva(['text-center font-sans'], {
       outline:
         'rounded-[15px] border border-[bright-green] bg-transparent text-[bright-green] hover:border-[pale-green] hover:text-[pale-green]',
       withoutOutline: 'tablet:hidden',
+      ghost: 'text-white hover:text-bright-green tablet:hidden',
     },
     size: {
-      s: 'h-[42px] w-[122px]',
-      m: 'h-[64px] w-[378px]',
-      l: 'h-[96px] w-[416px]',
+      xs: 'py-[5px] text-[16px]',
+      s: 'py-[6px] text-[20px]',
+      m: 'py-[8px] text-[28px]',
+      l: 'py-[8px] text-[32px]',
+      xl: 'tablet:py-[18px] tablet:text-[40px]',
     },
   },
-  compoundVariants: [
-    {
-      variant: 'gradient',
-      size: 'l',
-      class: 'text-[40px] font-bold',
-    },
-    {
-      variant: 'gradient',
-      size: 's',
-      class: 'text-[20px] font-semibold mobile:hidden tablet:block',
-    },
-  ],
 });
 
 type IconPositionType = 'start' | 'end';
@@ -44,7 +35,7 @@ const iconVariants = cva('absolute top-1/2 -translate-x-1/2 -translate-y-1/2', {
   },
 });
 
-interface ButtonProps
+export interface ButtonProps
   extends ButtonHTMLAttributes<HTMLButtonElement>,
     VariantProps<typeof buttonVariants>,
     VariantProps<typeof iconVariants> {
@@ -52,6 +43,7 @@ interface ButtonProps
   iconPosition?: IconPositionType;
   icon?: ReactNode;
   onClick?: () => void;
+  className?: string;
 }
 
 export const Button: FC<ButtonProps> = ({
