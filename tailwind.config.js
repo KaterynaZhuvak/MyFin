@@ -1,11 +1,29 @@
 /** @type {import('tailwindcss').Config} */
+
 export default {
   content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
   theme: {
     fontFamily: {
       sans: ['Helvetica'],
     },
+    screens: {
+      mobile: '375px',
+      tablet: '768px',
+      desktop: '1440px',
+    },
+    container: {
+      center: true,
+      padding: {
+        mobile: '16px',
+        tablet: '50px',
+        desktop: '72px',
+      },
+    },
     extend: {
+      backgroundImage: {
+        'hero-desktop': "url('/src/shared/assets/images/hero-desktop.png')",
+        'hero-mobile': "url('/src/shared/assets/images/hero-mobile.png')",
+      },
       colors: {
         vp: {
           teal: {
@@ -25,7 +43,11 @@ export default {
             950: '#050505',
           },
         },
+        'header-background': '#151515',
         'neutral-white-2': '#fbfbfb',
+        'bright-green': '#3CCEA1',
+        'pale-green': '#B9DCD0',
+        'hover-green': '#4FDBA9',
       },
     },
   },
