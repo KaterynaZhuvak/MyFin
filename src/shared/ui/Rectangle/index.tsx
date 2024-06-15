@@ -6,7 +6,8 @@ import { Icon } from '@shared/icons/Icon';
 export const rectangleVariants = cva(['flex items-center justify-center'], {
   variants: {
     variant: {
-      purple: 'purple-gradient mb-[29px] rounded-[10px] tablet:rounded-[30px]',
+      purple:
+        'purple-gradient mb-[4px] rounded-[10px] tablet:mb-[29px] tablet:rounded-[30px]',
       green: 'green-gradient rounded-[15px] tablet:rounded-[40px]',
     },
     size: {
