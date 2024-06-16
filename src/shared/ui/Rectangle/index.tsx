@@ -8,7 +8,7 @@ export const rectangleVariants = cva(['flex items-center justify-center'], {
     variant: {
       purple:
         'purple-gradient mb-[4px] rounded-[10px] tablet:mb-[29px] tablet:rounded-[30px]',
-      green: 'green-gradient rounded-[15px] tablet:rounded-[40px]',
+      green: 'green-gradient flex-none rounded-[15px] tablet:rounded-[40px]',
     },
     size: {
       s: 'size-[80px] tablet:h-[185px] tablet:w-[196px]',

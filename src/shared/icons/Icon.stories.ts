@@ -44,9 +44,38 @@ export const Coins: Story = {
     className: '',
   },
 };
+
 export const Graph: Story = {
   args: {
     name: 'graph',
+    className: '',
+  },
+};
+
+export const Notes: Story = {
+  args: {
+    name: 'notes',
+    className: '',
+  },
+};
+
+export const Statistic: Story = {
+  args: {
+    name: 'statistic',
+    className: '',
+  },
+};
+
+export const Budget: Story = {
+  args: {
+    name: 'budget',
+    className: '',
+  },
+};
+
+export const Pazzles: Story = {
+  args: {
+    name: 'pazzles',
     className: '',
   },
 };
