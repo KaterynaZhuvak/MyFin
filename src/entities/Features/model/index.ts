@@ -1,10 +1,6 @@
-interface RectangleList {
-  title: string;
-  description: string;
-  icon: string;
-}
+import { type DescriptiveItem } from '@shared/interfaces/DescriptiveItem';
 
-export const rectangleList: RectangleList[] = [
+export const featuresList: DescriptiveItem[] = [
   {
     title: 'Expense log',
     description:

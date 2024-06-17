@@ -1,6 +1,6 @@
 import { type FC } from 'react';
 import { Rectangle } from '@shared/ui/Rectangle';
-import { rectangleList } from '../model';
+import { aboutList } from '../model';
 
 export const About: FC = () => {
   return (
@@ -17,7 +17,7 @@ export const About: FC = () => {
         of minutes.
       </p>
       <ul className='flex items-center justify-between'>
-        {rectangleList.map(({ icon, title }) => (
+        {aboutList.map(({ icon, title }) => (
           <li key={icon}>
             <Rectangle
               name={icon}
