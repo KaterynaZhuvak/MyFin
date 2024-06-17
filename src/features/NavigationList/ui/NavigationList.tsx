@@ -1,32 +1,21 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import type { FC } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useMediaQuery } from 'react-responsive';
 import { Link } from '@shared/ui/Link';
 import { Icon } from '@shared/icons/Icon';
 import { Button } from '@shared/ui/Button';
 
 export const NavigationList: FC = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
-  const [isMobile, setIsMobile] = useState<boolean>(window.innerWidth < 768);
   const navigate = useNavigate();
+  const isMobile = useMediaQuery({
+    query: '(max-width: 767px)',
+  });
 
   const openMenu = (): void => {
     setIsOpen(!isOpen);
   };
-
-  useEffect(() => {
-    const handleResize = (): void => {
-      setIsMobile(window.innerWidth < 768);
-      if (window.innerWidth >= 768) {
-        setIsOpen(false);
-      }
-    };
-
-    window.addEventListener('resize', handleResize);
-    return () => {
-      window.removeEventListener('resize', handleResize);
-    };
-  }, []);
 
   return (
     <>

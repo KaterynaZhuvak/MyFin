@@ -1,25 +1,6 @@
 import { type FC } from 'react';
 import { Rectangle } from '@shared/ui/Rectangle';
-
-interface RectangleList {
-  icon: string;
-  title: string;
-}
-
-const rectangleList: RectangleList[] = [
-  {
-    icon: 'graph',
-    title: 'Analyse easily',
-  },
-  {
-    icon: 'clock',
-    title: 'Save time',
-  },
-  {
-    icon: 'coins',
-    title: 'Save money',
-  },
-];
+import { aboutList } from '../model';
 
 export const About: FC = () => {
   return (
@@ -36,7 +17,7 @@ export const About: FC = () => {
         of minutes.
       </p>
       <ul className='flex items-center justify-between'>
-        {rectangleList.map(({ icon, title }) => (
+        {aboutList.map(({ icon, title }) => (
           <li key={icon}>
             <Rectangle
               name={icon}
