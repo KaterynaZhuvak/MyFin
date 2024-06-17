@@ -1,52 +1,13 @@
 import type { FC } from 'react';
+import { useMediaQuery } from 'react-responsive';
 import { Icon } from '@shared/icons/Icon';
 import { Rectangle } from '@shared/ui/Rectangle';
-import { useIsMobile } from '@shared/hooks/useIsMobile';
-
-interface RectangleList {
-  title: string;
-  description: string;
-  icon: string;
-}
-
-const rectangleList: RectangleList[] = [
-  {
-    title: 'Expense log',
-    description:
-      'List with information about each expense. Possibility of sorting by date, category or amount. Convenient search for the required expense column.',
-    icon: 'notes',
-  },
-  {
-    title: 'Statistics',
-    description:
-      'List with information about each expense. Possibility of sorting by date, category or amount. Convenient search for the required expense column.',
-    icon: 'statistic',
-  },
-  {
-    title: 'Budgeting',
-    description:
-      'Setting a monthly or weekly budget. Alert system when approaching the limit. Possibility of receiving alerts about the highest expenses.',
-    icon: 'budget',
-  },
-  {
-    title: 'Financial advice',
-    description:
-      'Opportunity to receive advice regarding your finances. You can send a request with a question of interest in one click and receive an answer as soon as possible.',
-    icon: 'pazzles',
-  },
-];
-
-const getIconClassName = (index: number): string => {
-  if (index === 0 || index === 2) {
-    return 'top-[200px] rotate-[80deg] tablet:left-[270px] tablet:top-[320px] tablet:rotate-90 desktop:left-[320px] desktop:top-[320px] desktop:rotate-[53deg]';
-  } else if (index === 1) {
-    return 'left-[130px] top-[125px] tablet:left-[180px] tablet:top-[320px] tablet:rotate-[-50deg] desktop:left-[320px] desktop:top-[320px] desktop:rotate-[-5deg]';
-  }
-  return 'hidden';
-};
+import { rectangleList } from '../model';
 
 export const Features: FC = () => {
-  const isMobile = useIsMobile();
+  const isMobile = useMediaQuery({
+    query: '(max-width: 767px)',
+  });
 
   return (
     <section className='container mb-[59px] tablet:mb-[106px] desktop:px-[182px]'>
@@ -79,7 +40,9 @@ export const Features: FC = () => {
               </p>
               <Icon
                 name={isMobile ? 'line-mobile' : 'line'}
-                className={`absolute tablet:h-[180px] tablet:w-[230px] desktop:h-[185px] desktop:w-[430px] ${getIconClassName(index)}`}
+                className={`absolute tablet:h-[180px] tablet:w-[230px] desktop:h-[185px] desktop:w-[430px] 
+                ${index === rectangleList.length - 1 ? 'hidden' : ''} 
+                ${index % 2 === 0 ? 'top-[200px] rotate-[80deg] tablet:left-[270px] tablet:top-[320px] tablet:rotate-90 desktop:left-[320px] desktop:top-[320px] desktop:rotate-[53deg]' : 'left-[130px] top-[125px] tablet:left-[180px] tablet:top-[320px] tablet:rotate-[-50deg] desktop:left-[320px] desktop:top-[320px] desktop:rotate-[-5deg]'}`}
               />
             </div>
           </li>

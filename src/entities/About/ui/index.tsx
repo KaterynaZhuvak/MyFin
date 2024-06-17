@@ -1,25 +1,6 @@
 import { type FC } from 'react';
 import { Rectangle } from '@shared/ui/Rectangle';
-
-interface RectangleList {
-  icon: string;
-  title: string;
-}
-
-const rectangleList: RectangleList[] = [
-  {
-    icon: 'graph',
-    title: 'Analyse easily',
-  },
-  {
-    icon: 'clock',
-    title: 'Save time',
-  },
-  {
-    icon: 'coins',
-    title: 'Save money',
-  },
-];
+import { rectangleList } from '../model';
 
 export const About: FC = () => {
   return (

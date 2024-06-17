@@ -1,15 +1,17 @@
 import { useState } from 'react';
 import type { FC } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useMediaQuery } from 'react-responsive';
 import { Link } from '@shared/ui/Link';
 import { Icon } from '@shared/icons/Icon';
 import { Button } from '@shared/ui/Button';
-import { useIsMobile } from '@shared/hooks/useIsMobile';
 
 export const NavigationList: FC = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
-  const isMobile = useIsMobile();
   const navigate = useNavigate();
+  const isMobile = useMediaQuery({
+    query: '(max-width: 767px)',
+  });
 
   const openMenu = (): void => {
     setIsOpen(!isOpen);
