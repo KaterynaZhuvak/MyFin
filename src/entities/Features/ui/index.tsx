@@ -1,6 +1,7 @@
-import { type FC, useEffect, useState } from 'react';
+import type { FC } from 'react';
 import { Icon } from '@shared/icons/Icon';
 import { Rectangle } from '@shared/ui/Rectangle';
+import { useIsMobile } from '@shared/hooks/useIsMobile';
 
 interface RectangleList {
   title: string;
@@ -45,18 +46,7 @@ const getIconClassName = (index: number): string => {
 };
 
 export const Features: FC = () => {
-  const [isMobile, setIsMobile] = useState<boolean>(window.innerWidth <= 768);
-
-  useEffect(() => {
-    const handleResize = (): void => {
-      setIsMobile(window.innerWidth <= 768);
-    };
-
-    window.addEventListener('resize', handleResize);
-    return () => {
-      window.removeEventListener('resize', handleResize);
-    };
-  }, []);
+  const isMobile = useIsMobile();
 
   return (
     <section className='container mb-[59px] tablet:mb-[106px] desktop:px-[182px]'>
