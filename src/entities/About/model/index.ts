@@ -1,4 +1,4 @@
-import { type DescriptiveItem } from '@shared/interfaces/DescriptiveItem';
+import { type DescriptiveItem } from '@shared/interfaces';
 
 export const aboutList: DescriptiveItem[] = [
   {
