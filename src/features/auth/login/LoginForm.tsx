@@ -1,8 +1,8 @@
 import { useState, type FC } from 'react';
 import { Form, Formik } from 'formik';
-import { Input } from '../../shared/ui/Input';
-import { Button } from '../../shared/ui/Button';
-import { Icon } from '../../shared/icons/Icon';
+import { Input } from '@shared/ui/Input';
+import { Button } from '@shared/ui/Button';
+import { Icon } from '@shared/icons/Icon';
 
 interface FormValues {
   email: string;

@@ -1,12 +1,6 @@
-import type { ReactNode, JSX } from 'react';
+import type { FC, PropsWithChildren } from 'react';
 
-interface AuthBackgroundElementProps {
-  children: ReactNode;
-}
-
-export const AuthBackgroundElement = ({
-  children,
-}: AuthBackgroundElementProps): JSX.Element => {
+export const AuthBackgroundElement: FC<PropsWithChildren> = ({ children }) => {
   return (
     <div
       className='

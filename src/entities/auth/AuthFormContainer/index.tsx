@@ -1,12 +1,6 @@
-import type { JSX, ReactNode } from 'react';
+import type { FC, PropsWithChildren } from 'react';
 
-interface AuthFormContainerProps {
-  children: ReactNode;
-}
-
-export const AuthFormContainer = ({
-  children,
-}: AuthFormContainerProps): JSX.Element => {
+export const AuthFormContainer: FC<PropsWithChildren> = ({ children }) => {
   return (
     <div
       className='
