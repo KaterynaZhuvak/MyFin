@@ -1,24 +1,33 @@
 import { useState, type FC } from 'react';
 import { Form, Formik } from 'formik';
+import { observer } from 'mobx-react';
+import { Navigate } from 'react-router';
 import { Input } from '@shared/ui/Input';
 import { Button } from '@shared/ui/Button';
 import { Icon } from '@shared/icons/Icon';
+import { useStore } from '@shared/lib/useStore';
+import type { FormValues } from './lib/FormValues';
+import { login } from './api/loginApi';
 
-interface FormValues {
-  email: string;
-  password: string;
-}
-
-export const LoginForm: FC = () => {
+export const LoginForm: FC = observer(() => {
   const [isVisiblePassword, setIsVisiblePassword] = useState(false);
+  const { UserStore } = useStore();
 
   const initialValues: FormValues = {
     email: '',
     password: '',
   };
 
-  const handleSubmit = (values: FormValues): void => {
-    values;
+  const handleSubmit = async (values: FormValues): Promise<void> => {
+    if (!values.email || !values.password) {
+      return;
+    }
+    const response = await login(values.email, values.password);
+
+    UserStore.setUserData(response.user);
+    UserStore.setAccessToken(response.accessToken);
+    UserStore.setRefreshToken(response.refreshToken);
+    Navigate({ to: '/' });
   };
 
   return (
@@ -57,10 +66,10 @@ export const LoginForm: FC = () => {
             size='m'
             title='Log in'
             className='mt-[40px] h-[64px] w-[378px] text-[32px] font-bold'
-            type='submit'
+            isSubmit
           />
         </div>
       </Form>
     </Formik>
   );
-};
+});
