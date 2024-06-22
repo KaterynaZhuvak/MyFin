@@ -1,8 +1,8 @@
 import { useState, type FC } from 'react';
 import { Form, Formik } from 'formik';
 import { observer } from 'mobx-react';
-import Cookies from 'js-cookie';
 import { useNavigate } from 'react-router';
+import { cookieManager } from '@shared/lib/cookieManager';
 import { Input } from '@shared/ui/Input';
 import { Button } from '@shared/ui/Button';
 import { Icon } from '@shared/icons/Icon';
@@ -27,16 +27,8 @@ export const LoginForm: FC = observer(() => {
     const response = await login(values.email, values.password);
 
     UserStore.setUserData(response.user);
-    Cookies.set('accessToken', response.accessToken, {
-      expires: 3,
-      secure: true,
-      sameSite: 'Lax',
-    });
-    Cookies.set('refreshToken', response.refreshToken, {
-      expires: 3,
-      secure: true,
-      sameSite: 'Lax',
-    });
+    cookieManager.setCookie('accessToken', response.accessToken);
+    cookieManager.setCookie('refreshToken', response.refreshToken);
     navigate('/');
   };
 
