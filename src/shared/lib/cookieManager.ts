@@ -1,15 +1,21 @@
 import Cookies from 'js-cookie';
 
+interface CookieOptions {
+  name: string;
+  value: string;
+  expires?: number;
+}
+
 class CookieManager {
-  setCookie(name: string, value: string): void {
+  setCookie({ name, value, expires = 3 }: CookieOptions): void {
     Cookies.set(name, value, {
-      expires: 3,
+      expires,
       secure: true,
       sameSite: 'Lax',
     });
   }
 
-  getCookie(name: string): string | undefined {
+  getCookie(name: string): string {
     return Cookies.get(name);
   }
 

@@ -7,29 +7,36 @@ import { Input } from '@shared/ui/Input';
 import { Button } from '@shared/ui/Button';
 import { Icon } from '@shared/icons/Icon';
 import { useStore } from '@shared/lib/useStore';
-import type { LoginDTO } from './interfaces/LoginDTO';
+import type { LoginOptions } from './interfaces/login-options.interface';
 import { login } from './api/loginApi';
 
 export const LoginForm: FC = observer(() => {
   const [isVisiblePassword, setIsVisiblePassword] = useState(false);
-  const { UserStore } = useStore();
+  const { userStore } = useStore();
   const navigate = useNavigate();
 
-  const initialValues: LoginDTO = {
+  const initialValues: LoginOptions = {
     email: '',
     password: '',
   };
 
-  const handleSubmit = async (values: LoginDTO): Promise<void> => {
+  const handleSubmit = async (values: LoginOptions): Promise<void> => {
     if (!values.email || !values.password) {
       return;
     }
     const response = await login(values.email, values.password);
 
-    UserStore.setUserData(response.user);
-    cookieManager.setCookie('accessToken', response.accessToken);
-    cookieManager.setCookie('refreshToken', response.refreshToken);
-    navigate('/');
+    userStore.setUserData(response.user);
+    cookieManager.setCookie({
+      name: 'accessToken',
+      value: response.accessToken,
+    });
+    cookieManager.setCookie({
+      name: 'refreshToken',
+      value: response.refreshToken,
+      expires: 30,
+    });
+    navigate('/expenses');
   };
 
   return (
