@@ -1,8 +1,8 @@
 import { makeAutoObservable } from 'mobx';
-import type { UserData } from '../lib/UserData';
+import type { UserInterface } from '../interfaces/user.interface';
 
 export class UserStore {
-  private userData: UserData | null = null;
+  private userData: UserInterface | null = null;
   private accessToken: string | null = null;
   private refreshToken: string | null = null;
 
@@ -10,11 +10,11 @@ export class UserStore {
     makeAutoObservable(this);
   }
 
-  setUserData(userData: UserData): void {
+  setUserData(userData: UserInterface): void {
     this.userData = userData;
   }
 
-  getUserData(): UserData | null {
+  getUserData(): UserInterface | null {
     return this.userData;
   }
 

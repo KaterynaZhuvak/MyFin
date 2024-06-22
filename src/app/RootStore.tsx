@@ -1,4 +1,4 @@
-import { UserStore } from '@entities/user/model/UserStore';
+import { UserStore } from '@entities/user/model/user.store';
 
 export class RootStore {
   UserStore: UserStore;
