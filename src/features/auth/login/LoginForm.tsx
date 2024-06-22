@@ -2,6 +2,7 @@ import { useState, type FC } from 'react';
 import { Form, Formik } from 'formik';
 import { observer } from 'mobx-react';
 import { useNavigate } from 'react-router';
+import * as Yup from 'yup';
 import { cookieManager } from '@shared/lib/cookieManager';
 import { Input } from '@shared/ui/Input';
 import { Button } from '@shared/ui/Button';
@@ -15,6 +16,13 @@ export const LoginForm: FC = observer(() => {
   const { userStore } = useStore();
   const navigate = useNavigate();
 
+  const LoginSchema = Yup.object().shape({
+    email: Yup.string().email('Invalid email').required('Required'),
+    password: Yup.string()
+      .min(8, 'Password must be at least 8 characters')
+      .max(20, 'Password must be at most 20 characters')
+      .required('Required'),
+  });
   const initialValues: LoginOptions = {
     email: '',
     password: '',
@@ -40,7 +48,11 @@ export const LoginForm: FC = observer(() => {
   };
 
   return (
-    <Formik initialValues={initialValues} onSubmit={handleSubmit}>
+    <Formik
+      initialValues={initialValues}
+      validationSchema={LoginSchema}
+      onSubmit={handleSubmit}
+    >
       <Form className='m-[0_auto]'>
         <h2 className='text-center text-[36px] leading-[54px]'>Log in</h2>
         <div className='mt-[48px] flex w-[378px] flex-wrap'>
