@@ -15,7 +15,7 @@ class CookieManager {
     });
   }
 
-  getCookie(name: string): string {
+  getCookie(name: string): string | undefined {
     return Cookies.get(name);
   }
 
