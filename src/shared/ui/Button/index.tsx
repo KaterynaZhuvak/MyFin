@@ -44,6 +44,7 @@ export interface ButtonProps
   icon?: ReactNode;
   onClick?: () => void;
   className?: string;
+  isSubmit?: boolean;
 }
 
 export const Button: FC<ButtonProps> = ({
@@ -51,11 +52,12 @@ export const Button: FC<ButtonProps> = ({
   size,
   icon,
   className,
+  isSubmit = false,
   ...props
 }) => {
   return (
     <button
-      type='button'
+      type={isSubmit ? 'submit' : 'button'}
       onClick={props.onClick}
       className={cn(buttonVariants({ variant, size, className }))}
     >

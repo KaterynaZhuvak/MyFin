@@ -1,28 +1,58 @@
 import { useState, type FC } from 'react';
 import { Form, Formik } from 'formik';
+import { observer } from 'mobx-react';
+import { useNavigate } from 'react-router';
+import * as Yup from 'yup';
+import { cookieManager } from '@shared/lib/cookieManager';
 import { Input } from '@shared/ui/Input';
 import { Button } from '@shared/ui/Button';
 import { Icon } from '@shared/icons/Icon';
+import { useStore } from '@shared/lib/useStore';
+import type { LoginOptions } from './interfaces/login-options.interface';
+import { login } from './api/loginApi';
 
-interface FormValues {
-  email: string;
-  password: string;
-}
-
-export const LoginForm: FC = () => {
+export const LoginForm: FC = observer(() => {
   const [isVisiblePassword, setIsVisiblePassword] = useState(false);
+  const { userStore } = useStore();
+  const navigate = useNavigate();
 
-  const initialValues: FormValues = {
+  const LoginSchema = Yup.object().shape({
+    email: Yup.string().email('Invalid email').required('Required'),
+    password: Yup.string()
+      .min(8, 'Password must be at least 8 characters')
+      .max(20, 'Password must be at most 20 characters')
+      .required('Required'),
+  });
+  const initialValues: LoginOptions = {
     email: '',
     password: '',
   };
 
-  const handleSubmit = (values: FormValues): void => {
-    values;
+  const handleSubmit = async (values: LoginOptions): Promise<void> => {
+    if (!values.email || !values.password) {
+      return;
+    }
+    const response = await login(values.email, values.password);
+
+    userStore.setUserData(response.user);
+    cookieManager.setCookie({
+      name: 'accessToken',
+      value: response.accessToken,
+    });
+    cookieManager.setCookie({
+      name: 'refreshToken',
+      value: response.refreshToken,
+      expires: 30,
+    });
+    navigate('/expenses');
   };
 
   return (
-    <Formik initialValues={initialValues} onSubmit={handleSubmit}>
+    <Formik
+      initialValues={initialValues}
+      validationSchema={LoginSchema}
+      onSubmit={handleSubmit}
+    >
       <Form className='m-[0_auto]'>
         <h2 className='text-center text-[36px] leading-[54px]'>Log in</h2>
         <div className='mt-[48px] flex w-[378px] flex-wrap'>
@@ -57,10 +87,10 @@ export const LoginForm: FC = () => {
             size='m'
             title='Log in'
             className='mt-[40px] h-[64px] w-[378px] text-[32px] font-bold'
-            type='submit'
+            isSubmit
           />
         </div>
       </Form>
     </Formik>
   );
-};
+});
