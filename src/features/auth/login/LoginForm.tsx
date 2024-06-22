@@ -7,7 +7,7 @@ import { Input } from '@shared/ui/Input';
 import { Button } from '@shared/ui/Button';
 import { Icon } from '@shared/icons/Icon';
 import { useStore } from '@shared/lib/useStore';
-import type { FormValues } from './interfaces/FormValues';
+import type { LoginDTO } from './interfaces/LoginDTO';
 import { login } from './api/loginApi';
 
 export const LoginForm: FC = observer(() => {
@@ -15,12 +15,12 @@ export const LoginForm: FC = observer(() => {
   const { UserStore } = useStore();
   const navigate = useNavigate();
 
-  const initialValues: FormValues = {
+  const initialValues: LoginDTO = {
     email: '',
     password: '',
   };
 
-  const handleSubmit = async (values: FormValues): Promise<void> => {
+  const handleSubmit = async (values: LoginDTO): Promise<void> => {
     if (!values.email || !values.password) {
       return;
     }

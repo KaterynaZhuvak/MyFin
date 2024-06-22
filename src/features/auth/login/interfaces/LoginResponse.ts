@@ -1,10 +1,7 @@
+import type { UserInterface } from '@entities/user/interfaces/user.interface';
+
 export interface LoginResponse {
-  user: {
-    _id: string;
-    firstName: string;
-    lastName: string;
-    email: string;
-  };
+  user: UserInterface;
   accessToken: string;
   refreshToken: string;
 }
