@@ -88,7 +88,7 @@ export const Input: FC<InputProps> = ({
           ) : null}
         </div>
         <ErrorMessage name={name}>
-          {(msg) => <div className='m-[12px_0] text-red-500'>{msg}</div>}
+          {(msg) => <div className='mt-3 text-red-500'>{msg}</div>}
         </ErrorMessage>
       </div>
     </div>
