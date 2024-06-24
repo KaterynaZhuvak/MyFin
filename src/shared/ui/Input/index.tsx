@@ -1,6 +1,7 @@
 import { type ReactNode, type FC, type InputHTMLAttributes } from 'react';
-import { Field, ErrorMessage } from 'formik';
+import { Field, ErrorMessage, useField } from 'formik';
 import { type VariantProps, cva } from 'class-variance-authority';
+import { Icon } from '@shared/icons/Icon';
 import { cn } from '../../lib/cn';
 
 const inputVariants = cva(
@@ -49,22 +50,46 @@ export const Input: FC<InputProps> = ({
   className,
   ...rest
 }) => {
+  const [_, meta] = useField(name);
+
   return (
     <div className={`${label ? 'flex flex-col gap-3' : ''} font-sans text-xl`}>
       <label className='text-white' htmlFor={name}>
         {label}
       </label>
 
-      <div className='relative'>
-        <Field
-          className={cn(inputVariants({ iconPosition, className }))}
-          id={name}
-          name={name}
-          {...rest}
-        />
-        <ErrorMessage name={name} />
+      <div>
+        <div className='relative'>
+          <Field
+            className={cn(inputVariants({ iconPosition, className }), {
+              'border-green-500': meta.touched && !meta.error,
+              'border-red-500': meta.touched && meta.error,
+            })}
+            id={name}
+            name={name}
+            {...rest}
+          />
 
-        <div className={cn(iconVariants({ iconPosition }))}>{icon}</div>
+          <div className={cn(iconVariants({ iconPosition }))}>{icon}</div>
+
+          {meta.touched && !meta.error ? (
+            <div className='absolute right-[-40px] top-1/2 -translate-y-1/2'>
+              <Icon
+                name='form-ok'
+                className='size-[24px] rounded-full bg-green-500'
+              />
+            </div>
+          ) : null}
+          {meta.touched && meta.error ? (
+            <Icon
+              name='form-error'
+              className='absolute right-[-40px] top-1/2 size-[24px] -translate-y-1/2 rounded-full bg-red-500'
+            />
+          ) : null}
+        </div>
+        <ErrorMessage name={name}>
+          {(msg) => <div className='m-[12px_0] text-red-500'>{msg}</div>}
+        </ErrorMessage>
       </div>
     </div>
   );
