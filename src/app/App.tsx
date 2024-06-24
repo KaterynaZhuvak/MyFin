@@ -18,25 +18,14 @@ export const App: FC = () => {
       <Routes>
         <Route path='/' element={<RootLayout />}>
           <Route index element={<HomePage />} />
-          <Route
-            path='expenses'
-            element={<PrivateRoute component={ExpensesPage} />}
-          />
-          <Route
-            path='statistics'
-            element={<PrivateRoute component={StatisticsPage} />}
-          />
-          <Route
-            path='budgets'
-            element={<PrivateRoute component={BudgetsPage} />}
-          />
-          <Route
-            path='settings'
-            element={<PrivateRoute component={SettingsPage} />}
-          >
-            <Route path='change-avatar' element={<ChangeAvatarPage />} />
+          <Route element={<PrivateRoute />}>
+            <Route path='expenses' element={<ExpensesPage />} />
+            <Route path='statistics' element={<StatisticsPage />} />
+            <Route path='budgets' element={<BudgetsPage />} />
+            <Route path='settings' element={<SettingsPage />}>
+              <Route path='change-avatar' element={<ChangeAvatarPage />} />
+            </Route>
           </Route>
-
           <Route path='login' element={<LoginPage />} />
           <Route path='registration' element={<RegistrationPage />} />
         </Route>
