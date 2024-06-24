@@ -1,4 +1,4 @@
-import type { User } from '@entities/user/interfaces/user.interface';
+import type { User } from '@entities/user';
 
 export interface AuthResponse {
   user: User;

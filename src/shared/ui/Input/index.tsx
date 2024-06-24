@@ -83,7 +83,7 @@ export const Input: FC<InputProps> = ({
           {meta.touched && meta.error ? (
             <Icon
               name='form-error'
-              className='absolute right-[-40px] top-1/2 size-[24px] -translate-y-1/2 rounded-full bg-red-500'
+              className='absolute right-[-40px] top-1/2 size-[24px] -translate-y-1/2 rounded-full bg-red-600'
             />
           ) : null}
         </div>
