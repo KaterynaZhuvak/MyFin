@@ -5,7 +5,7 @@ import * as Yup from 'yup';
 import { Input } from '@shared/ui/Input';
 import { Button } from '@shared/ui/Button';
 import { Icon } from '@shared/icons/Icon';
-import { useAuth } from '../module/useAuth';
+import { useAuth } from '../model/useAuth';
 import type { RegistrationOptions } from './interfaces/registaion-options.interface';
 
 const initialValues: RegistrationOptions = {

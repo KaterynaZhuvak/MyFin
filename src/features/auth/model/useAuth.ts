@@ -5,7 +5,7 @@ import type { RegistrationOptions } from '../registaion/interfaces/registaion-op
 import { login } from '../login/api/login.api';
 import { registration } from '../registaion/api/registration.api';
 import type { AuthResponse } from '../interfaces/auth-response.interface';
-import { setCookies } from '../lib/setCookies';
+import { setCookies } from './setCookies';
 
 interface UseAuthReturnType {
   handleSubmitLogin: (values: LoginOptions) => Promise<void>;

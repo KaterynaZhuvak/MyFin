@@ -76,14 +76,14 @@ export const Input: FC<InputProps> = ({
             <div className='absolute right-[-40px] top-1/2 -translate-y-1/2'>
               <Icon
                 name='form-ok'
-                className='size-[24px] rounded-full bg-green-500'
+                className='size-[24px] rounded-full bg-gradient-to-br from-[#05A67B] via-[#093423] to-[#093423]'
               />
             </div>
           ) : null}
           {meta.touched && meta.error ? (
             <Icon
               name='form-error'
-              className='absolute right-[-40px] top-1/2 size-[24px] -translate-y-1/2 rounded-full bg-red-600'
+              className='absolute right-[-40px] top-1/2 size-[24px] -translate-y-1/2 rounded-full bg-gradient-to-t from-[#FF4444] to-[#FF7363]'
             />
           ) : null}
         </div>

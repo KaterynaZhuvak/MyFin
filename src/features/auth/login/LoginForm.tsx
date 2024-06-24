@@ -5,7 +5,7 @@ import * as Yup from 'yup';
 import { Input } from '@shared/ui/Input';
 import { Button } from '@shared/ui/Button';
 import { Icon } from '@shared/icons/Icon';
-import { useAuth } from '../module/useAuth';
+import { useAuth } from '../model/useAuth';
 import type { LoginOptions } from './interfaces/login-options.interface';
 
 export const LoginForm: FC = observer(() => {
