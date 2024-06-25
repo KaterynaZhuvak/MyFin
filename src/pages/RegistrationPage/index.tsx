@@ -1,12 +1,12 @@
 import { type FC } from 'react';
 import { NavLink } from 'react-router-dom';
 import { AlternativeAuthContainer } from '@entities/auth/AlternativeAuthContainer';
-import { AuthBackgroundElement } from '@entities/auth/AuthBackgorundElement/AuthBackgoundElement';
+import { AuthBackgroundElement } from '@entities/auth/AuthBackgorundElement';
 import { AuthFormContainer } from '@entities/auth/AuthFormContainer';
-import { Divider } from '@entities/auth/Divider/Divider';
+import { Divider } from '@entities/auth/Divider';
 import { AppleAuth } from '@features/auth/by-apple';
 import { GoogleAuth } from '@features/auth/by-google';
-import { RegistrationForm } from '@features/auth/registaion/RegistraionForm';
+import { RegistrationForm } from '@features/auth/registaion';
 
 export const RegistrationPage: FC = () => {
   return (

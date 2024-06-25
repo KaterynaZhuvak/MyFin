@@ -1,71 +1,42 @@
 import { useState, type FC } from 'react';
 import { Form, Formik } from 'formik';
 import { observer } from 'mobx-react';
-import { useNavigate } from 'react-router';
 import * as Yup from 'yup';
 import { Input } from '@shared/ui/Input';
 import { Button } from '@shared/ui/Button';
 import { Icon } from '@shared/icons/Icon';
-import { cookieManager } from '@shared/lib/cookieManager';
-import { useStore } from '@shared/lib/useStore';
-import { registration } from './api/registrationApi';
-import type { RegistrationOptions } from './interfaces/registaion-options';
+import { useAuth } from '../model/useAuth';
+import type { RegistrationOptions } from './interfaces/registaion-options.interface';
+
+const initialValues: RegistrationOptions = {
+  firstName: '',
+  lastName: '',
+  email: '',
+  password: '',
+  repeatPassword: '',
+};
+
+const RegistrationSchema = Yup.object().shape({
+  firstName: Yup.string().required('Required'),
+  lastName: Yup.string().required('Required'),
+  email: Yup.string().email('Invalid email').required('Required'),
+  password: Yup.string()
+    .min(8, 'Password must be at least 8 characters')
+    .max(20, 'Password must be at most 20 characters')
+    .required('Required'),
+  repeatPassword: Yup.string()
+    .min(8, 'Password must be at least 8 characters')
+    .max(20, 'Password must be at most 20 characters')
+    .oneOf([Yup.ref('password')], 'Passwords must match')
+    .required('Required'),
+});
 
 export const RegistrationForm: FC = observer(() => {
   const [isVisiblePassword, setIsVisiblePassword] = useState(false);
-  const navigate = useNavigate();
-  const { userStore } = useStore();
-
-  const RegistrationSchema = Yup.object().shape({
-    firstName: Yup.string().required('Required'),
-    lastName: Yup.string().required('Required'),
-    email: Yup.string().email('Invalid email').required('Required'),
-    password: Yup.string()
-      .min(8, 'Password must be at least 8 characters')
-      .max(20, 'Password must be at most 20 characters')
-      .required('Required'),
-    repeatPassword: Yup.string()
-      .min(8, 'Password must be at least 8 characters')
-      .max(20, 'Password must be at most 20 characters')
-      .oneOf([Yup.ref('password')], 'Passwords must match')
-      .required('Required'),
-  });
-
-  const initialValues: RegistrationOptions = {
-    firstName: '',
-    lastName: '',
-    email: '',
-    password: '',
-    repeatPassword: '',
-  };
+  const { handleSubmitRegistration } = useAuth();
 
   const handleSubmit = async (values: RegistrationOptions): Promise<void> => {
-    if (
-      !values.firstName ||
-      !values.lastName ||
-      !values.email ||
-      !values.password ||
-      !values.repeatPassword
-    ) {
-      return;
-    }
-    const response = await registration(
-      values.firstName,
-      values.lastName,
-      values.email,
-      values.password
-    );
-    userStore.setUserData(response.user);
-    cookieManager.setCookie({
-      name: 'accessToken',
-      value: response.accessToken,
-    });
-    cookieManager.setCookie({
-      name: 'refreshToken',
-      value: response.refreshToken,
-      expires: 7,
-    });
-    navigate('/expenses');
+    await handleSubmitRegistration(values);
   };
 
   return (

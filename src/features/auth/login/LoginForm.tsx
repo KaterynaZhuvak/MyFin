@@ -1,20 +1,16 @@
 import { useState, type FC } from 'react';
 import { Form, Formik } from 'formik';
 import { observer } from 'mobx-react';
-import { useNavigate } from 'react-router';
 import * as Yup from 'yup';
-import { cookieManager } from '@shared/lib/cookieManager';
 import { Input } from '@shared/ui/Input';
 import { Button } from '@shared/ui/Button';
 import { Icon } from '@shared/icons/Icon';
-import { useStore } from '@shared/lib/useStore';
+import { useAuth } from '../model/useAuth';
 import type { LoginOptions } from './interfaces/login-options.interface';
-import { login } from './api/loginApi';
 
 export const LoginForm: FC = observer(() => {
   const [isVisiblePassword, setIsVisiblePassword] = useState(false);
-  const { userStore } = useStore();
-  const navigate = useNavigate();
+  const { handleSubmitLogin } = useAuth();
 
   const LoginSchema = Yup.object().shape({
     email: Yup.string().email('Invalid email').required('Required'),
@@ -27,24 +23,8 @@ export const LoginForm: FC = observer(() => {
     email: '',
     password: '',
   };
-
   const handleSubmit = async (values: LoginOptions): Promise<void> => {
-    if (!values.email || !values.password) {
-      return;
-    }
-    const response = await login(values.email, values.password);
-
-    userStore.setUserData(response.user);
-    cookieManager.setCookie({
-      name: 'accessToken',
-      value: response.accessToken,
-    });
-    cookieManager.setCookie({
-      name: 'refreshToken',
-      value: response.refreshToken,
-      expires: 30,
-    });
-    navigate('/expenses');
+    await handleSubmitLogin(values);
   };
 
   return (
