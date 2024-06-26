@@ -31,9 +31,11 @@ export const NavigationList: FC = () => {
   };
 
   useEffect(() => {
-    const state = location.state as LocationState;
-    const element = document.getElementById(state.scrollToSection);
-    element?.scrollIntoView({ behavior: 'smooth' });
+    const state = location.state as LocationState | null;
+    if (state?.scrollToSection) {
+      const element = document.getElementById(state.scrollToSection);
+      element?.scrollIntoView({ behavior: 'smooth' });
+    }
   }, [location]);
 
   return (
