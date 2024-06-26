@@ -40,7 +40,7 @@ export const Footer: FC = () => {
         onRequestClose={() => {
           setIsOpen(false);
         }}
-        className='size-[90%] rounded-[20px] bg-[#2D3433] px-[50px] py-[30px] outline-none tablet:h-[900px] tablet:w-[700px] tablet:px-[100px] tablet:py-[60px]'
+        className='size-[90%] rounded-[20px] bg-[#2D3433] px-[50px] py-[30px] outline-none tablet:h-[90%] tablet:w-2/5 tablet:px-[100px] tablet:py-[60px]'
       >
         <Icon
           name='close'
