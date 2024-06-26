@@ -10,7 +10,10 @@ export const Features: FC = () => {
   });
 
   return (
-    <section className='container mb-[96px] tablet:mb-[176px] desktop:px-[182px]'>
+    <section
+      id='section3'
+      className='container mb-[96px] tablet:mb-[176px] desktop:px-[182px]'
+    >
       <h2 className='mb-[24px] text-center text-[24px] font-bold tracking-[0.01rem] tablet:mb-[80px] tablet:text-[40px]'>
         <span className='text-title-green'>F</span>eatures
       </h2>
@@ -40,9 +43,9 @@ export const Features: FC = () => {
               </p>
               <Icon
                 name={isMobile ? 'line-mobile' : 'line'}
-                className={`absolute tablet:h-[180px] tablet:w-[230px] desktop:h-[185px] desktop:w-[430px] 
+                className={`absolute w-[80px] tablet:h-[180px] tablet:w-[230px] desktop:h-[185px] desktop:w-[430px] 
                 ${index === featuresList.length - 1 ? 'hidden' : ''} 
-                ${index % 2 === 0 ? 'top-[200px] rotate-[80deg] tablet:left-[270px] tablet:top-[320px] tablet:rotate-90 desktop:left-[320px] desktop:top-[320px] desktop:rotate-[53deg]' : 'left-[130px] top-[125px] tablet:left-[180px] tablet:top-[320px] tablet:rotate-[-50deg] desktop:left-[320px] desktop:top-[320px] desktop:rotate-[-5deg]'}`}
+                ${index % 2 === 0 ? 'left-[90px] top-[100px] rotate-[85deg] tablet:left-[270px] tablet:top-[320px] tablet:rotate-90 desktop:left-[320px] desktop:top-[320px] desktop:rotate-[53deg]' : 'left-[130px] top-[125px] tablet:left-[180px] tablet:top-[320px] tablet:rotate-[-50deg] desktop:left-[320px] desktop:top-[320px] desktop:rotate-[-5deg]'}`}
               />
             </div>
           </li>

@@ -4,7 +4,10 @@ import { aboutList } from '../model';
 
 export const About: FC = () => {
   return (
-    <section className='container mb-[59px] tablet:mb-[106px] desktop:px-[182px]'>
+    <section
+      id='section2'
+      className='container mb-[59px] tablet:mb-[106px] desktop:px-[182px]'
+    >
       <h2 className='mb-[24px] text-center text-[24px] font-bold tracking-[0.01rem] tablet:mb-[40px] tablet:text-[40px]'>
         About <span className='text-title-green'>M</span>y
         <span className='text-title-green'>F</span>in
