@@ -8,8 +8,6 @@ interface ModalProps {
   onRequestClose: () => void;
 }
 
-Modal.setAppElement('#root');
-
 export const CustomModal: FC<ModalProps> = ({
   children,
   className,

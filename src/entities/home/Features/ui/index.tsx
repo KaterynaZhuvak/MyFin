@@ -1,17 +1,20 @@
 import type { FC } from 'react';
 import { useMediaQuery } from 'react-responsive';
+import { observer } from 'mobx-react';
+import { useStore } from '@shared/lib/useStore';
 import { Icon } from '@shared/icons/Icon';
 import { Rectangle } from '@shared/ui/Rectangle';
 import { featuresList } from '../model';
 
-export const Features: FC = () => {
+export const Features: FC = observer(() => {
+  const { NavigationStore } = useStore();
   const isMobile = useMediaQuery({
     query: '(max-width: 767px)',
   });
 
   return (
     <section
-      id='section3'
+      ref={NavigationStore.sectionRefs.features}
       className='container mb-[96px] tablet:mb-[176px] desktop:px-[182px]'
     >
       <h2 className='mb-[24px] text-center text-[24px] font-bold tracking-[0.01rem] tablet:mb-[80px] tablet:text-[40px]'>
@@ -53,4 +56,4 @@ export const Features: FC = () => {
       </ul>
     </section>
   );
-};
+});

@@ -1,11 +1,15 @@
 import { type FC } from 'react';
+import { observer } from 'mobx-react';
+import { useStore } from '@shared/lib/useStore';
 import { Rectangle } from '@shared/ui/Rectangle';
 import { aboutList } from '../model';
 
-export const About: FC = () => {
+export const About: FC = observer(() => {
+  const { NavigationStore } = useStore();
+
   return (
     <section
-      id='section2'
+      ref={NavigationStore.sectionRefs.about}
       className='container mb-[59px] tablet:mb-[106px] desktop:px-[182px]'
     >
       <h2 className='mb-[24px] text-center text-[24px] font-bold tracking-[0.01rem] tablet:mb-[40px] tablet:text-[40px]'>
@@ -36,4 +40,4 @@ export const About: FC = () => {
       </ul>
     </section>
   );
-};
+});

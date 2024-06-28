@@ -1,13 +1,16 @@
 import { useNavigate } from 'react-router';
 import type { FC } from 'react';
+import { observer } from 'mobx-react';
+import { useStore } from '@shared/lib/useStore';
 import { Button } from '@shared/ui/Button';
 
-export const Hero: FC = () => {
+export const Hero: FC = observer(() => {
   const navigate = useNavigate();
+  const { NavigationStore } = useStore();
 
   return (
     <section
-      id='section1'
+      ref={NavigationStore.sectionRefs.home}
       className='mb-[56px] flex h-[580px] flex-col justify-end bg-hero-mobile bg-auto bg-no-repeat max-[767px]:bg-[center_top_56px] tablet:mb-[104px] tablet:h-[875px] tablet:justify-center tablet:bg-hero-desktop tablet:bg-top'
     >
       <div className='container mb-[56px] tablet:mb-[104px]'>
@@ -30,4 +33,4 @@ export const Hero: FC = () => {
       </div>
     </section>
   );
-};
+});

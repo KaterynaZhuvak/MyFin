@@ -28,7 +28,7 @@ export const Footer: FC = () => {
           </button>
         </div>
         <p className='text-[12px] tablet:text-[16px]'>
-          &#169;2024 MyFin. All Rights Reserved
+          &#169;{new Date().getFullYear()} MyFin. All Rights Reserved
         </p>
         <Icon
           name='logo-footer'

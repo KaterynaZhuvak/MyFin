@@ -1,6 +1,8 @@
 import { useEffect, useState, type FC } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { useMediaQuery } from 'react-responsive';
+import { observer } from 'mobx-react';
+import { useStore } from '@shared/lib/useStore';
 import { Icon } from '@shared/icons/Icon';
 import { Button } from '@shared/ui/Button';
 
@@ -8,8 +10,9 @@ interface LocationState {
   scrollToSection: string;
 }
 
-export const NavigationList: FC = () => {
+export const NavigationList: FC = observer(() => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
+  const { NavigationStore } = useStore();
   const navigate = useNavigate();
   const location = useLocation();
   const isMobile = useMediaQuery({
@@ -20,23 +23,32 @@ export const NavigationList: FC = () => {
     setIsOpen(!isOpen);
   };
 
-  const scrollToSection = (sectionId: string): void => {
+  const scrollToSection = (
+    sectionIdentifier: keyof typeof NavigationStore.sectionRefs
+  ): void => {
     setIsOpen(false);
     if (location.pathname !== '/') {
-      navigate('/', { state: { scrollToSection: sectionId } });
+      navigate('/', { state: { scrollToSection: sectionIdentifier } });
     } else {
-      const element = document.getElementById(sectionId);
-      element?.scrollIntoView({ behavior: 'smooth' });
+      NavigationStore.sectionRefs[sectionIdentifier].current?.scrollIntoView({
+        behavior: 'smooth',
+      });
     }
   };
 
   useEffect(() => {
     const state = location.state as LocationState | null;
-    if (state?.scrollToSection) {
-      const element = document.getElementById(state.scrollToSection);
-      element?.scrollIntoView({ behavior: 'smooth' });
+    if (
+      state?.scrollToSection &&
+      Object.keys(NavigationStore.sectionRefs).includes(state.scrollToSection)
+    ) {
+      const element =
+        state.scrollToSection as keyof typeof NavigationStore.sectionRefs;
+      NavigationStore.sectionRefs[element].current?.scrollIntoView({
+        behavior: 'smooth',
+      });
     }
-  }, [location]);
+  }, [location, NavigationStore]);
 
   return (
     <>
@@ -62,7 +74,7 @@ export const NavigationList: FC = () => {
                 <button
                   type='button'
                   onClick={() => {
-                    scrollToSection('section1');
+                    scrollToSection('home');
                   }}
                   className='font-sans text-[20px] font-semibold text-white hover:text-hover-green'
                 >
@@ -73,7 +85,7 @@ export const NavigationList: FC = () => {
                 <button
                   type='button'
                   onClick={() => {
-                    scrollToSection('section2');
+                    scrollToSection('about');
                   }}
                   className='font-sans text-[20px] font-semibold text-white hover:text-hover-green'
                 >
@@ -84,7 +96,7 @@ export const NavigationList: FC = () => {
                 <button
                   type='button'
                   onClick={() => {
-                    scrollToSection('section3');
+                    scrollToSection('features');
                   }}
                   className='font-sans text-[20px] font-semibold text-white hover:text-hover-green'
                 >
@@ -106,4 +118,4 @@ export const NavigationList: FC = () => {
       ) : null}
     </>
   );
-};
+});
