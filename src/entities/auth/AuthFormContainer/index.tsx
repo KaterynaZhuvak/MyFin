@@ -5,7 +5,7 @@ export const AuthFormContainer: FC<PropsWithChildren> = ({ children }) => {
     <div
       className='
       flex
-      h-auto
+      
       w-[526px] 
       flex-col
       justify-center 
