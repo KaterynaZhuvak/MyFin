@@ -10,25 +10,22 @@ import { AlternativeAuthContainer } from '@entities/auth/AlternativeAuthContaine
 
 export const LoginPage: FC = () => {
   return (
-    <>
-      <AuthBackgroundElement />
-      <div className='mt-[100px]'>
-        <AuthFormContainer>
-          <h2 className='text-center text-[36px] leading-[54px]'>Log in</h2>
-          <LoginForm />
-          <Divider />
-          <AlternativeAuthContainer>
-            <GoogleAuth />
-            <AppleAuth />
-          </AlternativeAuthContainer>
-          <span className='w-full text-center'>
-            Not a member?{' '}
-            <NavLink to='/registration' className='text-[#27DAB1] underline'>
-              Registration
-            </NavLink>
-          </span>
-        </AuthFormContainer>
-      </div>
-    </>
+    <AuthBackgroundElement>
+      <AuthFormContainer>
+        <h2 className='text-center text-[36px] leading-[54px]'>Log in</h2>
+        <LoginForm />
+        <Divider />
+        <AlternativeAuthContainer>
+          <GoogleAuth />
+          <AppleAuth />
+        </AlternativeAuthContainer>
+        <span className='w-full text-center'>
+          Not a member?{' '}
+          <NavLink to='/registration' className='text-[#27DAB1] underline'>
+            Registration
+          </NavLink>
+        </span>
+      </AuthFormContainer>
+    </AuthBackgroundElement>
   );
 };

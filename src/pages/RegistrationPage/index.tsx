@@ -10,28 +10,35 @@ import { RegistrationForm } from '@features/auth/registaion';
 
 export const RegistrationPage: FC = () => {
   return (
-    <>
-      <AuthBackgroundElement />
+    <AuthBackgroundElement>
       <AuthFormContainer>
+        <h2 className='text-center text-[36px] leading-[54px]'>
+          Get started now
+        </h2>
         <RegistrationForm />
         <Divider />
         <AlternativeAuthContainer>
           <GoogleAuth />
           <AppleAuth />
         </AlternativeAuthContainer>
-        <span className='mt-[24px] w-full text-center'>
-          Already a member?{' '}
-          <NavLink to='/login' className='text-[#27DAB1] underline'>
-            Log In
-          </NavLink>
-        </span>
-        <span className='mt-[24px] w-full text-center'>
-          By registering you agree to the{' '}
-          <NavLink to='/terms-of-service' className='text-[#27DAB1] underline'>
-            Terms of Service
-          </NavLink>
-        </span>
+        <div className='flex flex-col gap-[24px]'>
+          <span className='w-full text-center'>
+            Already a member?{' '}
+            <NavLink to='/login' className='text-[#27DAB1] underline'>
+              Log In
+            </NavLink>
+          </span>
+          <span className='w-full text-center'>
+            By registering you agree to the{' '}
+            <NavLink
+              to='/terms-of-service'
+              className='text-[#27DAB1] underline'
+            >
+              Terms of Service
+            </NavLink>
+          </span>
+        </div>
       </AuthFormContainer>
-    </>
+    </AuthBackgroundElement>
   );
 };

@@ -1,18 +1,16 @@
-import type { FC } from 'react';
+import type { FC, PropsWithChildren } from 'react';
 
-export const AuthBackgroundElement: FC = () => {
+export const AuthBackgroundElement: FC<PropsWithChildren> = ({ children }) => {
   return (
-    <div
+    <section
       className='
-      absolute
-      inset-0
-      top-[2%]
-      z-[-1]
-      hidden
-      bg-[url(../../shared/assets/backgrounds/bg-auth.svg),_url(../../shared/assets/backgrounds/bg-auth-lines.svg)]
       bg-cover
-      desktop:block
+      p-[88px_8px_96px_8px]
+      desktop:bg-[url(../../shared/assets/backgrounds/bg-auth.svg),_url(../../shared/assets/backgrounds/bg-auth-lines.svg)]
+      desktop:p-[66px_0_65px_0]
       '
-    />
+    >
+      {children}
+    </section>
   );
 };
