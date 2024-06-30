@@ -21,7 +21,7 @@ export const Hero: FC = () => {
           variant='gradient'
           size='xl'
           onClick={() => {
-            navigate('/register');
+            navigate('/registration');
           }}
         />
       </div>

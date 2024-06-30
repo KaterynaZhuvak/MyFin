@@ -6,10 +6,11 @@ import { HomePage } from '@pages/HomePage';
 import { NotFoundPage } from '@pages/NotFoundPage';
 import { SettingsPage } from '@pages/SettingsPage';
 import { LoginPage } from '@pages/LoginPage';
-import { RegisterPage } from '@pages/RegisterPage';
+import { RegistrationPage } from '@pages/RegistrationPage';
 import { ExpensesPage } from '@pages/ExpensesPage';
 import { StatisticsPage } from '@pages/StatisticsPage';
 import { RootLayout } from '@shared/ui/layouts/RootLayout';
+import { PrivateRoute } from '@features/PrivateRoute';
 
 export const App: FC = () => {
   return (
@@ -17,15 +18,16 @@ export const App: FC = () => {
       <Routes>
         <Route path='/' element={<RootLayout />}>
           <Route index element={<HomePage />} />
-          <Route path='expenses' element={<ExpensesPage />} />
-          <Route path='statistics' element={<StatisticsPage />} />
-          <Route path='budgets' element={<BudgetsPage />} />
-          <Route path='settings' element={<SettingsPage />}>
-            <Route path='change-avatar' element={<ChangeAvatarPage />} />
+          <Route element={<PrivateRoute />}>
+            <Route path='expenses' element={<ExpensesPage />} />
+            <Route path='statistics' element={<StatisticsPage />} />
+            <Route path='budgets' element={<BudgetsPage />} />
+            <Route path='settings' element={<SettingsPage />}>
+              <Route path='change-avatar' element={<ChangeAvatarPage />} />
+            </Route>
           </Route>
-
           <Route path='login' element={<LoginPage />} />
-          <Route path='register' element={<RegisterPage />} />
+          <Route path='registration' element={<RegistrationPage />} />
         </Route>
         <Route path='*' element={<NotFoundPage />} />
       </Routes>
