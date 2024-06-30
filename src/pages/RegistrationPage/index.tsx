@@ -10,7 +10,8 @@ import { RegistrationForm } from '@features/auth/registaion';
 
 export const RegistrationPage: FC = () => {
   return (
-    <AuthBackgroundElement>
+    <>
+      <AuthBackgroundElement />
       <AuthFormContainer>
         <RegistrationForm />
         <Divider />
@@ -31,6 +32,6 @@ export const RegistrationPage: FC = () => {
           </NavLink>
         </span>
       </AuthFormContainer>
-    </AuthBackgroundElement>
+    </>
   );
 };
