@@ -2,7 +2,7 @@ import type { FC } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Icon } from '@shared/icons/Icon';
 import { Button } from '@shared/ui/Button';
-import { NavigationList } from '@features/NavigationList';
+import { NavigationList } from '@features/home/NavigationList';
 
 export const Header: FC = () => {
   const navigate = useNavigate();
