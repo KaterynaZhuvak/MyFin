@@ -27,7 +27,11 @@ export const NavigationList: FC = observer(() => {
     sectionIdentifier: keyof typeof navigationStore.sectionRefs
   ): void => {
     setIsOpen(false);
-    navigationStore.scrollToSection(location, navigate, sectionIdentifier);
+    if (location.pathname !== '/') {
+      navigate('/', { state: { scrollToSection: sectionIdentifier } });
+    } else {
+      navigationStore.scrollToSection(sectionIdentifier);
+    }
   };
 
   useEffect(() => {
@@ -38,9 +42,7 @@ export const NavigationList: FC = observer(() => {
     ) {
       const element =
         state.scrollToSection as keyof typeof navigationStore.sectionRefs;
-      navigationStore.sectionRefs[element].current?.scrollIntoView({
-        behavior: 'smooth',
-      });
+      navigationStore.scrollToSection(element);
     }
   }, [location, navigationStore]);
 
