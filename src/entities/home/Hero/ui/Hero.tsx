@@ -6,11 +6,11 @@ import { Button } from '@shared/ui/Button';
 
 export const Hero: FC = observer(() => {
   const navigate = useNavigate();
-  const { NavigationStore } = useStore();
+  const { navigationStore } = useStore();
 
   return (
     <section
-      ref={NavigationStore.sectionRefs.home}
+      ref={navigationStore.sectionRefs.home}
       className='mb-[56px] flex h-[580px] flex-col justify-end bg-hero-mobile bg-auto bg-no-repeat max-[767px]:bg-[center_top_56px] tablet:mb-[104px] tablet:h-[875px] tablet:justify-center tablet:bg-hero-desktop tablet:bg-top'
     >
       <div className='container mb-[56px] tablet:mb-[104px]'>

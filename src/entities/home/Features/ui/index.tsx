@@ -7,14 +7,14 @@ import { Rectangle } from '@shared/ui/Rectangle';
 import { featuresList } from '../model';
 
 export const Features: FC = observer(() => {
-  const { NavigationStore } = useStore();
+  const { navigationStore } = useStore();
   const isMobile = useMediaQuery({
     query: '(max-width: 767px)',
   });
 
   return (
     <section
-      ref={NavigationStore.sectionRefs.features}
+      ref={navigationStore.sectionRefs.features}
       className='container mb-[96px] tablet:mb-[176px] desktop:px-[182px]'
     >
       <h2 className='mb-[24px] text-center text-[24px] font-bold tracking-[0.01rem] tablet:mb-[80px] tablet:text-[40px]'>

@@ -12,7 +12,7 @@ interface LocationState {
 
 export const NavigationList: FC = observer(() => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
-  const { NavigationStore } = useStore();
+  const { navigationStore } = useStore();
   const navigate = useNavigate();
   const location = useLocation();
   const isMobile = useMediaQuery({
@@ -24,31 +24,25 @@ export const NavigationList: FC = observer(() => {
   };
 
   const scrollToSection = (
-    sectionIdentifier: keyof typeof NavigationStore.sectionRefs
+    sectionIdentifier: keyof typeof navigationStore.sectionRefs
   ): void => {
     setIsOpen(false);
-    if (location.pathname !== '/') {
-      navigate('/', { state: { scrollToSection: sectionIdentifier } });
-    } else {
-      NavigationStore.sectionRefs[sectionIdentifier].current?.scrollIntoView({
-        behavior: 'smooth',
-      });
-    }
+    navigationStore.scrollToSection(location, navigate, sectionIdentifier);
   };
 
   useEffect(() => {
     const state = location.state as LocationState | null;
     if (
       state?.scrollToSection &&
-      Object.keys(NavigationStore.sectionRefs).includes(state.scrollToSection)
+      Object.keys(navigationStore.sectionRefs).includes(state.scrollToSection)
     ) {
       const element =
-        state.scrollToSection as keyof typeof NavigationStore.sectionRefs;
-      NavigationStore.sectionRefs[element].current?.scrollIntoView({
+        state.scrollToSection as keyof typeof navigationStore.sectionRefs;
+      navigationStore.sectionRefs[element].current?.scrollIntoView({
         behavior: 'smooth',
       });
     }
-  }, [location, NavigationStore]);
+  }, [location, navigationStore]);
 
   return (
     <>

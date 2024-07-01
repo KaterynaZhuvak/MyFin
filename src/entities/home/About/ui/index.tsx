@@ -5,11 +5,11 @@ import { Rectangle } from '@shared/ui/Rectangle';
 import { aboutList } from '../model';
 
 export const About: FC = observer(() => {
-  const { NavigationStore } = useStore();
+  const { navigationStore } = useStore();
 
   return (
     <section
-      ref={NavigationStore.sectionRefs.about}
+      ref={navigationStore.sectionRefs.about}
       className='container mb-[59px] tablet:mb-[106px] desktop:px-[182px]'
     >
       <h2 className='mb-[24px] text-center text-[24px] font-bold tracking-[0.01rem] tablet:mb-[40px] tablet:text-[40px]'>
