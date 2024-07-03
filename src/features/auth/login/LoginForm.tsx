@@ -33,13 +33,13 @@ export const LoginForm: FC = observer(() => {
       validationSchema={LoginSchema}
       onSubmit={handleSubmit}
     >
-      <Form className='m-[0_auto] flex w-auto flex-col flex-wrap  gap-[32px] tablet:w-[378px] '>
+      <Form className='m-[0_auto] flex w-[318px] flex-col flex-wrap  gap-[32px] tablet:w-[378px] '>
         <Input
           type='email'
           name='email'
           placeholder='Enter your email'
           label='Your email'
-          className='h-[64px] w-[378px]'
+          className='h-[44px] w-[318px] tablet:h-[64px] tablet:w-[378px]'
         />
         <Input
           type={isVisiblePassword ? 'text' : 'password'}
@@ -56,7 +56,7 @@ export const LoginForm: FC = observer(() => {
             />
           }
           label='Password'
-          className='h-[64px] w-[378px]'
+          className='h-[44px] w-[318px] tablet:h-[64px] tablet:w-[378px]'
         />
         <Button
           variant='gradient'

@@ -12,7 +12,9 @@ export const LoginPage: FC = () => {
   return (
     <AuthBackgroundElement>
       <AuthFormContainer>
-        <h2 className='text-center text-[36px] leading-[54px]'>Log in</h2>
+        <h2 className='text-center text-[25px] leading-[54px] tablet:text-[36px]'>
+          Log in
+        </h2>
         <LoginForm />
         <Divider />
         <AlternativeAuthContainer>

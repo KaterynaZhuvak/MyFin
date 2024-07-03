@@ -24,7 +24,7 @@ const iconVariants = cva('absolute top-1/2 -translate-x-1/2 -translate-y-1/2', {
   variants: {
     iconPosition: {
       start: 'left-7',
-      end: 'right-5',
+      end: 'right-[16px]',
     },
   },
   defaultVariants: {
@@ -58,7 +58,7 @@ export const Input: FC<InputProps> = ({
         {label}
       </label>
 
-      <div className='relative'>
+      <div className='relative w-full'>
         <Field
           className={cn(inputVariants({ iconPosition, className }), {
             'border-red-500': meta.touched && meta.error,
