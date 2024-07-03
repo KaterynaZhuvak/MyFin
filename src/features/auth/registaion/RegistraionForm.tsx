@@ -1,6 +1,7 @@
 import { useState, type FC } from 'react';
-import { Form, Formik } from 'formik';
+import { Form, Formik, type FormikHelpers } from 'formik';
 import { observer } from 'mobx-react';
+import type { AxiosError } from 'axios';
 import * as Yup from 'yup';
 import { Input } from '@shared/ui/Input';
 import { Button } from '@shared/ui/Button';
@@ -31,12 +32,26 @@ const RegistrationSchema = Yup.object().shape({
     .required('Required'),
 });
 
+interface ErrorGeneric {
+  errorCode: string;
+}
+
 export const RegistrationForm: FC = observer(() => {
   const [isVisiblePassword, setIsVisiblePassword] = useState(false);
   const { handleSubmitRegistration } = useAuth();
 
-  const handleSubmit = async (values: RegistrationOptions): Promise<void> => {
-    await handleSubmitRegistration(values);
+  const handleSubmit = async (
+    values: RegistrationOptions,
+    { setFieldError }: FormikHelpers<RegistrationOptions>
+  ): Promise<void> => {
+    try {
+      await handleSubmitRegistration(values);
+    } catch (error) {
+      const errorObj = error as AxiosError<ErrorGeneric>;
+      if (errorObj.response?.data.errorCode === 'USER_EXISTS') {
+        setFieldError('email', 'User already exists');
+      }
+    }
   };
 
   return (
