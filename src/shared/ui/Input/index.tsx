@@ -67,9 +67,7 @@ export const Input: FC<InputProps> = ({
           name={name}
           {...rest}
         />
-
         <div className={cn(iconVariants({ iconPosition }))}>{icon}</div>
-
         {meta.touched && !meta.error ? (
           <div className='absolute right-[-40px] top-1/2 -translate-y-1/2'>
             <Icon
