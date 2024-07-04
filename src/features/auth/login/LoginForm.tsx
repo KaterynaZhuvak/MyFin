@@ -33,7 +33,7 @@ export const LoginForm: FC = observer(() => {
       validationSchema={LoginSchema}
       onSubmit={handleSubmit}
     >
-      <Form className='m-[0_auto] flex w-[318px] flex-col flex-wrap  gap-[32px] tablet:w-[378px] '>
+      <Form className='m-[0_auto] flex w-[318px] flex-col flex-wrap gap-[32px] tablet:w-[378px]'>
         <Input
           type='email'
           name='email'
@@ -49,7 +49,7 @@ export const LoginForm: FC = observer(() => {
           icon={
             <Icon
               name={isVisiblePassword ? 'eye' : 'eye-off'}
-              className='size-[24px]'
+              className='size-[20px] tablet:size-[24px]'
               onClick={() => {
                 setIsVisiblePassword(!isVisiblePassword);
               }}
@@ -62,7 +62,7 @@ export const LoginForm: FC = observer(() => {
           variant='gradient'
           size='m'
           title='Log in'
-          className='mt-[10px] h-[64px] w-[378px] text-[32px] font-bold'
+          className='mt-[10px] h-[56px] w-[318px] py-[auto] text-[32px] font-bold tablet:h-[64px] tablet:w-[378px]'
           isSubmit
         />
       </Form>

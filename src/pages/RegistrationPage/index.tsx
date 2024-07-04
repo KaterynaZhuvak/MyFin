@@ -22,13 +22,13 @@ export const RegistrationPage: FC = () => {
           <AppleAuth />
         </AlternativeAuthContainer>
         <div className='flex flex-col gap-[24px]'>
-          <span className='w-full text-center'>
+          <span className='w-full text-center text-[16px] tablet:text-[20px]'>
             Already a member?{' '}
             <NavLink to='/login' className='text-[#27DAB1] underline'>
               Log In
             </NavLink>
           </span>
-          <span className='w-full text-center'>
+          <span className='w-full text-center text-[12px] tablet:text-[16px]'>
             By registering you agree to the{' '}
             <NavLink
               to='/terms-of-service'

@@ -18,7 +18,7 @@ export const Icon: FC<IconProps> = ({ name, className, fill, onClick }) => {
       fill={fill ?? 'none'}
       xmlns='http://www.w3.org/2000/svg'
     >
-      <use href={`${Icons}#${name}-icon`} />
+      <use href={`${Icons}#${name}-icon`} width='100%' height='100%' />
     </svg>
   );
 };

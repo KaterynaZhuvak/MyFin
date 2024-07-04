@@ -21,7 +21,7 @@ export const LoginPage: FC = () => {
           <GoogleAuth />
           <AppleAuth />
         </AlternativeAuthContainer>
-        <span className='w-full text-center'>
+        <span className='w-full text-center text-[16px] tablet:text-[20px]'>
           Not a member?{' '}
           <NavLink to='/registration' className='text-[#27DAB1] underline'>
             Registration

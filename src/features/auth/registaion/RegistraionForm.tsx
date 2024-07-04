@@ -61,13 +61,13 @@ export const RegistrationForm: FC = observer(() => {
       validationSchema={RegistrationSchema}
       onSubmit={handleSubmit}
     >
-      <Form className='m-[0_auto] flex w-[378px] flex-wrap gap-[32px]'>
+      <Form className='m-[0_auto] flex w-[318px] flex-col flex-wrap gap-[32px] tablet:w-[378px]'>
         <Input
           type='firstName'
           name='firstName'
           placeholder='Enter your first name'
           label='First Name'
-          className='h-[64px] w-[378px]'
+          className='h-[44px] w-[318px] tablet:h-[64px] tablet:w-[378px]'
         />
 
         <Input
@@ -75,7 +75,7 @@ export const RegistrationForm: FC = observer(() => {
           name='lastName'
           placeholder='Enter your last name'
           label='Last Name'
-          className='h-[64px] w-[378px]'
+          className='h-[44px] w-[318px] tablet:h-[64px] tablet:w-[378px]'
         />
 
         <Input
@@ -83,7 +83,7 @@ export const RegistrationForm: FC = observer(() => {
           name='email'
           placeholder='Enter your email'
           label='Your email'
-          className='h-[64px] w-[378px]'
+          className='h-[44px] w-[318px] tablet:h-[64px] tablet:w-[378px]'
         />
 
         <Input
@@ -94,14 +94,14 @@ export const RegistrationForm: FC = observer(() => {
           icon={
             <Icon
               name={isVisiblePassword ? 'eye' : 'eye-off'}
-              className='size-[24px]'
+              className='size-[20px] tablet:size-[24px]'
               onClick={() => {
                 setIsVisiblePassword(!isVisiblePassword);
               }}
             />
           }
           label='Password'
-          className='h-[64px] w-[378px]'
+          className='h-[44px] w-[318px] tablet:h-[64px] tablet:w-[378px]'
         />
 
         <Input
@@ -112,21 +112,21 @@ export const RegistrationForm: FC = observer(() => {
           icon={
             <Icon
               name={isVisiblePassword ? 'eye' : 'eye-off'}
-              className='size-[24px]'
+              className='size-[20px] tablet:size-[24px]'
               onClick={() => {
                 setIsVisiblePassword(!isVisiblePassword);
               }}
             />
           }
           label='Repeat Password'
-          className='h-[64px] w-[378px]'
+          className='h-[44px] w-[318px] tablet:h-[64px] tablet:w-[378px]'
         />
 
         <Button
           variant='gradient'
           size='m'
           title='Register'
-          className='mt-[12px] h-[64px] w-[378px] text-[32px] font-bold'
+          className='mt-[12px] h-[56px] w-[318px] text-[32px] font-bold tablet:h-[64px] tablet:w-[378px]'
           isSubmit
         />
       </Form>

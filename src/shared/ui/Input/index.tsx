@@ -11,7 +11,7 @@ const inputVariants = cva(
       iconPosition: {
         start:
           'h-[52px] max-w-[416px] rounded-[26px] border-neutral-white-2 pl-[52px]',
-        end: 'left-6 h-16 rounded-[15px] border-white pl-5',
+        end: 'left-6 h-16 rounded-[10px] border-white pl-5 tablet:rounded-[15px]',
       },
     },
     defaultVariants: {
@@ -24,7 +24,7 @@ const iconVariants = cva('absolute top-1/2 -translate-x-1/2 -translate-y-1/2', {
   variants: {
     iconPosition: {
       start: 'left-7',
-      end: 'right-[16px]',
+      end: 'right-[5px] tablet:right-[20px]',
     },
   },
   defaultVariants: {
@@ -53,12 +53,14 @@ export const Input: FC<InputProps> = ({
   const [_, meta] = useField(name);
 
   return (
-    <div className={`${label ? 'flex flex-col gap-3' : ''} font-sans text-xl`}>
+    <div
+      className={`${label ? 'flex flex-col gap-3' : ''} w-full font-sans text-xl`}
+    >
       <label className='text-white' htmlFor={name}>
         {label}
       </label>
 
-      <div className='relative w-full'>
+      <div className='relative'>
         <Field
           className={cn(inputVariants({ iconPosition, className }), {
             'border-red-500': meta.touched && meta.error,
@@ -69,17 +71,19 @@ export const Input: FC<InputProps> = ({
         />
         <div className={cn(iconVariants({ iconPosition }))}>{icon}</div>
         {meta.touched && !meta.error ? (
-          <div className='absolute right-[-40px] top-1/2 -translate-y-1/2'>
+          <div
+            className={`absolute ${icon ? 'right-[50px]' : 'right-[16px]'} top-1/2 -translate-y-1/2 tablet:right-[-40px]`}
+          >
             <Icon
               name='form-ok'
-              className='size-[24px] rounded-full bg-gradient-to-br from-[#05A67B] via-[#093423] to-[#093423]'
+              className='size-[20px] rounded-full bg-gradient-to-br from-[#05A67B] via-[#093423] to-[#093423] tablet:size-[24px]'
             />
           </div>
         ) : null}
         {meta.touched && meta.error ? (
           <Icon
             name='form-error'
-            className='absolute right-[-40px] top-1/2 size-[24px] -translate-y-1/2 rounded-full bg-gradient-to-t from-[#FF4444] to-[#FF7363]'
+            className={`absolute ${icon ? 'right-[50px]' : 'right-[16px]'} top-1/2 size-[20px] -translate-y-1/2 rounded-full bg-gradient-to-t from-[#FF4444] to-[#FF7363] tablet:right-[-40px] tablet:size-[24px]`}
           />
         ) : null}
       </div>
