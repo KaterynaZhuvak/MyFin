@@ -126,7 +126,7 @@ export const RegistrationForm: FC = observer(() => {
           variant='gradient'
           size='m'
           title='Register'
-          className='mt-[12px] h-[56px] w-[318px] text-[32px] font-bold tablet:h-[64px] tablet:w-[378px]'
+          className='mt-[12px] h-[56px] w-[318px] py-[auto] text-[32px] font-bold tablet:h-[64px] tablet:w-[378px]'
           isSubmit
         />
       </Form>
