@@ -33,7 +33,7 @@ const RegistrationSchema = Yup.object().shape({
 });
 
 interface ErrorGeneric {
-  errorCode: string;
+  errorCode: number;
 }
 
 export const RegistrationForm: FC = observer(() => {
@@ -48,7 +48,7 @@ export const RegistrationForm: FC = observer(() => {
       await handleSubmitRegistration(values);
     } catch (error) {
       const errorObj = error as AxiosError<ErrorGeneric>;
-      if (errorObj.response?.data.errorCode === 'USER_EXISTS') {
+      if (errorObj.response?.data.errorCode === 1000) {
         setFieldError('email', 'User already exists');
       }
     }
