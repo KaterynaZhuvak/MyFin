@@ -6,6 +6,7 @@ import * as Yup from 'yup';
 import { Input } from '@shared/ui/Input';
 import { Button } from '@shared/ui/Button';
 import { Icon } from '@shared/icons/Icon';
+import { ErrorCodes } from '../lib/errorCodes';
 import { useAuth } from '../model/useAuth';
 import type { RegistrationOptions } from './interfaces/registaion-options.interface';
 
@@ -32,7 +33,7 @@ const RegistrationSchema = Yup.object().shape({
     .required('Required'),
 });
 
-interface ErrorGeneric {
+interface ErrorResponse {
   errorCode: number;
 }
 
@@ -47,8 +48,8 @@ export const RegistrationForm: FC = observer(() => {
     try {
       await handleSubmitRegistration(values);
     } catch (error) {
-      const errorObj = error as AxiosError<ErrorGeneric>;
-      if (errorObj.response?.data.errorCode === 1000) {
+      const errorResponse = error as AxiosError<ErrorResponse>;
+      if (errorResponse.response?.data.errorCode === ErrorCodes.ExistingUser) {
         setFieldError('email', 'User already exists');
       }
     }
