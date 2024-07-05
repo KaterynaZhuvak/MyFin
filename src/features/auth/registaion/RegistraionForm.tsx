@@ -6,7 +6,7 @@ import * as Yup from 'yup';
 import { Input } from '@shared/ui/Input';
 import { Button } from '@shared/ui/Button';
 import { Icon } from '@shared/icons/Icon';
-import { ErrorCodes } from '../lib/errorCodes';
+import { ErrorCodes } from '../lib/errorCodes.enum';
 import { useAuth } from '../model/useAuth';
 import type { RegistrationOptions } from './interfaces/registaion-options.interface';
 
