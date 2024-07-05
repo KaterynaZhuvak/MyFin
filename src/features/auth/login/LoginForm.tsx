@@ -45,7 +45,6 @@ export const LoginForm: FC = observer(() => {
           type={isVisiblePassword ? 'text' : 'password'}
           name='password'
           placeholder='Enter your password'
-          iconPosition='end'
           icon={
             <Icon
               name={isVisiblePassword ? 'eye' : 'eye-off'}
