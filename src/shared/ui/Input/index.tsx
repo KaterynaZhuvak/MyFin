@@ -7,13 +7,10 @@ const inputVariants = cva(
   'w-full border border-solid border-white bg-transparent text-base text-white',
   {
     variants: {
-      authInput: {
-        default:
-          'left-6 h-16 rounded-[10px] pl-5 text-base tablet:rounded-[15px]',
+      FormInput: {
+        authInput:
+          'h-[44px] w-[318px] rounded-[10px] pl-5 text-base tablet:h-[64px] tablet:w-[378px] tablet:rounded-[15px]',
       },
-    },
-    defaultVariants: {
-      authInput: 'default',
     },
   }
 );
@@ -23,8 +20,7 @@ interface InputProps
     VariantProps<typeof inputVariants> {
   label?: string;
   name: string;
-  className?: string;
-
+  FormInput?: 'authInput';
   icon?: ReactNode | null;
 }
 
@@ -32,7 +28,7 @@ export const Input: FC<InputProps> = ({
   label,
   name,
   icon,
-  className,
+  FormInput,
   ...rest
 }) => {
   return (
@@ -41,13 +37,15 @@ export const Input: FC<InputProps> = ({
       htmlFor={name}
     >
       {label}
-      <Field
-        className={cn(inputVariants({ authInput: 'default' }), className)}
-        id={name}
-        name={name}
-        {...rest}
-      />
-      {icon}
+      <div className='relative'>
+        <Field
+          className={cn(inputVariants({ FormInput }))}
+          id={name}
+          name={name}
+          {...rest}
+        />
+        {icon}
+      </div>
       <ErrorMessage name={name}>
         {(msg) => <div className='text-red-500'>{msg}</div>}
       </ErrorMessage>

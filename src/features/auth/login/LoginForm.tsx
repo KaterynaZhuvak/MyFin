@@ -39,7 +39,7 @@ export const LoginForm: FC = observer(() => {
           name='email'
           placeholder='Enter your email'
           label='Your email'
-          className='h-[44px] w-[318px] tablet:h-[64px] tablet:w-[378px]'
+          FormInput='authInput'
         />
         <Input
           type={isVisiblePassword ? 'text' : 'password'}
@@ -48,14 +48,14 @@ export const LoginForm: FC = observer(() => {
           icon={
             <Icon
               name={isVisiblePassword ? 'eye' : 'eye-off'}
-              className='size-[20px] tablet:size-[24px]'
+              className='absolute right-[16px] top-[12px] size-[20px] tablet:top-[22px] tablet:size-[24px]'
               onClick={() => {
                 setIsVisiblePassword(!isVisiblePassword);
               }}
             />
           }
           label='Password'
-          className='h-[44px] w-[318px] tablet:h-[64px] tablet:w-[378px]'
+          FormInput='authInput'
         />
         <Button
           variant='gradient'
