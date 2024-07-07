@@ -40,9 +40,9 @@ export const NavigationList: FC = observer(() => {
       state?.scrollToSection &&
       Object.keys(navigationStore.sectionRefs).includes(state.scrollToSection)
     ) {
-      const element =
+      const sectionIdentifier =
         state.scrollToSection as keyof typeof navigationStore.sectionRefs;
-      navigationStore.scrollToSection(element);
+      navigationStore.scrollToSection(sectionIdentifier);
     }
   }, [location, navigationStore]);
 

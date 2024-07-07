@@ -1,4 +1,4 @@
-import type { FC } from 'react';
+import { memo, type FC } from 'react';
 import Icons from './sprite.svg';
 
 interface IconProps {
@@ -7,7 +7,7 @@ interface IconProps {
   onClick?: () => void;
 }
 
-export const Icon: FC<IconProps> = ({ name, className, onClick }) => {
+export const Icon: FC<IconProps> = memo(({ name, className, onClick }) => {
   return (
     <svg
       className={className}
@@ -17,4 +17,6 @@ export const Icon: FC<IconProps> = ({ name, className, onClick }) => {
       <use href={`${Icons}#${name}-icon`} />
     </svg>
   );
-};
+});
+
+Icon.displayName = 'Icon';
