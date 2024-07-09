@@ -1,4 +1,4 @@
-import { type ReactNode, type FC, type InputHTMLAttributes } from 'react';
+import { type ReactNode, type FC, type InputHTMLAttributes, memo } from 'react';
 import { Field, ErrorMessage, useField } from 'formik';
 import { type VariantProps, cva } from 'class-variance-authority';
 import { Icon } from '@shared/icons/Icon';
@@ -11,9 +11,6 @@ const inputVariants = cva(
       FormInput: {
         authInput:
           'h-[44px] w-[318px] rounded-[10px] pl-5 text-base tablet:h-[64px] tablet:w-[378px] tablet:rounded-[15px]',
-      },
-      NotFormInput: {
-        formOk: '',
       },
     },
   }
@@ -28,13 +25,13 @@ interface InputProps
   icon?: ReactNode | null;
 }
 
-export const Input: FC<InputProps> = ({
+export const Input: FC<InputProps> = memo(function Input({
   label,
   name,
   icon,
   FormInput,
   ...rest
-}) => {
+}) {
   const [_, meta] = useField(name);
   return (
     <label
@@ -68,4 +65,4 @@ export const Input: FC<InputProps> = ({
       </ErrorMessage>
     </label>
   );
-};
+});
