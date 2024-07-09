@@ -67,7 +67,7 @@ export const RegistrationForm: FC = observer(() => {
           name='firstName'
           placeholder='Enter your first name'
           label='First Name'
-          className='h-[44px] w-[318px] tablet:h-[64px] tablet:w-[378px]'
+          FormInput='authInput'
         />
 
         <Input
@@ -75,7 +75,7 @@ export const RegistrationForm: FC = observer(() => {
           name='lastName'
           placeholder='Enter your last name'
           label='Last Name'
-          className='h-[44px] w-[318px] tablet:h-[64px] tablet:w-[378px]'
+          FormInput='authInput'
         />
 
         <Input
@@ -83,43 +83,41 @@ export const RegistrationForm: FC = observer(() => {
           name='email'
           placeholder='Enter your email'
           label='Your email'
-          className='h-[44px] w-[318px] tablet:h-[64px] tablet:w-[378px]'
+          FormInput='authInput'
         />
 
         <Input
           type={isVisiblePassword ? 'text' : 'password'}
           name='password'
           placeholder='Enter your password'
-          iconPosition='end'
+          FormInput='authInput'
           icon={
             <Icon
               name={isVisiblePassword ? 'eye' : 'eye-off'}
-              className='size-[20px] tablet:size-[24px]'
+              className='absolute right-[16px] top-[12px] size-[20px] tablet:top-[22px] tablet:size-[24px]'
               onClick={() => {
                 setIsVisiblePassword(!isVisiblePassword);
               }}
             />
           }
           label='Password'
-          className='h-[44px] w-[318px] tablet:h-[64px] tablet:w-[378px]'
         />
 
         <Input
           type={isVisiblePassword ? 'text' : 'password'}
           name='repeatPassword'
           placeholder='Repeat your password'
-          iconPosition='end'
+          FormInput='authInput'
           icon={
             <Icon
               name={isVisiblePassword ? 'eye' : 'eye-off'}
-              className='size-[20px] tablet:size-[24px]'
+              className='absolute right-[16px] top-[12px] size-[20px] tablet:top-[22px] tablet:size-[24px]'
               onClick={() => {
                 setIsVisiblePassword(!isVisiblePassword);
               }}
             />
           }
           label='Repeat Password'
-          className='h-[44px] w-[318px] tablet:h-[64px] tablet:w-[378px]'
         />
 
         <Button
