@@ -44,7 +44,10 @@ export const Input: FC<InputProps> = ({
       {label}
       <div className='relative'>
         <Field
-          className={cn(inputVariants({ FormInput }))}
+          className={cn(
+            inputVariants({ FormInput }),
+            meta.error ? 'border-red-500' : ''
+          )}
           id={name}
           name={name}
           {...rest}
