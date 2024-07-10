@@ -3,7 +3,7 @@ import { Form, Formik, type FormikHelpers } from 'formik';
 import { observer } from 'mobx-react';
 import type { AxiosError } from 'axios';
 import * as Yup from 'yup';
-import { Input } from '@shared/ui/Input';
+import { AuthInput } from '@entities/auth/AuthInput';
 import { Button } from '@shared/ui/Button';
 import { Icon } from '@shared/icons/Icon';
 import { ErrorCodes } from '../lib/errorCodes.enum';
@@ -62,35 +62,31 @@ export const RegistrationForm: FC = observer(() => {
       onSubmit={handleSubmit}
     >
       <Form className='m-[0_auto] flex w-[318px] flex-col flex-wrap gap-[32px] tablet:w-[378px]'>
-        <Input
+        <AuthInput
           type='firstName'
           name='firstName'
           placeholder='Enter your first name'
           label='First Name'
-          FormInput='authInput'
         />
 
-        <Input
+        <AuthInput
           type='lastName'
           name='lastName'
           placeholder='Enter your last name'
           label='Last Name'
-          FormInput='authInput'
         />
 
-        <Input
+        <AuthInput
           type='email'
           name='email'
           placeholder='Enter your email'
           label='Your email'
-          FormInput='authInput'
         />
 
-        <Input
+        <AuthInput
           type={isVisiblePassword ? 'text' : 'password'}
           name='password'
           placeholder='Enter your password'
-          FormInput='authInput'
           icon={
             <Icon
               name={isVisiblePassword ? 'eye' : 'eye-off'}
@@ -103,11 +99,10 @@ export const RegistrationForm: FC = observer(() => {
           label='Password'
         />
 
-        <Input
+        <AuthInput
           type={isVisiblePassword ? 'text' : 'password'}
           name='repeatPassword'
           placeholder='Repeat your password'
-          FormInput='authInput'
           icon={
             <Icon
               name={isVisiblePassword ? 'eye' : 'eye-off'}
