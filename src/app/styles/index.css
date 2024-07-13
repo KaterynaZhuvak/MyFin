@@ -16,11 +16,19 @@
 }
 
 @font-face {
-  font-family: 'Helvetica';
+  font-family: 'Nunito';
   font-weight: 400;
   font-style: normal;
   font-display: swap;
-  src: url('../../shared/assets/fonts/Helvetica-Regular.otf') format('truetype');
+  src: url('../../shared/assets/fonts/Nunito-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Nunito';
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+  src: url('../../shared/assets/fonts/Nunito-Bold.ttf') format('truetype');
 }
 
 body {
@@ -65,18 +73,17 @@ body {
 ::-webkit-scrollbar-thumb:hover {
   background: #396f4b;
 }
-
 .purple-gradient {
   box-shadow: 0px 0px 104px 0px rgba(101, 51, 180, 0.97);
   background: linear-gradient(
-    143.63deg,
-    rgb(6, 86, 207) 7.382%,
-    rgba(166, 46, 211, 0.79) 80.343%,
-    rgba(146, 66, 217, 0.69) 113.066%,
-    rgba(117, 94, 225, 0.54) 163.208%,
-    rgba(63, 147, 241, 0.26) 211.497%,
-    rgba(12, 197, 255, 0) 252.695%,
-    rgba(12, 197, 255, 0) 252.723%
+    183.62deg,
+    rgb(6, 86, 207) -17.18%,
+    rgba(166, 46, 211, 0.788629) 57.1%,
+    rgba(146, 66, 217, 0.685977) 90.41%,
+    rgba(117, 94, 225, 0.537023) 141.45%,
+    rgba(63, 147, 241, 0.258758) 190.61%,
+    rgba(12, 197, 255, 0) 232.54%,
+    rgba(12, 197, 255, 0) 232.57%
   );
 }
 
@@ -85,11 +92,11 @@ body {
   box-shadow: 0px 0px 55px 0px rgba(146, 242, 248, 0.4);
   background: linear-gradient(
     171.96deg,
-    rgba(255, 255, 255, 0.85) -14.772%,
-    rgba(175, 255, 197, 0.85) 33.576%,
-    rgba(125, 250, 197, 0.85) 66.25%,
-    rgba(122, 250, 199, 0.75) 118.274%,
-    rgba(21, 255, 192, 0.56) 134.479%,
-    rgba(68, 255, 221, 0.12) 148.977%
+    rgba(255, 255, 255, 0.85) -15.09%,
+    rgba(175, 255, 197, 0.85) 33.47%,
+    rgba(125, 250, 197, 0.85) 66.28%,
+    rgba(122, 250, 199, 0.75174) 118.52%,
+    rgba(21, 255, 192, 0.561595) 134.79%,
+    rgba(68, 255, 221, 0.119) 149.35%
   );
 }
