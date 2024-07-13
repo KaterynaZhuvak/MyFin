@@ -1,6 +1,6 @@
 import { useState, type FC } from 'react';
 import { Icon } from '@shared/icons/Icon';
-import { OurTeamModal } from '@shared/ui/OurTeamModal';
+import { OurTeamModal } from '@entities/home/OurTeamModal';
 
 export const Footer: FC = () => {
   const [isOpen, setIsOpen] = useState(false);
