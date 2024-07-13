@@ -2,13 +2,14 @@ import type { ButtonHTMLAttributes, FC } from 'react';
 import { type VariantProps, cva } from 'class-variance-authority';
 import { cn } from '../../lib/cn';
 
-export const buttonVariants = cva(['text-center font-sans'], {
+export const buttonVariants = cva(['font-sans font-bold'], {
   variants: {
     variant: {
-      gradient: 'gradient rounded-[15px] text-white',
+      gradient: 'gradient rounded-[15px] text-white disabled:bg-disabled-green',
       outline:
-        'rounded-[15px] border border-solid border-bright-green bg-transparent text-bright-green hover:border-pale-green hover:text-pale-green',
-      ghost: 'text-white hover:text-bright-green tablet:hidden',
+        'rounded-[15px] border border-solid border-bright-green bg-transparent text-bright-green hover:border-pale-green hover:text-pale-green disabled:border-disabled-green disabled:text-disabled-green',
+      ghost:
+        'text-white hover:text-bright-green disabled:text-disabled-green tablet:hidden',
     },
     size: {
       xs: 'py-[5px] text-[16px]',
