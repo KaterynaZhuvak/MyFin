@@ -2,7 +2,7 @@ import type { FC } from 'react';
 import { useNavigate } from 'react-router';
 import { Button } from '@shared/ui/Button';
 
-export const GetBack: FC = () => {
+export const GoBack: FC = () => {
   const navigate = useNavigate();
 
   const handleClick = (): void => {
@@ -17,7 +17,7 @@ export const GetBack: FC = () => {
         Try again later, we will need time to find her.
       </p>
       <Button
-        title='Get back'
+        title='Go back'
         variant='gradient'
         size='l'
         className='px-[80px] tablet:px-[92px]'

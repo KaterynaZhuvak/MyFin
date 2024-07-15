@@ -23,7 +23,6 @@ export default {
       backgroundImage: {
         'hero-desktop': "url('/src/shared/assets/images/hero-desktop.png')",
         'hero-mobile': "url('/src/shared/assets/images/hero-mobile.png')",
-        'not-found': 'url("/src/shared/assets/images/not-found.png")',
       },
       colors: {
         vp: {
