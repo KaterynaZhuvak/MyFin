@@ -26,8 +26,8 @@ export const App: FC = () => {
 
           <Route path='login' element={<LoginPage />} />
           <Route path='register' element={<RegisterPage />} />
+          <Route path='*' element={<NotFoundPage />} />
         </Route>
-        <Route path='*' element={<NotFoundPage />} />
       </Routes>
     </BrowserRouter>
   );
