@@ -1,6 +1,6 @@
 import { type FC } from 'react';
 import { NavLink } from 'react-router-dom';
-import { AlternativeAuthContainer } from '@entities/auth/AlternativeAuthContainer';
+import { IntegrationAuthContainer } from '@entities/auth/IntegrationAuthContainer';
 import { AuthBackgroundElement } from '@entities/auth/AuthBackgorundElement';
 import { AuthFormContainer } from '@entities/auth/AuthFormContainer';
 import { Divider } from '@entities/auth/Divider';
@@ -17,10 +17,10 @@ export const RegistrationPage: FC = () => {
         </h2>
         <RegistrationForm />
         <Divider />
-        <AlternativeAuthContainer>
+        <IntegrationAuthContainer>
           <GoogleAuth />
           <AppleAuth />
-        </AlternativeAuthContainer>
+        </IntegrationAuthContainer>
         <div className='flex flex-col gap-[24px]'>
           <span className='w-full text-center text-[16px] tablet:text-[20px]'>
             Already a member?{' '}

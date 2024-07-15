@@ -1,6 +1,6 @@
 import type { PropsWithChildren, FC } from 'react';
 
-export const AlternativeAuthContainer: FC<PropsWithChildren> = ({
+export const IntegrationAuthContainer: FC<PropsWithChildren> = ({
   children,
 }) => {
   return (

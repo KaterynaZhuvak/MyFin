@@ -10,7 +10,7 @@ import { RegistrationPage } from '@pages/RegistrationPage';
 import { ExpensesPage } from '@pages/ExpensesPage';
 import { StatisticsPage } from '@pages/StatisticsPage';
 import { RootLayout } from '@shared/ui/layouts/RootLayout';
-import { PrivateRoute } from '@features/PrivateRoute';
+import { PrivateRoute } from '@features/auth/PrivateRoute';
 
 export const App: FC = () => {
   return (

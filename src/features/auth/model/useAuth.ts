@@ -2,8 +2,8 @@ import { useNavigate } from 'react-router-dom';
 import { useStore } from '@shared/lib/useStore';
 import type { LoginOptions } from '../login/interfaces/login-options.interface';
 import type { RegistrationOptions } from '../registaion/interfaces/registaion-options.interface';
-import { login } from '../login/api/login.api';
-import { registration } from '../registaion/api/registration.api';
+import { loginApi } from '../login/api/login.api';
+import { registrationApi } from '../registaion/api/registration.api';
 import type { AuthResponse } from '../interfaces/auth-response.interface';
 import { setCookies } from './setCookies';
 
@@ -33,14 +33,14 @@ export const useAuth = (): UseAuthReturnType => {
     if (!values.email || !values.password) {
       return;
     }
-    const response = await login(values.email, values.password);
+    const response = await loginApi(values.email, values.password);
     handleResponse(response, 30);
   };
 
   const handleSubmitRegistration = async (
     values: RegistrationOptions
   ): Promise<void> => {
-    const response = await registration(
+    const response = await registrationApi(
       values.firstName,
       values.lastName,
       values.email,

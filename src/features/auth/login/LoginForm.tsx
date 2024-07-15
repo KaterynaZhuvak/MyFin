@@ -8,6 +8,9 @@ import { Icon } from '@shared/icons/Icon';
 import { useAuth } from '../model/useAuth';
 import type { LoginOptions } from './interfaces/login-options.interface';
 
+const MIN_CHARS = 8;
+const MAX_CHARS = 20;
+
 export const LoginForm: FC = observer(() => {
   const [isVisiblePassword, setIsVisiblePassword] = useState(false);
   const { handleSubmitLogin } = useAuth();
@@ -15,8 +18,8 @@ export const LoginForm: FC = observer(() => {
   const LoginSchema = Yup.object().shape({
     email: Yup.string().email('Invalid email').required('Required'),
     password: Yup.string()
-      .min(8, 'Password must be at least 8 characters')
-      .max(20, 'Password must be at most 20 characters')
+      .min(MIN_CHARS, 'Password must be at least 8 characters')
+      .max(MAX_CHARS, 'Password must be at most 20 characters')
       .required('Required'),
   });
   const initialValues: LoginOptions = {

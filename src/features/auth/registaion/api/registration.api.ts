@@ -1,7 +1,7 @@
 import type { AuthResponse } from '@features/auth/interfaces/auth-response.interface';
 import { axiosInstance } from '@shared/api/axios';
 
-export const registration = async (
+export const registrationApi = async (
   firstName: string,
   lastName: string,
   email: string,

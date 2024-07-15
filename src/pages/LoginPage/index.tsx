@@ -6,7 +6,7 @@ import { LoginForm } from '@features/auth/login';
 import { Divider } from '@entities/auth/Divider';
 import { GoogleAuth } from '@features/auth/by-google';
 import { AppleAuth } from '@features/auth/by-apple';
-import { AlternativeAuthContainer } from '@entities/auth/AlternativeAuthContainer';
+import { IntegrationAuthContainer } from '@entities/auth/IntegrationAuthContainer';
 
 export const LoginPage: FC = () => {
   return (
@@ -17,10 +17,10 @@ export const LoginPage: FC = () => {
         </h2>
         <LoginForm />
         <Divider />
-        <AlternativeAuthContainer>
+        <IntegrationAuthContainer>
           <GoogleAuth />
           <AppleAuth />
-        </AlternativeAuthContainer>
+        </IntegrationAuthContainer>
         <span className='w-full text-center text-[16px] tablet:text-[20px]'>
           Not a member?{' '}
           <NavLink to='/registration' className='text-[#27DAB1] underline'>

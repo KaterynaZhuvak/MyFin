@@ -1,7 +1,7 @@
 import type { AuthResponse } from '@features/auth/interfaces/auth-response.interface';
 import { axiosInstance } from '@shared/api/axios';
 
-export const login = async (
+export const loginApi = async (
   email: string,
   password: string
 ): Promise<AuthResponse> => {

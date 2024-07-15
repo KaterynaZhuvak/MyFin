@@ -11,7 +11,6 @@ export const buttonVariants = cva(['font-sans font-bold'], {
       withoutOutline: 'tablet:hidden',
       ghost:
         'text-white hover:text-bright-green disabled:text-disabled-green tablet:hidden',
-      // 'rounded-[15px] border border-solid border-bright-green bg-transparent text-bright-green hover:border-pale-green hover:text-pale-green disabled:border-disabled-green disabled:text-disabled-green',
     },
     size: {
       xs: 'py-[5px] text-[16px]',
