@@ -4,8 +4,8 @@ import { observer } from 'mobx-react';
 import type { AxiosError } from 'axios';
 import * as Yup from 'yup';
 import { AuthInput } from '@entities/auth/AuthInput';
-import { Button } from '@shared/ui/Button';
 import { Icon } from '@shared/icons/Icon';
+import { AuthButton } from '@entities/auth/AuthButton/AuthButton';
 import { ErrorCodes } from '../lib/errorCodes.enum';
 import { useAuth } from '../model/useAuth';
 import type { RegistrationOptions } from './interfaces/registaion-options.interface';
@@ -115,13 +115,7 @@ export const RegistrationForm: FC = observer(() => {
           label='Repeat Password'
         />
 
-        <Button
-          variant='gradient'
-          size='m'
-          title='Register'
-          className='mt-[12px] h-[56px] w-[318px] py-[auto] text-[32px] font-bold tablet:h-[64px] tablet:w-[378px]'
-          isSubmit
-        />
+        <AuthButton />
       </Form>
     </Formik>
   );

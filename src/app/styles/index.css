@@ -52,11 +52,8 @@ body {
 .gradient:focus {
   background: linear-gradient(
     -18.47deg,
-    rgb(163, 233, 157) -85.276%,
     rgba(9, 52, 35, 0.48) 10.289%,
-    rgb(5, 166, 123) 121.192%,
-    rgba(155, 255, 182, 0.82) 141.226%,
-    rgba(68, 255, 221, 0.7) 141.248%
+    rgb(5, 166, 123) 121.192%
   );
 }
 ::-webkit-scrollbar {
