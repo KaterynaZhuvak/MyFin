@@ -28,8 +28,8 @@ export const App: FC = () => {
           </Route>
           <Route path='login' element={<LoginPage />} />
           <Route path='registration' element={<RegistrationPage />} />
+          <Route path='*' element={<NotFoundPage />} />
         </Route>
-        <Route path='*' element={<NotFoundPage />} />
       </Routes>
     </BrowserRouter>
   );

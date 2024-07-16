@@ -31,6 +31,14 @@
   src: url('../../shared/assets/fonts/Nunito-Bold.ttf') format('truetype');
 }
 
+@font-face {
+  font-family: 'Nunito';
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+  src: url('../../shared/assets/fonts/Nunito-SemiBold.ttf') format('truetype');
+}
+
 body {
   background-color: black;
   color: white;
