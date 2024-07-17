@@ -1,12 +1,12 @@
 import type { FC } from 'react';
 import { NavLink } from 'react-router-dom';
-import { AuthBackgroundElement } from '@entities/auth/AuthBackgorundElement';
-import { AuthFormContainer } from '@entities/auth/AuthFormContainer';
-import { LoginForm } from '@features/auth/login';
-import { Divider } from '@entities/auth/Divider';
-import { GoogleAuth } from '@features/auth/by-google';
-import { AppleAuth } from '@features/auth/by-apple';
-import { IntegrationAuthContainer } from '@entities/auth/IntegrationAuthContainer';
+import {
+  IntegrationAuthContainer,
+  AuthBackgroundElement,
+  Divider,
+  AuthFormContainer,
+} from '@entities/auth';
+import { GoogleButton, LoginForm, AppleButton } from '@features/auth';
 
 export const LoginPage: FC = () => {
   return (
@@ -18,8 +18,8 @@ export const LoginPage: FC = () => {
         <LoginForm />
         <Divider />
         <IntegrationAuthContainer>
-          <GoogleAuth />
-          <AppleAuth />
+          <GoogleButton />
+          <AppleButton />
         </IntegrationAuthContainer>
         <span className='w-full text-center text-[16px] tablet:text-[20px]'>
           Not a member?{' '}

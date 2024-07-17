@@ -2,11 +2,10 @@ import { useState, type FC } from 'react';
 import { Form, Formik } from 'formik';
 import { observer } from 'mobx-react';
 import * as Yup from 'yup';
-import { AuthInput } from '@entities/auth/AuthInput';
+import { AuthButton, AuthInput } from '@entities/auth';
 import { Icon } from '@shared/icons/Icon';
-import { AuthButton } from '@entities/auth/AuthButton/AuthButton';
-import { useAuth } from '../model/useAuth';
-import type { LoginOptions } from './interfaces/login-options.interface';
+import { useAuth } from '@features/auth/model/useAuth';
+import type { LoginOptions } from '@features/auth/interfaces/login-options.interface';
 
 const MIN_CHARS = 8;
 const MAX_CHARS = 20;
