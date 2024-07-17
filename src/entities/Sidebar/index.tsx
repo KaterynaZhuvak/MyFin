@@ -24,11 +24,14 @@ export const Sidebar: FC = () => {
             key={to}
             to={to}
             className={({ isActive }) =>
-              cn('flex h-[76px] w-[378px] items-center transition-all', {
-                'bg-gradient-to-t from-[#05A67B] via-[#093423] to-[#093423] text-white':
-                  isActive,
-                'text-gray-400': !isActive,
-              })
+              cn(
+                'flex h-[76px] w-[378px] items-center text-[20px] transition-all',
+                {
+                  'bg-gradient-to-b from-[#0D301F] to-[#074A35]  text-white':
+                    isActive,
+                  'text-gray-400': !isActive,
+                }
+              )
             }
           >
             {label}
@@ -37,7 +40,7 @@ export const Sidebar: FC = () => {
       </nav>
       <Button
         title='Log out'
-        className='m-[0_auto] mb-[168px] h-[42px] w-[152px] text-white'
+        className='m-[0_auto] mb-[168px] h-[42px] w-[152px] border bg-gradient-to-r from-[#2ED1A0] to-[#183228] bg-clip-text text-[20px] text-transparent'
       />
     </aside>
   );

@@ -100,3 +100,10 @@ body {
     rgba(68, 255, 221, 0.119) 149.35%
   );
 }
+
+.border-gradient {
+  border-radius: 100%;
+  border-image: linear-gradient(to right, #00c6ff, #92fe9d);
+  border-right: none;
+  border-left: none;
+}
