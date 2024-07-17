@@ -2,7 +2,6 @@ import { type ReactNode, type FC } from 'react';
 import { ErrorMessage, useField } from 'formik';
 import { Icon } from '@shared/icons/Icon';
 import { Input } from '@shared/ui/Input';
-import { cn } from '@shared/lib/cn';
 
 interface InputProps {
   label: string;
@@ -23,7 +22,7 @@ export const AuthInput: FC<InputProps> = ({
   return (
     <div className='relative'>
       <Input
-        className={cn(meta.error && meta.touched ? 'border-red-500' : '')}
+        className={meta.error && meta.touched ? 'border-red-500' : ''}
         label={label}
         type={type}
         name={name}
