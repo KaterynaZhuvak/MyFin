@@ -29,8 +29,8 @@ const navItems = [
 
 export const Sidebar: FC = () => {
   return (
-    <aside className='fixed flex h-[89vh] w-[378px] flex-col bg-[#060606] pb-[68px] pt-[62px]'>
-      <nav className='flex h-full flex-col gap-[32px]'>
+    <aside className='sticky left-0 flex h-screen w-[378px] flex-col bg-[#060606] pb-[168px]'>
+      <nav className='flex grow flex-col  justify-center gap-[32px]'>
         {navItems.map(({ to, label, icon }) => (
           <NavLink
             key={to}
