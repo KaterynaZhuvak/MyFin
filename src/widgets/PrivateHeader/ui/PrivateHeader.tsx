@@ -13,7 +13,7 @@ export const PrivateHeader: FC = () => {
     <header className='flex h-[104px] w-full items-center justify-between bg-[#060606]'>
       <Icon
         name='logo'
-        className='h-[inherit] w-[186px] cursor-pointer'
+        className='ml-[106px] h-[inherit] w-[186px] cursor-pointer'
         onClick={handleClickIcon}
       />
     </header>

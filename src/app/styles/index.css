@@ -102,8 +102,11 @@ body {
 }
 
 .border-gradient {
-  border-radius: 100%;
-  border-image: linear-gradient(to right, #00c6ff, #92fe9d);
+  border-radius: 10px;
+  background:
+    linear-gradient(#060606, #060606) padding-box,
+    linear-gradient(to right, #36c094, #3e8167) border-box;
+  border: 1px solid transparent;
   border-right: none;
   border-left: none;
 }
