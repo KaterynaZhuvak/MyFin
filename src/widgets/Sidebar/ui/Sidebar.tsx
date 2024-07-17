@@ -1,7 +1,6 @@
 import type { FC } from 'react';
-import { NavLink, useNavigate } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { cn } from '@shared/lib/cn';
-import { Icon } from '@shared/icons/Icon';
 import { Button } from '@shared/ui/Button';
 
 const navItems = [
@@ -12,19 +11,8 @@ const navItems = [
 ];
 
 export const Sidebar: FC = () => {
-  const navigate = useNavigate();
-
-  const handleClickIcon = (): void => {
-    navigate('/');
-  };
-
   return (
     <aside className='flex flex-col bg-[#060606]'>
-      <Icon
-        name='logo'
-        className='m-[0_auto] mt-[24px] w-[186px] cursor-pointer '
-        onClick={handleClickIcon}
-      />
       <nav className='mb-[562px] mt-[363px] flex h-full flex-col justify-center gap-[32px]'>
         {navItems.map(({ to, label }) => (
           <NavLink

@@ -9,8 +9,7 @@ import { LoginPage } from '@pages/LoginPage';
 import { RegistrationPage } from '@pages/RegistrationPage';
 import { ExpensesPage } from '@pages/ExpensesPage';
 import { StatisticsPage } from '@pages/StatisticsPage';
-import { RootLayout } from '@shared/ui/layouts/RootLayout';
-import { PrivateRoute } from '@features/auth/ui/PrivateRoute';
+import { RootLayout, PrivateLayout } from './layouts';
 
 export const App: FC = () => {
   return (
@@ -22,7 +21,7 @@ export const App: FC = () => {
           <Route path='registration' element={<RegistrationPage />} />
           <Route path='*' element={<NotFoundPage />} />
         </Route>
-        <Route element={<PrivateRoute />}>
+        <Route element={<PrivateLayout />}>
           <Route path='expenses' element={<ExpensesPage />} />
           <Route path='statistics' element={<StatisticsPage />} />
           <Route path='budgets' element={<BudgetsPage />} />
