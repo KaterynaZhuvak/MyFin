@@ -1,5 +1,5 @@
 import type { FC } from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import { cn } from '@shared/lib/cn';
 import { Icon } from '@shared/icons/Icon';
 import { Button } from '@shared/ui/Button';
@@ -12,11 +12,18 @@ const navItems = [
 ];
 
 export const Sidebar: FC = () => {
+  const navigate = useNavigate();
+
+  const handleClickIcon = (): void => {
+    navigate('/');
+  };
+
   return (
     <aside className='flex flex-col bg-[#060606]'>
       <Icon
         name='logo'
         className='m-[0_auto] mt-[24px] w-[186px] cursor-pointer '
+        onClick={handleClickIcon}
       />
       <nav className='mb-[562px] mt-[363px] flex h-full flex-col justify-center gap-[32px]'>
         {navItems.map(({ to, label }) => (
@@ -40,7 +47,7 @@ export const Sidebar: FC = () => {
       </nav>
       <Button
         title='Log out'
-        className='m-[0_auto] mb-[168px] h-[42px] w-[152px] border bg-gradient-to-r from-[#2ED1A0] to-[#183228] bg-clip-text text-[20px] text-transparent'
+        className='m-[0_auto] mb-[168px] h-[42px] w-[152px] bg-gradient-to-r from-[#2ED1A0] to-[#183228] bg-clip-text text-[20px] text-transparent'
       />
     </aside>
   );
