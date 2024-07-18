@@ -1,1 +1,0 @@
-export { AppleAuth } from './AppleAuth';

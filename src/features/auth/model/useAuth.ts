@@ -1,9 +1,9 @@
 import { useNavigate } from 'react-router-dom';
 import { useStore } from '@shared/lib/useStore';
-import type { LoginOptions } from '../login/interfaces/login-options.interface';
-import type { RegistrationOptions } from '../registaion/interfaces/registaion-options.interface';
-import { loginApi } from '../login/api/login.api';
-import { registrationApi } from '../registaion/api/registration.api';
+import type { LoginOptions } from '../interfaces/login-options.interface';
+import type { RegistrationOptions } from '../interfaces/registaion-options.interface';
+import { loginApi } from '../api/login.api';
+import { registrationApi } from '../api/registration.api';
 import type { AuthResponse } from '../interfaces/auth-response.interface';
 import { setCookies } from './setCookies';
 

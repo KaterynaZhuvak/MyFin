@@ -52,11 +52,8 @@ body {
 .gradient:focus {
   background: linear-gradient(
     -18.47deg,
-    rgb(163, 233, 157) -85.276%,
     rgba(9, 52, 35, 0.48) 10.289%,
-    rgb(5, 166, 123) 121.192%,
-    rgba(155, 255, 182, 0.82) 141.226%,
-    rgba(68, 255, 221, 0.7) 141.248%
+    rgb(5, 166, 123) 121.192%
   );
 }
 ::-webkit-scrollbar {
@@ -102,4 +99,14 @@ body {
     rgba(21, 255, 192, 0.561595) 134.79%,
     rgba(68, 255, 221, 0.119) 149.35%
   );
+}
+
+.border-gradient {
+  border-radius: 10px;
+  background:
+    linear-gradient(#060606, #060606) padding-box,
+    linear-gradient(to right, #36c094, #3e8167) border-box;
+  border: 1px solid transparent;
+  border-right: none;
+  border-left: none;
 }

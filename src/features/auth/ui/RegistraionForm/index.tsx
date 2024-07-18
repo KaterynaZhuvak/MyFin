@@ -3,12 +3,11 @@ import { Form, Formik, type FormikHelpers } from 'formik';
 import { observer } from 'mobx-react';
 import type { AxiosError } from 'axios';
 import * as Yup from 'yup';
-import { AuthInput } from '@entities/auth/AuthInput';
-import { Button } from '@shared/ui/Button';
 import { Icon } from '@shared/icons/Icon';
-import { ErrorCodes } from '../lib/errorCodes.enum';
-import { useAuth } from '../model/useAuth';
-import type { RegistrationOptions } from './interfaces/registaion-options.interface';
+import { AuthInput, AuthButton } from '@entities/auth';
+import { ErrorCodes } from '@shared/enums/error-codes.enum';
+import { useAuth } from '@features/auth/model/useAuth';
+import type { RegistrationOptions } from '@features/auth/interfaces/registaion-options.interface';
 
 const initialValues: RegistrationOptions = {
   firstName: '',
@@ -18,17 +17,20 @@ const initialValues: RegistrationOptions = {
   repeatPassword: '',
 };
 
+const MIN_CHARS = 8;
+const MAX_CHARS = 20;
+
 const RegistrationSchema = Yup.object().shape({
   firstName: Yup.string().required('Required'),
   lastName: Yup.string().required('Required'),
   email: Yup.string().email('Invalid email').required('Required'),
   password: Yup.string()
-    .min(8, 'Password must be at least 8 characters')
-    .max(20, 'Password must be at most 20 characters')
+    .min(MIN_CHARS, 'Password must be at least 8 characters')
+    .max(MAX_CHARS, 'Password must be at most 20 characters')
     .required('Required'),
   repeatPassword: Yup.string()
-    .min(8, 'Password must be at least 8 characters')
-    .max(20, 'Password must be at most 20 characters')
+    .min(MIN_CHARS, 'Password must be at least 8 characters')
+    .max(MAX_CHARS, 'Password must be at most 20 characters')
     .oneOf([Yup.ref('password')], 'Passwords must match')
     .required('Required'),
 });
@@ -115,13 +117,7 @@ export const RegistrationForm: FC = observer(() => {
           label='Repeat Password'
         />
 
-        <Button
-          variant='gradient'
-          size='m'
-          title='Register'
-          className='mt-[12px] h-[56px] w-[318px] py-[auto] text-[32px] font-bold tablet:h-[64px] tablet:w-[378px]'
-          isSubmit
-        />
+        <AuthButton />
       </Form>
     </Formik>
   );

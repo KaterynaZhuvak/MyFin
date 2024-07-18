@@ -2,11 +2,10 @@ import { useState, type FC } from 'react';
 import { Form, Formik } from 'formik';
 import { observer } from 'mobx-react';
 import * as Yup from 'yup';
-import { AuthInput } from '@entities/auth/AuthInput';
-import { Button } from '@shared/ui/Button';
+import { AuthButton, AuthInput } from '@entities/auth';
 import { Icon } from '@shared/icons/Icon';
-import { useAuth } from '../model/useAuth';
-import type { LoginOptions } from './interfaces/login-options.interface';
+import { useAuth } from '@features/auth/model/useAuth';
+import type { LoginOptions } from '@features/auth/interfaces/login-options.interface';
 
 const MIN_CHARS = 8;
 const MAX_CHARS = 20;
@@ -58,13 +57,7 @@ export const LoginForm: FC = observer(() => {
           }
           label='Password'
         />
-        <Button
-          variant='gradient'
-          size='m'
-          title='Log in'
-          className='mt-[10px] h-[56px] w-[318px] py-[auto] text-[32px] font-bold tablet:h-[64px] tablet:w-[378px]'
-          isSubmit
-        />
+        <AuthButton />
       </Form>
     </Formik>
   );
