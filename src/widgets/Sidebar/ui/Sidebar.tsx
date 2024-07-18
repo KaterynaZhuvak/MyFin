@@ -29,7 +29,7 @@ const navItems = [
 
 export const Sidebar: FC = () => {
   return (
-    <aside className='sticky left-0 flex h-screen w-[378px] flex-col bg-[#060606] pb-[168px]'>
+    <aside className='`${}` sticky left-0 flex h-screen w-[378px] flex-col bg-[#060606] pb-[168px]'>
       <nav className='flex grow flex-col  justify-center gap-[32px]'>
         {navItems.map(({ to, label, icon }) => (
           <NavLink
