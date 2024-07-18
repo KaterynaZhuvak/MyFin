@@ -8,7 +8,6 @@ export const buttonVariants = cva(['font-sans font-bold'], {
       gradient: 'gradient rounded-[15px] text-white disabled:bg-disabled-green',
       outline:
         'rounded-[15px] border border-[bright-green] bg-transparent text-[bright-green] hover:border-[pale-green] hover:text-[pale-green]',
-      withoutOutline: 'tablet:hidden',
       ghost:
         'text-white hover:text-bright-green disabled:text-disabled-green tablet:hidden',
     },
@@ -62,7 +61,7 @@ export const Button: FC<ButtonProps> = ({
       onClick={props.onClick}
       className={cn(buttonVariants({ variant, size, className }))}
     >
-      <div>{icon}</div>
+      {icon}
       {props.title}
     </button>
   );
