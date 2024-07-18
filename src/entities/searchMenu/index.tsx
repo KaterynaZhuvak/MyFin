@@ -1,0 +1,35 @@
+import type { FC } from 'react';
+import { Icon } from '@shared/icons/Icon';
+import { PopoverComponent } from '@shared/ui/PopoverComponent';
+
+export const SearchMenu: FC = () => {
+  return (
+    <PopoverComponent
+      trigger={
+        <div className='self-center justify-self-center'>
+          <Icon
+            name='magnifying-glass'
+            className='order-1 size-[24px] cursor-pointer  tablet:hidden'
+          />
+        </div>
+      }
+      content={
+        <div className='flex w-screen justify-center bg-[#060606] '>
+          <form className='relative w-[343px]'>
+            <input
+              type='search'
+              name='search'
+              placeholder='Search'
+              className='h-[52px] w-full rounded-full border-2 border-white bg-transparent pl-[52px] pr-[32px] text-white outline-none'
+            />
+            <Icon
+              name='magnifying-glass'
+              className='absolute left-[30px] top-[18px] size-[16px] cursor-pointer'
+            />
+          </form>
+        </div>
+      }
+      sideOffset={15}
+    />
+  );
+};
