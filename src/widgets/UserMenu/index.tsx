@@ -11,10 +11,10 @@ export const UserMenu: FC = () => {
   return (
     <PopoverComponent
       trigger={
-        <div className='relative order-4 flex h-[56px] cursor-pointer flex-row items-center justify-center self-center justify-self-center tablet:justify-self-start '>
-          <AvatarComponent />
-          <span className='ml-[16px] hidden h-[24px] w-[97px] select-none text-[20px] desktop:block'>
-            {user?.firstName} {user?.lastName}
+        <div className='relative order-4 flex h-[56px] cursor-pointer flex-row items-center justify-center self-center justify-self-center tablet:justify-self-start'>
+          <AvatarComponent firstName={user?.firstName} />
+          <span className='ml-[16px] hidden h-[24px] w-full select-none text-nowrap text-[20px] desktop:block'>
+            {user?.firstName} {user?.lastName[0]}.
           </span>
           <Icon
             name='arrow'
