@@ -48,7 +48,7 @@ export const Features: FC = observer(() => {
                 name={isMobile ? 'line-mobile' : 'line'}
                 className={`absolute w-[80px] tablet:h-[180px] tablet:w-[230px] desktop:h-[185px] desktop:w-[430px] 
                 ${index === featuresList.length - 1 ? 'hidden' : ''} 
-                ${index % 2 === 0 ? 'left-[130px] top-[80px] rotate-[85deg] tablet:left-[230px] tablet:top-[330px] tablet:rotate-[93deg] desktop:left-[320px] desktop:top-[320px] desktop:rotate-[53deg]' : 'left-[140px] top-[90px] tablet:left-[220px] tablet:top-[340px] tablet:rotate-[-50deg] desktop:left-[320px] desktop:top-[320px] desktop:rotate-[-5deg]'}`}
+                ${index % 2 === 0 ? 'left-[130px] top-[80px] rotate-[85deg] tablet:left-[230px] tablet:top-[330px] tablet:rotate-[93deg] desktop:left-[320px] desktop:top-[320px] desktop:rotate-[53deg]' : 'left-[130px] top-[90px] tablet:left-[220px] tablet:top-[340px] tablet:rotate-[-50deg] desktop:left-[320px] desktop:top-[320px] desktop:rotate-[-5deg]'}`}
               />
             </div>
           </li>

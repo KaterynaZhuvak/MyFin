@@ -42,7 +42,6 @@ const FormComponent = (args: InputProps): ReactElement => {
           .min(8, 'Must be at least 8 characters')
           .max(20, 'Must be at most 20 characters'),
       })}
-      // eslint-disable-next-line @typescript-eslint/no-empty-function -- Formik onSubmit
       onSubmit={() => {}}
     >
       <Form>
