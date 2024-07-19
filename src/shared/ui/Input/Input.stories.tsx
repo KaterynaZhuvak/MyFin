@@ -1,7 +1,7 @@
-import { Meta, StoryObj } from '@storybook/react';
-import { Input } from './index';
+import { type Meta, type StoryObj } from '@storybook/react';
 import { withRouter } from 'storybook-addon-remix-react-router';
 import { Formik, Form } from 'formik';
+import { Input } from './index';
 
 const meta: Meta<typeof Input> = {
   title: 'ui/Input',

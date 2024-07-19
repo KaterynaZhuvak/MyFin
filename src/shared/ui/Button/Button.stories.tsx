@@ -1,8 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { Button } from '.';
 import { withRouter } from 'storybook-addon-remix-react-router';
 import { action } from '@storybook/addon-actions';
 import { Icon } from '@shared/icons/Icon';
+import { Button } from '.';
 
 const meta: Meta<typeof Button> = {
   title: 'ui/Button',

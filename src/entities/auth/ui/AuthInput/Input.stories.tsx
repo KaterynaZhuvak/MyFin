@@ -3,8 +3,8 @@ import type { Meta } from '@storybook/react';
 import { withRouter } from 'storybook-addon-remix-react-router';
 import * as Yup from 'yup';
 import { Formik, Form, useField, ErrorMessage } from 'formik';
+import { type LoginOptions } from '@features/auth/interfaces/login-options.interface';
 import { cn } from '@shared/lib/cn';
-import type { LoginOptions } from '@features/auth/login/interfaces/login-options.interface';
 import { Input } from '@shared/ui/Input';
 import { Icon } from '@shared/icons/Icon';
 import { useAuth } from '@features/auth/model/useAuth';
@@ -45,7 +45,7 @@ const InputComponent = ({
 }: Args & {
   isVisiblePassword: boolean;
   togglePasswordVisibility: () => void;
-}) => {
+}): ReactNode => {
   const [field, fieldMeta] = useField(args.name);
 
   const icon = (
@@ -66,21 +66,21 @@ const InputComponent = ({
         )}
         label={args.label}
         type={isVisiblePassword ? 'text' : args.type}
-        icon={icon}
+        icon={args.name === 'password' ? icon : null}
         placeholder={args.placeholder}
       />
-      {fieldMeta.touched && !fieldMeta.error && (
+      {fieldMeta.touched && !fieldMeta.error ? (
         <Icon
           name='form-ok'
-          className={`absolute ${args.icon ? 'right-[-40px]' : 'right-[16px]'} top-[62px] size-[20px] -translate-y-1/2 rounded-full bg-gradient-to-br from-[#05A67B] via-[#093423] to-[#093423] tablet:right-[-40px] tablet:top-[72px] tablet:size-[24px]`}
+          className='absolute right-[-40px] top-[62px] size-[20px] -translate-y-1/2 rounded-full fill-green-500 tablet:right-[-40px] tablet:top-[72px] tablet:size-[24px]'
         />
-      )}
-      {fieldMeta.touched && fieldMeta.error && (
+      ) : null}
+      {fieldMeta.touched && fieldMeta.error ? (
         <Icon
           name='form-error'
-          className={`absolute ${args.icon ? 'right-[-40px]' : 'right-[16px]'} top-[62px] size-[20px] -translate-y-1/2 rounded-full bg-gradient-to-t from-[#FF4444] to-[#FF7363] tablet:right-[-40px] tablet:top-[72px] tablet:size-[24px]`}
+          className='absolute right-[-40px] top-[62px] size-[20px] -translate-y-1/2 rounded-full fill-red-500 tablet:right-[-40px] tablet:top-[72px] tablet:size-[24px]'
         />
-      )}
+      ) : null}
       <ErrorMessage name={args.name}>
         {(msg) => <div className='text-red-500'>{msg}</div>}
       </ErrorMessage>
@@ -88,11 +88,11 @@ const InputComponent = ({
   );
 };
 
-const FormComponent = ({ args }: { args: Args }) => {
+const FormComponent = ({ args }: { args: Args }): ReactNode => {
   const { handleSubmitLogin } = useAuth();
   const [isVisiblePassword, setIsVisiblePassword] = useState(false);
 
-  const togglePasswordVisibility = () => {
+  const togglePasswordVisibility = (): void => {
     setIsVisiblePassword(!isVisiblePassword);
   };
 
@@ -131,7 +131,7 @@ PasswordStory.args = {
   placeholder: 'Enter your password',
   icon: (
     <Icon
-      name={'eye'}
+      name='eye'
       className='absolute right-[16px] top-[12px] size-[20px] tablet:top-[22px] tablet:size-[24px]'
     />
   ),
