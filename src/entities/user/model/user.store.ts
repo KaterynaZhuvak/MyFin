@@ -15,4 +15,8 @@ export class UserStore {
   getUserData(): User | null {
     return this.currentUser;
   }
+
+  clearUserData(): void {
+    this.currentUser = null;
+  }
 }

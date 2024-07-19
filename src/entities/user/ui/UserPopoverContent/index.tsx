@@ -1,7 +1,14 @@
-import type { FC } from 'react';
+import { useState, type FC } from 'react';
 import { NavLink } from 'react-router-dom';
+import { LogoutButton } from '@features/auth';
+import { OurTeamModal } from '@entities/home/OurTeamModal';
 
 export const UserPopoverContent: FC = () => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const handleModalOpen = (): void => {
+    setIsOpen(true);
+  };
   return (
     <ul className='flex h-[246px] w-[217px] flex-col gap-[28px] rounded-[10px] border-2  border-white bg-black p-[20px_0_20px_20px]'>
       <NavLink
@@ -10,26 +17,22 @@ export const UserPopoverContent: FC = () => {
       >
         Edit Avatar
       </NavLink>
-      <NavLink
-        to=''
-        className='cursor-not-allowed text-[20px] font-bold text-disabled-green'
-        aria-disabled='true'
+      <button
+        type='submit'
+        className='text-left text-[20px] font-bold text-white transition-colors  hover:text-[#1D664F]'
+        onClick={handleModalOpen}
       >
         Contact Us
-      </NavLink>
+      </button>
       <NavLink
         to=''
-        className='cursor-not-allowed text-[20px] font-bold text-disabled-green'
+        className='cursor-not-allowed  text-[20px] font-bold text-disabled-green'
         aria-disabled='true'
       >
         Privacy Policy
       </NavLink>
-      <button
-        className='text-left text-[20px] font-bold text-white hover:text-[#1D664F]'
-        type='button'
-      >
-        Log Out
-      </button>
+      <LogoutButton />
+      <OurTeamModal isOpen={isOpen} setIsOpen={setIsOpen} />
     </ul>
   );
 };
