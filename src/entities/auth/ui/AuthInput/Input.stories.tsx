@@ -1,140 +1,75 @@
-import { useState, type ReactNode } from 'react';
-import type { Meta } from '@storybook/react';
-import { withRouter } from 'storybook-addon-remix-react-router';
+import { type ReactElement, useState } from 'react';
+import { Form } from 'react-router-dom';
+import { type Meta, type Story } from '@storybook/react';
+import { Formik } from 'formik';
 import * as Yup from 'yup';
-import { Formik, Form, useField, ErrorMessage } from 'formik';
-import { type LoginOptions } from '@features/auth/interfaces/login-options.interface';
-import { cn } from '@shared/lib/cn';
-import { Input } from '@shared/ui/Input';
+import { withRouter } from 'storybook-addon-remix-react-router';
 import { Icon } from '@shared/icons/Icon';
-import { useAuth } from '@features/auth/model/useAuth';
+import { AuthInput, type InputProps } from '.';
 
-const meta: Meta<typeof Input> = {
+const meta: Meta<typeof AuthInput> = {
   title: 'ui/AuthInput',
-  component: Input,
+  component: AuthInput,
   decorators: [withRouter],
   parameters: { layout: 'centered' },
 };
 
-const LoginSchema = Yup.object().shape({
-  email: Yup.string().email('Invalid email').required('Required'),
-  password: Yup.string()
-    .min(8, 'Password must be at least 8 characters')
-    .max(20, 'Password must be at most 20 characters')
-    .required('Required'),
-});
+export default meta;
 
-const initialValues: LoginOptions = {
-  email: '',
-  password: '',
-};
+const Template: Story<InputProps> = (args: InputProps) => (
+  <FormComponent {...args} />
+);
 
-interface Args {
-  label: string;
-  type: string;
-  name: string;
-  className: string;
-  placeholder: string;
-  icon?: ReactNode;
-}
-
-const InputComponent = ({
-  isVisiblePassword,
-  togglePasswordVisibility,
-  ...args
-}: Args & {
-  isVisiblePassword: boolean;
-  togglePasswordVisibility: () => void;
-}): ReactNode => {
-  const [field, fieldMeta] = useField(args.name);
+const FormComponent = (args: InputProps): ReactElement => {
+  const [isVisiblePassword, setIsVisiblePassword] = useState(false);
 
   const icon = (
     <Icon
       name={isVisiblePassword ? 'eye' : 'eye-off'}
       className='absolute right-[16px] top-[12px] size-[20px] tablet:top-[22px] tablet:size-[24px]'
-      onClick={togglePasswordVisibility}
+      onClick={() => {
+        setIsVisiblePassword(!isVisiblePassword);
+      }}
     />
   );
 
   return (
-    <>
-      <Input
-        {...field}
-        className={cn(
-          args.className,
-          fieldMeta.touched && fieldMeta.error ? 'border-red-500' : ''
-        )}
-        label={args.label}
-        type={isVisiblePassword ? 'text' : args.type}
-        icon={args.name === 'password' ? icon : null}
-        placeholder={args.placeholder}
-      />
-      {fieldMeta.touched && !fieldMeta.error ? (
-        <Icon
-          name='form-ok'
-          className='absolute right-[-40px] top-[62px] size-[20px] -translate-y-1/2 rounded-full fill-green-500 tablet:right-[-40px] tablet:top-[72px] tablet:size-[24px]'
-        />
-      ) : null}
-      {fieldMeta.touched && fieldMeta.error ? (
-        <Icon
-          name='form-error'
-          className='absolute right-[-40px] top-[62px] size-[20px] -translate-y-1/2 rounded-full fill-red-500 tablet:right-[-40px] tablet:top-[72px] tablet:size-[24px]'
-        />
-      ) : null}
-      <ErrorMessage name={args.name}>
-        {(msg) => <div className='text-red-500'>{msg}</div>}
-      </ErrorMessage>
-    </>
-  );
-};
-
-const FormComponent = ({ args }: { args: Args }): ReactNode => {
-  const { handleSubmitLogin } = useAuth();
-  const [isVisiblePassword, setIsVisiblePassword] = useState(false);
-
-  const togglePasswordVisibility = (): void => {
-    setIsVisiblePassword(!isVisiblePassword);
-  };
-
-  const handleSubmit = async (values: LoginOptions): Promise<void> => {
-    await handleSubmitLogin(values);
-  };
-
-  return (
     <Formik
-      initialValues={initialValues}
-      validationSchema={LoginSchema}
-      onSubmit={handleSubmit}
+      initialValues={{ [args.name]: '' }}
+      validationSchema={Yup.object({
+        [args.name]: Yup.string()
+          .required('This field is required')
+          .min(8, 'Must be at least 8 characters')
+          .max(20, 'Must be at most 20 characters'),
+      })}
+      // eslint-disable-next-line @typescript-eslint/no-empty-function -- Formik onSubmit
+      onSubmit={() => {}}
     >
-      <Form className='relative'>
-        <InputComponent
-          isVisiblePassword={isVisiblePassword}
-          togglePasswordVisibility={togglePasswordVisibility}
-          {...args}
+      <Form>
+        <AuthInput
+          label={args.label}
+          type={
+            args.type === 'password'
+              ? isVisiblePassword
+                ? 'text'
+                : 'password'
+              : args.type
+          }
+          name={args.name}
+          placeholder={args.placeholder}
+          icon={args.type === 'password' ? icon : undefined}
         />
       </Form>
     </Formik>
   );
 };
 
-const Template = (args: Args): ReactNode => <FormComponent args={args} />;
-
-export default meta;
-
 export const PasswordStory = Template.bind({});
 PasswordStory.args = {
   label: 'Password',
   type: 'password',
   name: 'password',
-  className:
-    'h-[44px] w-[318px] rounded-[10px] pl-5 text-base tablet:h-[64px] tablet:w-[378px] tablet:rounded-[15px]',
   placeholder: 'Enter your password',
-  icon: (
-    <Icon
-      name='eye'
-      className='absolute right-[16px] top-[12px] size-[20px] tablet:top-[22px] tablet:size-[24px]'
-    />
-  ),
 };
 
 export const EmailStory = Template.bind({});
@@ -142,7 +77,5 @@ EmailStory.args = {
   label: 'Email',
   type: 'email',
   name: 'email',
-  className:
-    'h-[44px] w-[318px] rounded-[10px] pl-5 text-base tablet:h-[64px] tablet:w-[378px] tablet:rounded-[15px]',
   placeholder: 'Enter your email',
 };
