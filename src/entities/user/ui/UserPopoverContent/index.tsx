@@ -6,7 +6,7 @@ export const UserPopoverContent: FC = () => {
     <div className='h-[246px] w-[217px] rounded-[10px] border-2 border-white bg-black p-[20px_0_20px_20px] '>
       <ul className='flex h-[204px] w-[139px] flex-col gap-[28px]'>
         <NavLink
-          to='/settings/avatar'
+          to='/settings/change-avatar'
           className=' text-[20px] font-bold text-white'
         >
           Edit Avatar

@@ -6,15 +6,15 @@ export const SearchMenu: FC = () => {
   return (
     <PopoverComponent
       trigger={
-        <div className='self-center justify-self-center'>
+        <div className='self-center justify-self-center tablet:hidden '>
           <Icon
             name='magnifying-glass'
-            className='order-1 size-[24px] cursor-pointer  tablet:hidden'
+            className='order-1 size-[20px] cursor-pointer '
           />
         </div>
       }
       content={
-        <div className='flex w-screen justify-center bg-[#060606] '>
+        <div className='flex w-screen justify-center bg-[#060606]'>
           <form className='relative w-[343px]'>
             <input
               type='search'

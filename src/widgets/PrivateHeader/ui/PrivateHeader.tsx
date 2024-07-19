@@ -14,7 +14,7 @@ export const PrivateHeader: FC = () => {
 
   return (
     <header
-      className='grid h-[64px] w-full grid-cols-[0.4fr,0.3fr,2fr,0.5fr] bg-[#060606]
+      className='grid h-[64px] w-full grid-cols-[0.4fr,0.3fr,2fr,0.5fr]  bg-[#060606]
       tablet:h-[104px]
       tablet:grid-cols-[1fr,2fr,0.1fr,0.5fr]
       desktop:grid-cols-[1fr,2.5fr,0.1fr,0.8fr]
@@ -28,7 +28,7 @@ export const PrivateHeader: FC = () => {
       <SearchComponent />
       <Icon
         name='bell'
-        className='tabet:justify-self-end order-2 size-[24px] cursor-pointer self-center justify-self-center tablet:order-3'
+        className='tabet:justify-self-end order-2 size-[22px] cursor-pointer self-center justify-self-center tablet:order-3'
       />
       <UserMenu />
       <SearchMenu />
