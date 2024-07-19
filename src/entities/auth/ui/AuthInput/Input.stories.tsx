@@ -1,6 +1,6 @@
 import { type ReactElement, useState } from 'react';
 import { Form } from 'react-router-dom';
-import { type Meta, type Story } from '@storybook/react';
+import { type Meta, type StoryFn } from '@storybook/react';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
 import { withRouter } from 'storybook-addon-remix-react-router';
@@ -16,7 +16,7 @@ const meta: Meta<typeof AuthInput> = {
 
 export default meta;
 
-const Template: Story<InputProps> = (args: InputProps) => (
+const Template: StoryFn<InputProps> = (args: InputProps) => (
   <FormComponent {...args} />
 );
 
