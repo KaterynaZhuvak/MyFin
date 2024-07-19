@@ -19,6 +19,7 @@ export const PopoverComponent: FC<PopoverProps> = ({
     <Popover.Portal>
       <Popover.Content
         align='start'
+        asChild
         sideOffset={sideOffset}
         alignOffset={alignOffset}
       >

@@ -13,7 +13,7 @@ export const UserMenu: FC = () => {
       trigger={
         <div className='relative order-4 flex h-[56px] cursor-pointer flex-row items-center justify-center self-center justify-self-center tablet:justify-self-start '>
           <AvatarComponent />
-          <span className='ml-[16px] hidden h-[24px] w-[97px] text-[20px] desktop:block'>
+          <span className='ml-[16px] hidden h-[24px] w-[97px] select-none text-[20px] desktop:block'>
             {user?.firstName} {user?.lastName}
           </span>
           <Icon
