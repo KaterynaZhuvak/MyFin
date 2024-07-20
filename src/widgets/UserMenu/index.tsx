@@ -1,8 +1,9 @@
 import type { FC } from 'react';
-import { AvatarComponent, UserPopoverContent } from '@entities/user';
+import { AvatarComponent } from '@entities/user';
 import { useStore } from '@shared/lib/useStore';
 import { Icon } from '@shared/icons/Icon';
 import { PopoverComponent } from '@shared/ui/PopoverComponent';
+import { UserPopoverContent } from '../UserPopoverContent';
 
 export const UserMenu: FC = () => {
   const { userStore } = useStore();
