@@ -1,7 +1,8 @@
-import type { FC } from 'react';
+import { useEffect, useState, type FC } from 'react';
 import { NavLink } from 'react-router-dom';
 import { cn } from '@shared/lib/cn';
 import { Icon } from '@shared/icons/Icon';
+import { useStore } from '@shared/lib/useStore';
 import { SidebarButton } from './SidebarButton';
 
 const navItems = [
@@ -28,8 +29,17 @@ const navItems = [
 ];
 
 export const Sidebar: FC = () => {
+  const { sidebarStore } = useStore();
+  const [isOpen, setIsOpen] = useState(true);
+
+  useEffect(() => {
+    setIsOpen(sidebarStore.getIsOpen());
+  }, [sidebarStore, sidebarStore.isOpen]);
+
+  const asideStyles = `${isOpen ? 'flex' : 'hidden'} sticky left-0 flex h-screen w-[378px] flex-col bg-[#060606] pb-[168px]`;
+
   return (
-    <aside className='`${}` sticky left-0 flex h-screen w-[378px] flex-col bg-[#060606] pb-[168px]'>
+    <aside className={asideStyles}>
       <nav className='flex grow flex-col  justify-center gap-[32px]'>
         {navItems.map(({ to, label, icon }) => (
           <NavLink

@@ -1,14 +1,14 @@
 import { makeAutoObservable } from 'mobx';
 
 export class SidebarStore {
-  private isOpen = false;
+  public isOpen = true;
 
   constructor() {
     makeAutoObservable(this);
   }
 
   setIsOpen(): void {
-    this.isOpen = !this.isOpen;
+    this.isOpen = false;
   }
 
   getIsOpen(): boolean {

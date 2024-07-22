@@ -40,6 +40,10 @@ body {
   color: white;
 }
 
+* {
+  transition: 300ms;
+}
+
 .gradient {
   background: linear-gradient(
     -18.47deg,
