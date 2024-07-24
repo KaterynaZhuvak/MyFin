@@ -1,7 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { Button } from '.';
 import { withRouter } from 'storybook-addon-remix-react-router';
 import { action } from '@storybook/addon-actions';
+import { Icon } from '@shared/icons/Icon';
+import { Button } from '.';
 
 const meta: Meta<typeof Button> = {
   title: 'ui/Button',
@@ -17,6 +18,10 @@ const meta: Meta<typeof Button> = {
       control: { type: 'select' },
       options: ['xs', 's', 'm', 'l', 'xl'],
     },
+    iconPosition: {
+      control: { type: 'select' },
+      options: ['start', 'end'],
+    },
   },
 };
 
@@ -29,7 +34,7 @@ export const Gradient: Story = {
     title: 'Gradient',
     onClick: action('clicked'),
     variant: 'gradient',
-    size: 'xl',
+    size: 'l',
     className: '',
   },
 };
@@ -39,7 +44,7 @@ export const Outline: Story = {
     title: 'Outline',
     onClick: action('clicked'),
     variant: 'outline',
-    size: 'xl',
+    size: 'l',
     className: '',
   },
 };
@@ -50,5 +55,31 @@ export const Ghost: Story = {
     onClick: action('clicked'),
     variant: 'ghost',
     className: '',
+  },
+};
+
+export const Google: Story = {
+  args: {
+    title: 'Continue with Google',
+    onClick: action('clicked'),
+    variant: 'outline',
+    size: 'm',
+    className:
+      'flex h-[56px] w-[318px] items-center justify-center gap-[16px] text-[16px] tablet:h-[64px] tablet:w-[372px] tablet:text-[20px]',
+    iconPosition: 'start',
+    icon: <Icon name='google' className='size-[20px] tablet:size-[24px]' />,
+  },
+};
+
+export const Apple: Story = {
+  args: {
+    title: 'Continue with Apple',
+    onClick: action('clicked'),
+    variant: 'outline',
+    size: 'm',
+    className:
+      'flex h-[56px] w-[318px] items-center justify-center gap-[16px] text-[16px] tablet:h-[64px] tablet:w-[372px] tablet:text-[20px]',
+    iconPosition: 'start',
+    icon: <Icon name='apple' className='size-[20px] tablet:size-[24px]' />,
   },
 };
