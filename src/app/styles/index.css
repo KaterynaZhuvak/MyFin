@@ -110,3 +110,7 @@ body {
   border-right: none;
   border-left: none;
 }
+
+.user-popover[data-state='open'] .user-popover-arrow {
+  rotate: 180deg;
+}
