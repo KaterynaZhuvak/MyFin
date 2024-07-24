@@ -26,6 +26,6 @@ export const GradientRectangle: Story = {
     name: 'clock',
     variant: 'purple',
     size: 's',
-    className: 'w-[90px] h-[90px]',
+    className: 'w-[60px] h-[60px]',
   },
 };
