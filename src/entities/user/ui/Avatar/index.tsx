@@ -12,7 +12,7 @@ export const AvatarComponent: FC<AvatarProps> = ({ firstName }) => {
         alt='Avatar'
         className='size-[28px] overflow-hidden rounded-full tablet:size-[56px]'
       />
-      <Avatar.Fallback className='flex size-[28px] items-center justify-center overflow-hidden rounded-full bg-sky-50 text-[12px] text-black tablet:size-[56px] tablet:text-[24px]'>
+      <Avatar.Fallback className='flex size-[28px] select-none items-center justify-center overflow-hidden rounded-full bg-sky-50 text-[12px] text-black tablet:size-[56px] tablet:text-[24px]'>
         {firstName ? firstName[0] : 'FC'}
       </Avatar.Fallback>
     </Avatar.Root>
