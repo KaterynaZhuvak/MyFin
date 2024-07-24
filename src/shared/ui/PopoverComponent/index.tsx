@@ -6,6 +6,7 @@ interface PopoverProps {
   content: ReactNode;
   sideOffset?: number;
   alignOffset?: number;
+  className?: string;
 }
 
 export const PopoverComponent: FC<PopoverProps> = ({
@@ -13,12 +14,14 @@ export const PopoverComponent: FC<PopoverProps> = ({
   content,
   sideOffset,
   alignOffset,
+  className,
 }) => (
   <Popover.Root>
     <Popover.Trigger asChild>{trigger}</Popover.Trigger>
     <Popover.Portal>
       <Popover.Content
         align='start'
+        className={className}
         sideOffset={sideOffset}
         alignOffset={alignOffset}
         onOpenAutoFocus={(event) => {
