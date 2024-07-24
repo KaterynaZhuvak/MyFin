@@ -4,18 +4,17 @@ import { cookieManager } from '@shared/lib/cookieManager';
 import { useStore } from '@shared/lib/useStore';
 
 export const LogoutButton: FC = () => {
-  const manager = cookieManager;
   const navigate = useNavigate();
   const { userStore } = useStore();
 
   const handleLogout = (): void => {
     try {
-      manager.removeCookie('accessToken');
-      manager.removeCookie('refreshToken');
+      cookieManager.removeCookie('accessToken');
+      cookieManager.removeCookie('refreshToken');
       userStore.clearUserData();
       navigate('/login');
     } catch (error) {
-      throw new Error(error as string);
+      //TODO: handle an error by throwing a toast message
     }
   };
   return (

@@ -1,5 +1,5 @@
 import type { FC } from 'react';
-import { AvatarComponent } from '@entities/user';
+import { UserAvatar } from '@entities/user';
 import { useStore } from '@shared/lib/useStore';
 import { Icon } from '@shared/icons/Icon';
 import { PopoverComponent } from '@shared/ui/PopoverComponent';
@@ -13,7 +13,7 @@ export const UserMenu: FC = () => {
     <PopoverComponent
       trigger={
         <div className='user-popover relative order-4 flex h-[56px] cursor-pointer flex-row items-center justify-center self-center justify-self-center tablet:justify-self-start'>
-          <AvatarComponent firstName={user?.firstName} />
+          <UserAvatar firstName={user?.firstName} lastName={user?.lastName} />
           <span className='ml-[16px] hidden h-[24px] w-full select-none text-nowrap text-[20px] desktop:block'>
             {user?.firstName} {user?.lastName[0]}.
           </span>
