@@ -1,5 +1,5 @@
 import type { FC } from 'react';
-import { GoBack } from '@features/not-found/GoBack';
+import { GoBack } from '@features/goBack';
 import notFound from '@shared/assets/images/not-found.png';
 
 export const NotFoundPage: FC = () => {

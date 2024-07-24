@@ -1,5 +1,5 @@
 import { Meta, StoryObj } from '@storybook/react';
-import { Sidebar } from '..';
+import { Sidebar } from '../..';
 import { withRouter } from 'storybook-addon-remix-react-router';
 
 const meta: Meta = {
