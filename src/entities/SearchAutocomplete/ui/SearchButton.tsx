@@ -2,7 +2,7 @@ import type { FC } from 'react';
 import { Icon } from '@shared/icons/Icon';
 import { CustomPopover } from '@shared/ui/CustomPopover';
 
-export const SearchAutocomplete: FC = () => {
+export const SearchButton: FC = () => {
   return (
     <CustomPopover
       trigger={

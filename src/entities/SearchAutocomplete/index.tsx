@@ -1,1 +1,1 @@
-export { SearchAutocomplete } from './ui/SearchAutocomplete';
+export { SearchButton } from './ui/SearchButton';

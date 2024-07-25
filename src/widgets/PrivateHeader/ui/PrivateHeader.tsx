@@ -2,8 +2,8 @@ import type { FC } from 'react';
 import { useNavigate } from 'react-router';
 import { Icon } from '@shared/icons/Icon';
 import { UserMenu } from '@widgets/UserMenu';
-import { SearchAutocomplete } from '@entities/SearchAutocomplete';
 import { SearchInput } from '@shared/ui/SearchInput';
+import { SearchButton } from '@entities/SearchAutocomplete';
 
 export const PrivateHeader: FC = () => {
   const navigate = useNavigate();
@@ -25,7 +25,7 @@ export const PrivateHeader: FC = () => {
         className='order-3 h-[34px] w-[151px] cursor-pointer self-center justify-self-center tablet:order-1  tablet:h-[60px] tablet:w-[186px]'
         onClick={handleClickIcon}
       />
-      <SearchAutocomplete />
+      <SearchButton />
       <Icon
         name='bell'
         className='order-2 size-[22px] cursor-pointer self-center justify-self-center tablet:order-3 tablet:mt-[6px]'
