@@ -1,7 +1,7 @@
 import axios from 'axios';
 import type { AxiosError, AxiosInstance } from 'axios';
 import { cookieManager } from '@shared/lib/cookieManager.ts';
-import { refresh } from '../api/refresh.api';
+import { refresh } from '../api';
 
 export const setupAuthInterceptors = (Api: AxiosInstance): void => {
   Api.interceptors.request.use(

@@ -79,7 +79,7 @@ export const Button: FC<ButtonProps> = ({
       onClick={props.onClick}
       className={cn(buttonVariants({ variant, size, className }))}
     >
-      <div>{icon}</div>
+      {icon}
       {props.title}
     </button>
   );
