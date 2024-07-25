@@ -1,17 +1,15 @@
-class LSManager {
-  private storage: Storage = window.localStorage;
-
+class LocalStorageManager {
   setItem(key: string, value: unknown): void {
     if (typeof value !== 'string') {
       const stringifiedValue = JSON.stringify(value);
-      this.storage.setItem(key, stringifiedValue);
+      localStorage.setItem(key, stringifiedValue);
     } else if (typeof value === 'string') {
-      this.storage.setItem(key, value);
+      localStorage.setItem(key, value);
     }
   }
 
   getItem(key: string): string | null {
-    const value = this.storage.getItem(key);
+    const value = localStorage.getItem(key);
     if (value === null) {
       return null;
     }
@@ -20,7 +18,7 @@ class LSManager {
   }
 
   removeItem(key: string): void {
-    this.storage.removeItem(key);
+    localStorage.removeItem(key);
   }
 }
-export const LocalStorageManager = new LSManager();
+export const localStorageManager = new LocalStorageManager();

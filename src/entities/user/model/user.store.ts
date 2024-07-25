@@ -1,5 +1,5 @@
 import { makeAutoObservable } from 'mobx';
-import { LocalStorageManager } from '@shared/lib/localSotrageManager';
+import { localStorageManager } from '@shared/lib/localSotrageManager';
 import type { User } from '../interfaces/user.interface';
 
 export class UserStore {
@@ -11,12 +11,12 @@ export class UserStore {
 
   setUserData(userData: User): void {
     this.currentUser = userData;
-    LocalStorageManager.setItem('user', userData);
+    localStorageManager.setItem('user', userData);
   }
 
   getUserData(): User | null {
     if (!this.currentUser) {
-      const userData = LocalStorageManager.getItem('user');
+      const userData = localStorageManager.getItem('user');
       if (userData) {
         this.currentUser = JSON.parse(userData) as User;
       }
@@ -25,6 +25,7 @@ export class UserStore {
   }
 
   clearUserData(): void {
+    localStorageManager.removeItem('user');
     this.currentUser = null;
   }
 }

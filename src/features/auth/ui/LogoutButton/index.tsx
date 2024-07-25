@@ -8,14 +8,10 @@ export const LogoutButton: FC = () => {
   const { userStore } = useStore();
 
   const handleLogout = (): void => {
-    try {
-      cookieManager.removeCookie('accessToken');
-      cookieManager.removeCookie('refreshToken');
-      userStore.clearUserData();
-      navigate('/login');
-    } catch (error) {
-      //TODO: handle an error by throwing a toast message
-    }
+    cookieManager.removeCookie('accessToken');
+    cookieManager.removeCookie('refreshToken');
+    userStore.clearUserData();
+    navigate('/login');
   };
   return (
     <button
