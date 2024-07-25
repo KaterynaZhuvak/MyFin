@@ -5,9 +5,9 @@ import type { AxiosError } from 'axios';
 import * as Yup from 'yup';
 import { Icon } from '@shared/icons/Icon';
 import { AuthInput, AuthButton } from '@entities/auth';
-import { ErrorCodes } from '@shared/enums/error-codes.enum';
+import { ErrorCodes } from '@shared/enums';
 import { useAuth } from '@features/auth/model/useAuth';
-import type { RegistrationOptions } from '@features/auth/interfaces/registaion-options.interface';
+import type { RegistrationOptions } from '@features/auth/interfaces';
 
 const initialValues: RegistrationOptions = {
   firstName: '',

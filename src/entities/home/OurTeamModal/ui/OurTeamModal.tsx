@@ -15,7 +15,7 @@ export const OurTeamModal: FC<OurTeamModalProps> = ({ isOpen, setIsOpen }) => {
       onRequestClose={() => {
         setIsOpen(false);
       }}
-      className='h-[600px] w-[300px] rounded-[20px] bg-modal-background px-[50px] py-[30px] outline-none tablet:h-[800px] tablet:w-[600px] tablet:px-[100px] tablet:py-[60px]'
+      className='h-[600px] w-[300px] overflow-auto rounded-[20px] bg-modal-background px-[50px] py-[30px] outline-none tablet:h-[800px] tablet:w-[600px] tablet:px-[100px] tablet:py-[60px]'
     >
       <Icon
         name='close'

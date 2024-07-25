@@ -1,1 +1,1 @@
-export * from './descriptiveItem.interface';
+export type { DescriptiveItem } from './descriptiveItem.interface';
