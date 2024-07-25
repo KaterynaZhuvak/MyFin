@@ -22,13 +22,13 @@ export const PrivateHeader: FC = () => {
     >
       <Icon
         name='logo'
-        className='order-3 h-[34px] w-[151px] cursor-pointer self-center justify-self-center tablet:order-1 tablet:h-[60px] tablet:w-[186px]'
+        className='order-3 h-[34px] w-[151px] cursor-pointer self-center justify-self-center tablet:order-1  tablet:h-[60px] tablet:w-[186px]'
         onClick={handleClickIcon}
       />
       <SearchAutocomplete />
       <Icon
         name='bell'
-        className='tabet:justify-self-end order-2 size-[22px] cursor-pointer self-center justify-self-center tablet:order-3'
+        className='order-2 size-[22px] cursor-pointer self-center justify-self-center tablet:order-3 tablet:mt-[6px]'
       />
       <UserMenu />
       <SearchInput />
