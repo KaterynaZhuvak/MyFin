@@ -2,7 +2,7 @@ import type { FC } from 'react';
 import { UserAvatar } from '@entities/user';
 import { useStore } from '@shared/lib/useStore';
 import { Icon } from '@shared/icons/Icon';
-import { PopoverComponent } from '@shared/ui/PopoverComponent';
+import { CustomPopover } from '@shared/ui/PopoverComponent';
 import { UserPopoverContent } from '../UserPopoverContent';
 
 export const UserMenu: FC = () => {
@@ -10,7 +10,7 @@ export const UserMenu: FC = () => {
   const user = userStore.getUserData();
 
   return (
-    <PopoverComponent
+    <CustomPopover
       trigger={
         <div className='user-popover relative order-4 flex h-[56px] cursor-pointer flex-row items-center justify-center self-center justify-self-center tablet:justify-self-start'>
           <UserAvatar firstName={user?.firstName} lastName={user?.lastName} />

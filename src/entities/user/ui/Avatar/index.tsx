@@ -2,8 +2,8 @@ import type { FC } from 'react';
 import * as Avatar from '@radix-ui/react-avatar';
 
 interface AvatarProps {
-  firstName: string | undefined;
-  lastName: string | undefined;
+  firstName?: string;
+  lastName?: string;
 }
 
 export const UserAvatar: FC<AvatarProps> = ({ firstName, lastName }) => {

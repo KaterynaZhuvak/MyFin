@@ -9,7 +9,7 @@ interface PopoverProps {
   className?: string;
 }
 
-export const PopoverComponent: FC<PopoverProps> = ({
+export const CustomPopover: FC<PopoverProps> = ({
   trigger,
   content,
   sideOffset,

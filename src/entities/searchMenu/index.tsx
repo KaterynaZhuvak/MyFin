@@ -1,10 +1,10 @@
 import type { FC } from 'react';
 import { Icon } from '@shared/icons/Icon';
-import { PopoverComponent } from '@shared/ui/PopoverComponent';
+import { CustomPopover } from '@shared/ui/PopoverComponent';
 
-export const SearchMenu: FC = () => {
+export const SearchAutocomplete: FC = () => {
   return (
-    <PopoverComponent
+    <CustomPopover
       trigger={
         <div className='self-center justify-self-center tablet:hidden '>
           <Icon
