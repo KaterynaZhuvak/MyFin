@@ -2,7 +2,7 @@ import type { FC } from 'react';
 import { NavLink } from 'react-router-dom';
 import { cn } from '@shared/lib/cn';
 import { Icon } from '@shared/icons/Icon';
-import { SidebarButton } from './SidebarButton';
+import { SidebarButton } from '../SidebarButton';
 
 const navItems = [
   {
