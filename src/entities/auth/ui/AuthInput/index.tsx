@@ -3,7 +3,7 @@ import { ErrorMessage, useField } from 'formik';
 import { Icon } from '@shared/icons/Icon';
 import { Input } from '@shared/ui/Input';
 
-interface InputProps {
+export interface InputProps {
   label: string;
   type: string;
   name: string;

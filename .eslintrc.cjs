@@ -27,6 +27,7 @@ module.exports = {
     'index.d.ts',
     '*.css',
     '*.stories.ts',
+    '*.stories.tsx',
     '*.md',
   ],
 

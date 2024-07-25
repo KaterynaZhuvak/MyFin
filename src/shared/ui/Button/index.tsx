@@ -20,7 +20,6 @@ export const buttonVariants = cva(['font-sans', 'font-bold'], {
         'hover:border-[pale-green]',
         'hover:text-[pale-green]',
       ],
-      withoutOutline: ['tablet:hidden'],
       ghost: [
         'text-white',
         'hover:text-bright-green',
