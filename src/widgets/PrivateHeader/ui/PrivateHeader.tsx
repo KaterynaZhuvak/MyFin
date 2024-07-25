@@ -2,7 +2,8 @@ import type { FC } from 'react';
 import { useNavigate } from 'react-router';
 import { Icon } from '@shared/icons/Icon';
 import { UserMenu } from '@widgets/UserMenu';
-import { SearchAutocomplete } from '@entities/searchMenu';
+import { SearchAutocomplete } from '@entities/SearchAutocomplete';
+import { SearchInput } from '@shared/ui/SearchInput';
 
 export const PrivateHeader: FC = () => {
   const navigate = useNavigate();
@@ -30,7 +31,7 @@ export const PrivateHeader: FC = () => {
         className='tabet:justify-self-end order-2 size-[22px] cursor-pointer self-center justify-self-center tablet:order-3'
       />
       <UserMenu />
-      <SearchAutocomplete />
+      <SearchInput />
     </header>
   );
 };

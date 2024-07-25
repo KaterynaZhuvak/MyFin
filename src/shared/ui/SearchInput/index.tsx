@@ -1,7 +1,7 @@
 import { type FormEvent, type FC } from 'react';
 import { Icon } from '@shared/icons/Icon';
 
-export const SmarchInput: FC = () => {
+export const SearchInput: FC = () => {
   const handleOnSubmit = (e: FormEvent<HTMLFormElement>): string => {
     e.preventDefault();
     const form = e.currentTarget;
