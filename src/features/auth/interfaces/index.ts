@@ -1,4 +1,4 @@
-export * from './auth-response.interface';
-export * from './login-options.interface';
-export * from './logout-response.inteface';
-export * from './registaion-options.interface';
+export type { AuthResponse } from './auth-response.interface';
+export type { LoginOptions } from './login-options.interface';
+export type { LogoutResponse } from './logout-response.inteface';
+export type { RegistrationOptions } from './registaion-options.interface';

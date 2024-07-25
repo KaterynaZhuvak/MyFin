@@ -5,7 +5,7 @@ interface RefreshResponse {
   refreshToken: string;
 }
 
-export const refresh = async (
+export const refreshApi = async (
   accessToken: string | undefined,
   refreshToken: string | undefined
 ): Promise<RefreshResponse> => {

@@ -1,3 +1,3 @@
-export * from './login.api';
-export * from './registration.api';
-export * from './refresh.api';
+export { loginApi } from './login.api';
+export { registrationApi } from './registration.api';
+export { refreshApi } from './refresh.api';
