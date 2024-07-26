@@ -1,6 +1,8 @@
 import axios from 'axios';
 import type { AxiosError, AxiosInstance } from 'axios';
 import { cookieManager } from '@shared/lib/cookieManager.ts';
+import { useStore } from '@shared/lib/useStore';
+import { HttpCodes } from '@shared/enums';
 import { refreshApi } from '../api';
 
 export const setupAuthInterceptors = (Api: AxiosInstance): void => {
@@ -21,9 +23,10 @@ export const setupAuthInterceptors = (Api: AxiosInstance): void => {
     (response) => {
       return response;
     },
-    async (error: AxiosError) => {
-      const originalRequest = error.config;
-      if (error.response?.status === 401) {
+    async (axiosError: AxiosError) => {
+      const originalRequest = axiosError.config;
+      const { userStore } = useStore();
+      if (axiosError.response?.status === HttpCodes.Unauthorized) {
         try {
           const data = await refreshApi(
             cookieManager.getCookie('accessToken'),
@@ -37,17 +40,18 @@ export const setupAuthInterceptors = (Api: AxiosInstance): void => {
             ? (originalRequest.headers.Authorization = `Bearer ${data.accessToken}`)
             : null;
           return axios(window.location.pathname, originalRequest);
-        } catch (error2) {
-          const errorValue = error2 as AxiosError;
-          if (errorValue.response?.status === 403) {
+        } catch (error) {
+          const isAxiosError = error as AxiosError;
+          if (isAxiosError.response?.status === 403) {
             cookieManager.removeCookie('accessToken');
             cookieManager.removeCookie('refreshToken');
+            userStore.clearUserData();
             window.location.href = '/login';
           }
-          return Promise.reject(new Error(error2 as string));
+          return Promise.reject(isAxiosError);
         }
       }
-      return Promise.reject(error);
+      return Promise.reject(axiosError);
     }
   );
 };

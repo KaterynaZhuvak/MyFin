@@ -17,7 +17,7 @@ export const useAuth = (): AuthReturnType => {
   const navigate = useNavigate();
   const { userStore } = useStore();
 
-  const handleResponse = (
+  const authenticateUser = (
     response: AuthResponse,
     refreshTokenExpires: number
   ): void => {
@@ -35,7 +35,7 @@ export const useAuth = (): AuthReturnType => {
       return;
     }
     const response = await loginApi(values.email, values.password);
-    handleResponse(response, 30);
+    authenticateUser(response, 30);
   };
 
   const handleSubmitRegistration = async (
@@ -47,7 +47,7 @@ export const useAuth = (): AuthReturnType => {
       values.email,
       values.password
     );
-    handleResponse(response, 7);
+    authenticateUser(response, 7);
   };
 
   return {
