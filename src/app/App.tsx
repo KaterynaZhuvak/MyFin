@@ -10,6 +10,7 @@ import { RegisterPage } from '@pages/RegisterPage';
 import { ExpensesPage } from '@pages/ExpensesPage';
 import { StatisticsPage } from '@pages/StatisticsPage';
 import { RootLayout } from '@shared/ui/layouts/RootLayout';
+import { PrivacyPolicy } from '@pages/PrivacyPolicy';
 
 export const App: FC = () => {
   return (
@@ -28,6 +29,7 @@ export const App: FC = () => {
           <Route path='register' element={<RegisterPage />} />
         </Route>
         <Route path='*' element={<NotFoundPage />} />
+        <Route path='privacy-policy' element={<PrivacyPolicy />} />
       </Routes>
     </BrowserRouter>
   );
