@@ -32,8 +32,10 @@ const navItems = [
 export const Sidebar: FC = observer(() => {
   const { sidebarStore } = useStore();
 
+  const tabletWidth = 768;
+
   const navItemOnClick = (): void => {
-    if (window.innerWidth <= 768) {
+    if (window.innerWidth <= tabletWidth) {
       sidebarStore.setIsOpen(false);
     }
   };
