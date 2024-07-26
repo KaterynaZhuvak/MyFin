@@ -7,11 +7,7 @@ export class SidebarStore {
     makeAutoObservable(this);
   }
 
-  setIsOpen(): void {
-    this.isOpen = false;
-  }
-
-  getIsOpen(): boolean {
-    return this.isOpen;
+  setIsOpen(opened: boolean): void {
+    this.isOpen = opened;
   }
 }
