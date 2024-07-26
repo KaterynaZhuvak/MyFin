@@ -4,7 +4,7 @@ import { observer } from 'mobx-react';
 import { cn } from '@shared/lib/cn';
 import { Icon } from '@shared/icons/Icon';
 import { useStore } from '@shared/lib/useStore';
-import { SidebarButton } from './SidebarButton';
+import { SidebarButton } from '../SidebarButton';
 
 const navItems = [
   {
@@ -47,6 +47,7 @@ export const Sidebar: FC = observer(() => {
     flex-col
     bg-[#060606]
     p-[110px_0_80px_0]
+    duration-300
 
     tablet:p-[340px_0_168px_0]
     tablet:static

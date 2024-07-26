@@ -1,18 +1,19 @@
 import { useNavigate } from 'react-router-dom';
 import { useStore } from '@shared/lib/useStore';
-import type { LoginOptions } from '../interfaces/login-options.interface';
-import type { RegistrationOptions } from '../interfaces/registaion-options.interface';
-import { loginApi } from '../api/login.api';
-import { registrationApi } from '../api/registration.api';
-import type { AuthResponse } from '../interfaces/auth-response.interface';
+import type {
+  RegistrationOptions,
+  AuthResponse,
+  LoginOptions,
+} from '../interfaces';
+import { registrationApi, loginApi } from '../api';
 import { setCookies } from './setCookies';
 
-interface UseAuthReturnType {
+interface AuthReturnType {
   handleSubmitLogin: (values: LoginOptions) => Promise<void>;
   handleSubmitRegistration: (values: RegistrationOptions) => Promise<void>;
 }
 
-export const useAuth = (): UseAuthReturnType => {
+export const useAuth = (): AuthReturnType => {
   const navigate = useNavigate();
   const { userStore } = useStore();
 

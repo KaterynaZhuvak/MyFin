@@ -1,7 +1,7 @@
 import axios from 'axios';
 import type { AxiosError, AxiosInstance } from 'axios';
 import { cookieManager } from '@shared/lib/cookieManager.ts';
-import { refresh } from '../api/refresh.api';
+import { refreshApi } from '../api';
 
 export const setupAuthInterceptors = (Api: AxiosInstance): void => {
   Api.interceptors.request.use(
@@ -25,7 +25,7 @@ export const setupAuthInterceptors = (Api: AxiosInstance): void => {
       const originalRequest = error.config;
       if (error.response?.status === 401) {
         try {
-          const data = await refresh(
+          const data = await refreshApi(
             cookieManager.getCookie('accessToken'),
             cookieManager.getCookie('refreshToken')
           );

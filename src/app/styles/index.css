@@ -40,10 +40,6 @@ body {
   color: white;
 }
 
-* {
-  transition: 300ms;
-}
-
 .gradient {
   background: linear-gradient(
     -18.47deg,
@@ -113,4 +109,8 @@ body {
   border: 1px solid transparent;
   border-right: none;
   border-left: none;
+}
+
+.user-popover[data-state='open'] .user-popover-arrow {
+  rotate: 180deg;
 }

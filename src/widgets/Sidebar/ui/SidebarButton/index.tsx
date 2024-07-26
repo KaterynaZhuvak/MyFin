@@ -7,12 +7,14 @@ export const SidebarButton: FC = () => {
   min-h-[42px]
   w-[152px]
   select-none
+  duration-300
 
   tablet:mt-[562px]
 
   hover:border-[#20ccaa]
   hover:shadow-[0_5px_5px_1px_#1D664F5a,_0_0_0_#000,_0_-5px_5px_1px_#1D664F5a,_0_0_0_#000]
 
+  *:duration-300
   *:hover:drop-shadow-[0_0px_2px_#1D664Faa]
   *:hover:text-[#10aaaa]
   `;
