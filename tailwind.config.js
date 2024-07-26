@@ -4,7 +4,7 @@ export default {
   content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
   theme: {
     fontFamily: {
-      sans: ['Helvetica'],
+      sans: ['Nunito'],
     },
     screens: {
       mobile: '375px',
@@ -49,6 +49,8 @@ export default {
         'pale-green': '#B9DCD0',
         'hover-green': '#4FDBA9',
         'title-green': '#B9F6B4',
+        'disabled-green': '#6EA698',
+        'modal-background': '#2D3433',
       },
     },
   },
