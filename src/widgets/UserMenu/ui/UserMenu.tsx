@@ -11,6 +11,7 @@ export const UserMenu: FC = () => {
 
   return (
     <CustomPopover
+      className='PopoverContent'
       trigger={
         <div className='user-popover relative order-4 flex h-[56px] cursor-pointer flex-row items-center justify-center self-center justify-self-center tablet:justify-self-start'>
           <UserAvatar firstName={user?.firstName} lastName={user?.lastName} />
@@ -25,6 +26,7 @@ export const UserMenu: FC = () => {
       }
       content={<UserPopoverContent />}
       sideOffset={5}
+      aling='start'
     />
   );
 };

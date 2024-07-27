@@ -30,6 +30,7 @@ export const SearchButton: FC = () => {
         </div>
       }
       sideOffset={15}
+      className='PopoverContent'
     />
   );
 };

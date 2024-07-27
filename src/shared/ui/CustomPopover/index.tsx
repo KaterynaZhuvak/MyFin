@@ -7,6 +7,7 @@ interface PopoverProps {
   sideOffset?: number;
   alignOffset?: number;
   className?: string;
+  aling?: 'start' | 'center' | 'end';
 }
 
 export const CustomPopover: FC<PopoverProps> = ({
@@ -15,12 +16,13 @@ export const CustomPopover: FC<PopoverProps> = ({
   sideOffset,
   alignOffset,
   className,
+  aling,
 }) => (
   <Popover.Root>
     <Popover.Trigger asChild>{trigger}</Popover.Trigger>
     <Popover.Portal>
       <Popover.Content
-        align='start'
+        align={aling}
         className={className}
         sideOffset={sideOffset}
         alignOffset={alignOffset}
