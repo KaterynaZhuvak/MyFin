@@ -9,8 +9,8 @@ import { registrationApi, loginApi } from '../api';
 import { setCookies } from './setCookies';
 
 interface AuthReturnType {
-  handleSubmitLogin: (values: LoginOptions) => Promise<void>;
-  handleSubmitRegistration: (values: RegistrationOptions) => Promise<void>;
+  onLoginSubmit: (values: LoginOptions) => Promise<void>;
+  onRegistrationSubmit: (values: RegistrationOptions) => Promise<void>;
 }
 
 export const useAuth = (): AuthReturnType => {
@@ -30,7 +30,7 @@ export const useAuth = (): AuthReturnType => {
     navigate('/expenses');
   };
 
-  const handleSubmitLogin = async (values: LoginOptions): Promise<void> => {
+  const onLoginSubmit = async (values: LoginOptions): Promise<void> => {
     if (!values.email || !values.password) {
       return;
     }
@@ -38,7 +38,7 @@ export const useAuth = (): AuthReturnType => {
     authenticateUser(response, 30);
   };
 
-  const handleSubmitRegistration = async (
+  const onRegistrationSubmit = async (
     values: RegistrationOptions
   ): Promise<void> => {
     const response = await registrationApi(
@@ -51,7 +51,7 @@ export const useAuth = (): AuthReturnType => {
   };
 
   return {
-    handleSubmitLogin,
-    handleSubmitRegistration,
+    onLoginSubmit,
+    onRegistrationSubmit,
   };
 };

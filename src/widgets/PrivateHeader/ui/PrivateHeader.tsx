@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router';
 import { Icon } from '@shared/icons/Icon';
 import { UserMenu } from '@widgets/UserMenu';
 import { SearchInput } from '@shared/ui/SearchInput';
-import { SearchButton } from '@entities/SearchAutocomplete';
+import { SearchButton } from '@entities/SearchButton';
 
 export const PrivateHeader: FC = () => {
   const navigate = useNavigate();

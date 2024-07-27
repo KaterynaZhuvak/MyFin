@@ -41,14 +41,14 @@ interface ErrorResponse {
 
 export const RegistrationForm: FC = observer(() => {
   const [isVisiblePassword, setIsVisiblePassword] = useState(false);
-  const { handleSubmitRegistration } = useAuth();
+  const { onRegistrationSubmit } = useAuth();
 
   const handleSubmit = async (
     values: RegistrationOptions,
     { setFieldError }: FormikHelpers<RegistrationOptions>
   ): Promise<void> => {
     try {
-      await handleSubmitRegistration(values);
+      await onRegistrationSubmit(values);
     } catch (error) {
       const errorResponse = error as AxiosError<ErrorResponse>;
       if (errorResponse.response?.data.errorCode === ErrorCodes.ExistingUser) {

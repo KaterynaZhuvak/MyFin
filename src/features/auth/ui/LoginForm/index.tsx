@@ -12,7 +12,7 @@ const MAX_CHARS = 20;
 
 export const LoginForm: FC = observer(() => {
   const [isVisiblePassword, setIsVisiblePassword] = useState(false);
-  const { handleSubmitLogin } = useAuth();
+  const { onLoginSubmit } = useAuth();
 
   const LoginSchema = Yup.object().shape({
     email: Yup.string().email('Invalid email').required('Required'),
@@ -26,7 +26,7 @@ export const LoginForm: FC = observer(() => {
     password: '',
   };
   const handleSubmit = async (values: LoginOptions): Promise<void> => {
-    await handleSubmitLogin(values);
+    await onLoginSubmit(values);
   };
 
   return (
