@@ -1,9 +1,9 @@
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import ReactModal from 'react-modal';
-import { StoreProvider } from './providers/storeProvider';
 import './styles/index.css';
 import { App } from './App';
+import { StoreProvider } from './providers/storeProvider';
 
 ReactModal.setAppElement('#root');
 

@@ -27,7 +27,7 @@ export const Hero: FC = observer(() => {
           variant='gradient'
           size='xl'
           onClick={() => {
-            navigate('/register');
+            navigate('/registration');
           }}
         />
       </div>

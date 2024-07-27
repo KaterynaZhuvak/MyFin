@@ -3,10 +3,6 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --get-strated-btn-gradient: red;
-}
-
 @font-face {
   font-family: 'Audiowide';
   font-weight: 400;
@@ -46,25 +42,35 @@ body {
 
 .gradient {
   background: linear-gradient(
-    289.25deg,
-    rgb(191, 252, 186) -112.17%,
-    rgba(155, 255, 182, 0.8217) -19.51%,
-    rgba(122, 250, 199, 0.484375) -0.92%,
-    rgb(21, 255, 192) 133.51%,
-    rgba(68, 255, 221, 0.7) 157.37%
+    -18.47deg,
+    rgba(122, 250, 199, 0.48) 11.343%,
+    rgb(21, 255, 192) 116.98%,
+    rgba(68, 255, 221, 0.7) 135.735%
   );
 }
-
 .gradient:hover,
 .gradient:focus {
   background: linear-gradient(
-    289.25deg,
-    rgb(163, 233, 157) -112.17%,
-    rgba(9, 52, 35, 0.484375) 1.54%,
-    rgb(5, 166, 123) 133.51%,
-    rgba(155, 255, 182, 0.8217) 157.34%,
-    rgba(68, 255, 221, 0.7) 157.37%
+    -18.47deg,
+    rgba(9, 52, 35, 0.48) 10.289%,
+    rgb(5, 166, 123) 121.192%
   );
+}
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: inherit;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #396f4bbb;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #396f4b;
 }
 
 .purple-gradient {
@@ -93,4 +99,80 @@ body {
     rgba(21, 255, 192, 0.561595) 134.79%,
     rgba(68, 255, 221, 0.119) 149.35%
   );
+}
+
+.border-gradient {
+  border-radius: 10px;
+  background:
+    linear-gradient(#060606, #060606) padding-box,
+    linear-gradient(to right, #36c094, #3e8167) border-box;
+  border: 1px solid transparent;
+  border-right: none;
+  border-left: none;
+}
+
+.user-popover[data-state='open'] .user-popover-arrow {
+  rotate: 180deg;
+}
+
+.PopoverContent {
+  animation-duration: 300ms;
+  animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform, opacity;
+}
+.PopoverContent[data-state='open'][data-side='top'] {
+  animation-name: slideDownAndFade;
+}
+.PopoverContent[data-state='open'][data-side='right'] {
+  animation-name: slideLeftAndFade;
+}
+.PopoverContent[data-state='open'][data-side='bottom'] {
+  animation-name: slideUpAndFade;
+}
+.PopoverContent[data-state='open'][data-side='left'] {
+  animation-name: slideRightAndFade;
+}
+
+@keyframes slideUpAndFade {
+  from {
+    opacity: 0;
+    transform: translateY(2px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideRightAndFade {
+  from {
+    opacity: 0;
+    transform: translateX(-2px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideDownAndFade {
+  from {
+    opacity: 0;
+    transform: translateY(-2px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideLeftAndFade {
+  from {
+    opacity: 0;
+    transform: translateX(2px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
