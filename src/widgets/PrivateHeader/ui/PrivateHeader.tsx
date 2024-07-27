@@ -8,7 +8,7 @@ import { SearchButton } from '@entities/SearchButton';
 export const PrivateHeader: FC = () => {
   const navigate = useNavigate();
 
-  const handleClickIcon = (): void => {
+  const onIconClick = (): void => {
     navigate('/');
   };
 
@@ -23,7 +23,7 @@ export const PrivateHeader: FC = () => {
       <Icon
         name='logo'
         className='order-3 h-[34px] w-[151px] cursor-pointer self-center justify-self-center tablet:order-1  tablet:h-[60px] tablet:w-[186px]'
-        onClick={handleClickIcon}
+        onClick={onIconClick}
       />
       <SearchButton />
       <Icon

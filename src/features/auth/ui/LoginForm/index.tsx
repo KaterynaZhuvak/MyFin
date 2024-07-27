@@ -21,19 +21,17 @@ export const LoginForm: FC = observer(() => {
       .max(MAX_CHARS, 'Password must be at most 20 characters')
       .required('Required'),
   });
+
   const initialValues: LoginOptions = {
     email: '',
     password: '',
-  };
-  const handleSubmit = async (values: LoginOptions): Promise<void> => {
-    await onLoginSubmit(values);
   };
 
   return (
     <Formik
       initialValues={initialValues}
       validationSchema={LoginSchema}
-      onSubmit={handleSubmit}
+      onSubmit={onLoginSubmit}
     >
       <Form className='m-[0_auto] flex w-[318px] flex-col flex-wrap gap-[32px] tablet:w-[378px]'>
         <AuthInput

@@ -7,7 +7,7 @@ export const LogoutButton: FC = () => {
   const navigate = useNavigate();
   const { userStore } = useStore();
 
-  const handleLogout = (): void => {
+  const onLogoutClick = (): void => {
     cookieManager.removeCookie('accessToken');
     cookieManager.removeCookie('refreshToken');
     userStore.clearUserData();
@@ -17,7 +17,7 @@ export const LogoutButton: FC = () => {
     <button
       className='text-left text-[20px] font-bold text-white hover:text-[#1D664F]'
       type='submit'
-      onClick={handleLogout}
+      onClick={onLogoutClick}
     >
       Log Out
     </button>

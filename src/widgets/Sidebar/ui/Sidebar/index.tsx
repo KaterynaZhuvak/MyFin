@@ -34,7 +34,7 @@ export const Sidebar: FC = observer(() => {
 
   const tabletWidth = 768;
 
-  const navItemOnClick = (): void => {
+  const onNavItemClick = (): void => {
     if (window.innerWidth <= tabletWidth) {
       sidebarStore.setIsOpen(false);
     }
@@ -82,7 +82,7 @@ export const Sidebar: FC = observer(() => {
           <NavLink
             key={to}
             to={to}
-            onClick={navItemOnClick}
+            onClick={onNavItemClick}
             className={({ isActive }) =>
               cn(navLinkStyles, {
                 'bg-gradient-to-b from-[#0D301F] to-[#074A35] text-white':
