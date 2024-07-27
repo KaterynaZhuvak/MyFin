@@ -41,14 +41,13 @@ export const setupAuthInterceptors = (Api: AxiosInstance): void => {
             : null;
           return axios(window.location.pathname, originalRequest);
         } catch (error) {
-          const isAxiosError = error as AxiosError;
-          if (isAxiosError.response?.status === 403) {
+          if ((error as AxiosError).response?.status === 403) {
             cookieManager.removeCookie('accessToken');
             cookieManager.removeCookie('refreshToken');
             userStore.clearUserData();
             window.location.href = '/login';
           }
-          return Promise.reject(isAxiosError);
+          return Promise.reject(axiosError);
         }
       }
       return Promise.reject(axiosError);
