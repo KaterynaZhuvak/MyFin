@@ -1,9 +1,11 @@
 import { useState, type FC } from 'react';
+import { useNavigate } from 'react-router';
 import { Icon } from '@shared/icons/Icon';
 import { OurTeamModal } from '@entities/home/OurTeamModal';
 
 export const Footer: FC = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const navigate = useNavigate();
 
   return (
     <footer className='bg-header-background'>
@@ -20,8 +22,10 @@ export const Footer: FC = () => {
           </button>
           <button
             type='button'
-            disabled
             className='text-[16px] tracking-[0.02rem] hover:text-hover-green disabled:text-disabled-green tablet:text-[20px]'
+            onClick={() => {
+              navigate('/privacy-policy');
+            }}
           >
             Privacy policy
           </button>
