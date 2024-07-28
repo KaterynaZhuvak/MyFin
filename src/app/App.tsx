@@ -9,7 +9,7 @@ import { LoginPage } from '@pages/LoginPage';
 import { RegistrationPage } from '@pages/RegistrationPage';
 import { ExpensesPage } from '@pages/ExpensesPage';
 import { StatisticsPage } from '@pages/StatisticsPage';
-import { PrivacyPolicy } from '@pages/PrivacyPolicy';
+import { PrivacyPolicyPage } from '@pages/PrivacyPolicyPage';
 import { RootLayout, PrivateLayout } from './layouts';
 
 export const App: FC = () => {
@@ -31,7 +31,7 @@ export const App: FC = () => {
           </Route>
         </Route>
         <Route path='*' element={<NotFoundPage />} />
-        <Route path='privacy-policy' element={<PrivacyPolicy />} />
+        <Route path='privacy-policy' element={<PrivacyPolicyPage />} />
       </Routes>
     </BrowserRouter>
   );

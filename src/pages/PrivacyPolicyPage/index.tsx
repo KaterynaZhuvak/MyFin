@@ -1,7 +1,7 @@
 import { useEffect, type FC } from 'react';
 import { useNavigate } from 'react-router';
 
-export const PrivacyPolicy: FC = () => {
+export const PrivacyPolicyPage: FC = () => {
   const navigate = useNavigate();
 
   const handleClick = (): void => {
