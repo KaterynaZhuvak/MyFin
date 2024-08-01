@@ -14,16 +14,20 @@ export const ExpensesList: FC = () => {
   }
 
   return (
-    <div>
+    <>
       {isLoading ? (
         <div>Loading...</div>
       ) : (
         <ul>
-          {data?.map((expense) => (
-            <Expense key={expense._id} expense={expense} />
+          {data?.map((expense, index) => (
+            <Expense
+              key={expense._id}
+              bg={index % 2 === 0 ? 'bg-[#262626]' : 'bg-[#0F0F0F]'}
+              expense={expense}
+            />
           ))}
         </ul>
       )}
-    </div>
+    </>
   );
 };
