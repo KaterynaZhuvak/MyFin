@@ -1,14 +1,20 @@
 import { type FC } from 'react';
-import { useQuery } from '@tanstack/react-query';
-import { expensesApi } from '@entities/expenses/api/expenses.api';
+import { type ExpenseInterface } from '@entities/expenses/interfaces/expense.interface';
 import { Expense } from '../Expense';
 
-export const ExpensesList: FC = () => {
-  const { isLoading, isError, data, error } = useQuery({
-    queryKey: ['expenses'],
-    queryFn: expensesApi,
-  });
+interface ExpensesListProps {
+  expenses: ExpenseInterface[];
+  isLoading?: boolean;
+  isError?: boolean;
+  error?: Error;
+}
 
+export const ExpensesList: FC<ExpensesListProps> = ({
+  expenses,
+  isLoading,
+  isError,
+  error,
+}) => {
   if (isError) {
     return <div>{error.message}</div>;
   }
@@ -19,7 +25,7 @@ export const ExpensesList: FC = () => {
         <div>Loading...</div>
       ) : (
         <ul>
-          {data?.map((expense, index) => (
+          {expenses.map((expense, index) => (
             <Expense
               key={expense._id}
               bg={index % 2 === 0 ? 'bg-[#262626]' : 'bg-[#0F0F0F]'}
