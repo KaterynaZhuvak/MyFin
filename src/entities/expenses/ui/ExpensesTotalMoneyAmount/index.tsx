@@ -4,7 +4,7 @@ import { amountApi } from '@entities/expenses/api';
 
 export const ExpensesTotalMoneyAmount: FC = () => {
   const { data, isLoading, isError, error } = useQuery({
-    queryKey: ['amount'],
+    queryKey: ['expenses', { type: 'amount' }],
     queryFn: amountApi,
   });
 
