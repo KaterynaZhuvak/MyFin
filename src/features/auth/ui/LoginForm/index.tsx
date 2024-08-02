@@ -5,7 +5,7 @@ import * as Yup from 'yup';
 import { AuthButton, AuthInput } from '@entities/auth';
 import { Icon } from '@shared/icons/Icon';
 import { useAuth } from '@features/auth/model/useAuth';
-import type { LoginOptions } from '@features/auth/interfaces';
+import { type LoginOptions } from '@features/auth/interfaces';
 
 const MIN_CHARS = 8;
 const MAX_CHARS = 20;
