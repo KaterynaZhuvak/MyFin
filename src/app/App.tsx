@@ -9,6 +9,8 @@ import { LoginPage } from '@pages/LoginPage';
 import { RegistrationPage } from '@pages/RegistrationPage';
 import { ExpensesPage } from '@pages/ExpensesPage';
 import { StatisticsPage } from '@pages/StatisticsPage';
+import { AppSettings } from '@entities/settings/app';
+import { UserSettings } from '@entities/settings/user';
 import { RootLayout, PrivateLayout } from './layouts';
 
 export const App: FC = () => {
@@ -26,6 +28,8 @@ export const App: FC = () => {
           <Route path='statistics' element={<StatisticsPage />} />
           <Route path='budgets' element={<BudgetsPage />} />
           <Route path='settings' element={<SettingsPage />}>
+            <Route path='app' element={<AppSettings />} />
+            <Route path='user' element={<UserSettings />} />
             <Route path='change-avatar' element={<ChangeAvatarPage />} />
           </Route>
         </Route>
