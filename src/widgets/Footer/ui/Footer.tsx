@@ -1,11 +1,10 @@
 import { useState, type FC } from 'react';
-import { useNavigate } from 'react-router';
+import { NavLink } from 'react-router-dom';
 import { Icon } from '@shared/icons/Icon';
 import { OurTeamModal } from '@entities/home/OurTeamModal';
 
 export const Footer: FC = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const navigate = useNavigate();
 
   return (
     <footer className='bg-header-background'>
@@ -20,15 +19,12 @@ export const Footer: FC = () => {
           >
             Contact us
           </button>
-          <button
-            type='button'
+          <NavLink
+            to='/privacy-policy'
             className='text-[16px] tracking-[0.02rem] hover:text-hover-green disabled:text-disabled-green tablet:text-[20px]'
-            onClick={() => {
-              navigate('/privacy-policy');
-            }}
           >
             Privacy policy
-          </button>
+          </NavLink>
         </div>
         <p className='text-[12px] tablet:text-[16px]'>
           &#169;{new Date().getFullYear()} MyFin. All Rights Reserved

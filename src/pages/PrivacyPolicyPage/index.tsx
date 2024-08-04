@@ -1,11 +1,16 @@
 import { useEffect, type FC } from 'react';
 import { useNavigate } from 'react-router';
+import { Email } from '@shared/ui/Email';
 
 export const PrivacyPolicyPage: FC = () => {
   const navigate = useNavigate();
 
-  const handleClick = (): void => {
-    navigate(-1);
+  const onGoBackClick = (): void => {
+    if (window.history.length > 1) {
+      navigate(-1);
+    } else {
+      navigate('/');
+    }
   };
 
   useEffect(() => {
@@ -17,7 +22,7 @@ export const PrivacyPolicyPage: FC = () => {
       <button
         className='mb-[20px] text-[24px] hover:text-hover-green tablet:text-[30px]'
         type='button'
-        onClick={handleClick}
+        onClick={onGoBackClick}
       >
         Go back
       </button>
@@ -83,21 +88,25 @@ export const PrivacyPolicyPage: FC = () => {
         enhance your experience with us, the Site, or MyFin, or to provide you
         with information about related products and services. In case you do not
         want your information to be used for any of the purposes listed above,
-        please send an email to: E-mail ekateribazuvak1@gmail.com and indicate
-        the purposes for which you would like your information not to be used.
-        Please allow us a reasonable period of time to remove your information
-        for these purposes, and as such, termination of the use of information
-        for these purposes may not be immediate. Moreover, MyFin may disclose
-        your information to the extent required by law, or to such extent as we
-        deem necessary to protect our legal interests. We reserve the right to
-        cooperate with government agencies and disclose such information to
-        comply with the requirements of the legal process. The Site may also
-        include links to other websites or provide access to products and
-        services offered by third parties whose privacy practices are not under
-        our control. When you visit another website, or purchase goods or
-        services from third parties, the use of any information you provide is
-        governed by the privacy policy of the site you visit that provides such
-        products or services, or that collects your information.
+        please send an email to: E-mail{' '}
+        <Email
+          email='ekaterinazuvak1@gmail.com'
+          className='text-inherit hover:text-bright-green'
+        />{' '}
+        and indicate the purposes for which you would like your information not
+        to be used. Please allow us a reasonable period of time to remove your
+        information for these purposes, and as such, termination of the use of
+        information for these purposes may not be immediate. Moreover, MyFin may
+        disclose your information to the extent required by law, or to such
+        extent as we deem necessary to protect our legal interests. We reserve
+        the right to cooperate with government agencies and disclose such
+        information to comply with the requirements of the legal process. The
+        Site may also include links to other websites or provide access to
+        products and services offered by third parties whose privacy practices
+        are not under our control. When you visit another website, or purchase
+        goods or services from third parties, the use of any information you
+        provide is governed by the privacy policy of the site you visit that
+        provides such products or services, or that collects your information.
       </p>
       <h3 className='mb-[10px] text-[20px] font-bold tracking-[0.01rem] tablet:mb-[15px] tablet:text-[30px]'>
         Using Google Analytics Tools
@@ -163,25 +172,34 @@ export const PrivacyPolicyPage: FC = () => {
         You have the right to access, transport, update, correct or erase your
         personal data, as well as the right to challenge or restrict its use, or
         withdraw its use. These rights can be exercised by sending an email to:
-        ekaterinazuvak1@gmail.com. You also have the right to file a complaint
-        with your local data protection authorities if you believe that your
-        data privacy rights in relation to your personal information are not
-        properly respected. Furthermore, the California Privacy Act (Civil Code
-        § 1798.83) allows California residents to request certain information in
-        relation to our disclosure, if any, of your personal identification
-        information to third parties during the previous calendar year, for
-        their own direct marketing purposes. To submit such a request, please
-        send an email to: E-mail ekateribazuvak1@gmail.com with the text
-        &ldquo;Request for California Privacy&ldquo; in the subject line. In
-        your message to us, you must include sufficient information to enable us
-        to locate your personal file, including, at a minimum, your full name,
-        email address and mailing address. We will attempt to provide you with
-        the requested information within thirty (30) days of receipt. We reserve
-        the right not to respond to inquiries sent more than once in a single
-        calendar year, or requests for information other than that specified in
-        this notice. Please note that the California Personal Information Act
-        does not cover all types of communications, and our disclosures may only
-        include information required by law.
+        <Email
+          email='ekaterinazuvak1@gmail.com'
+          className='text-inherit hover:text-bright-green'
+        />
+        . You also have the right to file a complaint with your local data
+        protection authorities if you believe that your data privacy rights in
+        relation to your personal information are not properly respected.
+        Furthermore, the California Privacy Act (Civil Code § 1798.83) allows
+        California residents to request certain information in relation to our
+        disclosure, if any, of your personal identification information to third
+        parties during the previous calendar year, for their own direct
+        marketing purposes. To submit such a request, please send an email to:
+        E-mail{' '}
+        <Email
+          email='ekaterinazuvak1@gmail.com'
+          className='text-inherit hover:text-bright-green'
+        />{' '}
+        with the text &ldquo;Request for California Privacy&ldquo; in the
+        subject line. In your message to us, you must include sufficient
+        information to enable us to locate your personal file, including, at a
+        minimum, your full name, email address and mailing address. We will
+        attempt to provide you with the requested information within thirty (30)
+        days of receipt. We reserve the right not to respond to inquiries sent
+        more than once in a single calendar year, or requests for information
+        other than that specified in this notice. Please note that the
+        California Personal Information Act does not cover all types of
+        communications, and our disclosures may only include information
+        required by law.
       </p>
       <h3 className='mb-[10px] text-[20px] font-bold tracking-[0.01rem] tablet:mb-[15px] tablet:text-[30px]'>
         Updates to the Privacy Policy
@@ -195,7 +213,12 @@ export const PrivacyPolicyPage: FC = () => {
         amended by us, and for this reason, you should review this Privacy
         Policy regularly to ensure that you are aware of the terms of this
         policy. If you have any questions regarding the privacy policy, please
-        send an email to Alternative E-mail ekaterinazuvak1@gmail.com.
+        send an email to Alternative E-mail{' '}
+        <Email
+          email='yaroslavborovskiy@gmail.com'
+          className='text-inherit hover:text-bright-green'
+        />
+        .
       </p>
     </section>
   );
