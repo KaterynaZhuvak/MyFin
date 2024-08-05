@@ -1,14 +1,18 @@
 import type { FC } from 'react';
+import { cn } from '@shared/lib/cn';
 
 interface EmailProps {
-  email: string;
+  to: string;
   className?: string;
 }
 
-export const Email: FC<EmailProps> = ({ email, className }) => {
+export const Email: FC<EmailProps> = ({ to, className }) => {
   return (
-    <a className={className} href={`mailto:${email}`}>
-      {email}
+    <a
+      className={cn('hover:text-bright-green', className)}
+      href={`mailto:${to}`}
+    >
+      {to}
     </a>
   );
 };

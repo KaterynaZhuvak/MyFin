@@ -30,8 +30,8 @@ export const App: FC = () => {
             <Route path='change-avatar' element={<ChangeAvatarPage />} />
           </Route>
         </Route>
-        <Route path='*' element={<NotFoundPage />} />
         <Route path='privacy-policy' element={<PrivacyPolicyPage />} />
+        <Route path='*' element={<NotFoundPage />} />
       </Routes>
     </BrowserRouter>
   );

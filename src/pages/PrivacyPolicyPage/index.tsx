@@ -89,12 +89,9 @@ export const PrivacyPolicyPage: FC = () => {
         with information about related products and services. In case you do not
         want your information to be used for any of the purposes listed above,
         please send an email to: E-mail{' '}
-        <Email
-          email='ekaterinazuvak1@gmail.com'
-          className='text-inherit hover:text-bright-green'
-        />{' '}
-        and indicate the purposes for which you would like your information not
-        to be used. Please allow us a reasonable period of time to remove your
+        <Email to='ekaterinazuvak1@gmail.com' className='text-inherit' /> and
+        indicate the purposes for which you would like your information not to
+        be used. Please allow us a reasonable period of time to remove your
         information for these purposes, and as such, termination of the use of
         information for these purposes may not be immediate. Moreover, MyFin may
         disclose your information to the extent required by law, or to such
@@ -172,34 +169,26 @@ export const PrivacyPolicyPage: FC = () => {
         You have the right to access, transport, update, correct or erase your
         personal data, as well as the right to challenge or restrict its use, or
         withdraw its use. These rights can be exercised by sending an email to:
-        <Email
-          email='ekaterinazuvak1@gmail.com'
-          className='text-inherit hover:text-bright-green'
-        />
-        . You also have the right to file a complaint with your local data
-        protection authorities if you believe that your data privacy rights in
-        relation to your personal information are not properly respected.
-        Furthermore, the California Privacy Act (Civil Code § 1798.83) allows
-        California residents to request certain information in relation to our
-        disclosure, if any, of your personal identification information to third
-        parties during the previous calendar year, for their own direct
-        marketing purposes. To submit such a request, please send an email to:
-        E-mail{' '}
-        <Email
-          email='ekaterinazuvak1@gmail.com'
-          className='text-inherit hover:text-bright-green'
-        />{' '}
-        with the text &ldquo;Request for California Privacy&ldquo; in the
-        subject line. In your message to us, you must include sufficient
-        information to enable us to locate your personal file, including, at a
-        minimum, your full name, email address and mailing address. We will
-        attempt to provide you with the requested information within thirty (30)
-        days of receipt. We reserve the right not to respond to inquiries sent
-        more than once in a single calendar year, or requests for information
-        other than that specified in this notice. Please note that the
-        California Personal Information Act does not cover all types of
-        communications, and our disclosures may only include information
-        required by law.
+        <Email to='ekaterinazuvak1@gmail.com' className='text-inherit' />. You
+        also have the right to file a complaint with your local data protection
+        authorities if you believe that your data privacy rights in relation to
+        your personal information are not properly respected. Furthermore, the
+        California Privacy Act (Civil Code § 1798.83) allows California
+        residents to request certain information in relation to our disclosure,
+        if any, of your personal identification information to third parties
+        during the previous calendar year, for their own direct marketing
+        purposes. To submit such a request, please send an email to: E-mail{' '}
+        <Email to='ekaterinazuvak1@gmail.com' className='text-inherit' /> with
+        the text &ldquo;Request for California Privacy&ldquo; in the subject
+        line. In your message to us, you must include sufficient information to
+        enable us to locate your personal file, including, at a minimum, your
+        full name, email address and mailing address. We will attempt to provide
+        you with the requested information within thirty (30) days of receipt.
+        We reserve the right not to respond to inquiries sent more than once in
+        a single calendar year, or requests for information other than that
+        specified in this notice. Please note that the California Personal
+        Information Act does not cover all types of communications, and our
+        disclosures may only include information required by law.
       </p>
       <h3 className='mb-[10px] text-[20px] font-bold tracking-[0.01rem] tablet:mb-[15px] tablet:text-[30px]'>
         Updates to the Privacy Policy
@@ -214,11 +203,7 @@ export const PrivacyPolicyPage: FC = () => {
         Policy regularly to ensure that you are aware of the terms of this
         policy. If you have any questions regarding the privacy policy, please
         send an email to Alternative E-mail{' '}
-        <Email
-          email='yaroslavborovskiy@gmail.com'
-          className='text-inherit hover:text-bright-green'
-        />
-        .
+        <Email to='yaroslavborovskiy@gmail.com' className='text-inherit' />.
       </p>
     </section>
   );
