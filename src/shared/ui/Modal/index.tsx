@@ -6,6 +6,7 @@ interface ModalProps {
   className: string;
   children: ReactNode;
   isOpen: boolean;
+  label: string;
   onRequestClose: () => void;
 }
 
@@ -13,6 +14,7 @@ export const CustomModal: FC<ModalProps> = ({
   children,
   className,
   isOpen,
+  label,
   onRequestClose,
 }) => {
   return (
@@ -24,7 +26,7 @@ export const CustomModal: FC<ModalProps> = ({
         'relative left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2',
         className
       )}
-      contentLabel='Our team modal'
+      contentLabel={label}
       bodyOpenClassName='overflow-hidden'
       shouldCloseOnOverlayClick
       shouldCloseOnEsc

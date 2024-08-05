@@ -38,6 +38,7 @@
 body {
   background-color: black;
   color: white;
+  background-color: #0f0f0f;
 }
 
 .gradient {
@@ -62,15 +63,26 @@ body {
 
 ::-webkit-scrollbar-track {
   background: inherit;
+  border: none;
+}
+
+ul::-webkit-scrollbar-track {
+  border: 1px solid white;
+  background: #424746;
+}
+ul::-webkit-scrollbar-thumb {
+  background: #70a193;
+  border-top-right-radius: 15px;
+  border-bottom-right-radius: 15px;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #396f4bbb;
+  background: #70a193;
   border-radius: 5px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #396f4b;
+  background: #70a193aa;
 }
 
 .purple-gradient {

@@ -5,7 +5,13 @@ import { type CreateExpenseInterface } from '@features/expenses/interfaces';
 import { queryClient } from '@shared/api/query-client';
 import { Button } from '@shared/ui/Button';
 
-export const AddExpense: FC<CreateExpenseInterface> = (body) => {
+export const AddExpenseButton: FC<CreateExpenseInterface> = ({
+  userId,
+  category,
+  currency,
+  amount,
+  details,
+}) => {
   const mutation = useMutation({
     mutationFn: addExpenseApi,
     onSuccess: async () => {
@@ -14,7 +20,13 @@ export const AddExpense: FC<CreateExpenseInterface> = (body) => {
   });
 
   const createExpense = (): void => {
-    mutation.mutate(body);
+    mutation.mutate({
+      userId,
+      category,
+      currency,
+      amount,
+      details,
+    });
   };
 
   if (mutation.isError) {
@@ -24,6 +36,7 @@ export const AddExpense: FC<CreateExpenseInterface> = (body) => {
   return (
     <Button
       title='Add Expense'
+      className='gradient h-[72px] w-[526px] rounded-[15px] text-[32px] font-bold'
       disabled={mutation.isPending}
       onClick={createExpense}
     />

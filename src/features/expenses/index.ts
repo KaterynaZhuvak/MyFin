@@ -1,1 +1,1 @@
-export { AddExpense } from './ui/AddExpense';
+export { AddExpenseButton } from './ui/AddExpenseButton';

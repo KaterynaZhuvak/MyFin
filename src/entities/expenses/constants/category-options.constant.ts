@@ -1,0 +1,15 @@
+export const expenseCategories = [
+  'Food',
+  'Taxi',
+  'Shopping',
+  'Transport',
+  'Health',
+  'Car',
+  'Entertainment',
+  'Sport',
+  'Pets',
+  'Present',
+  'Connection',
+  'House',
+  'Restaraunts',
+];
