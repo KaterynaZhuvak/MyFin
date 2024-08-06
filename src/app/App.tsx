@@ -9,6 +9,7 @@ import { LoginPage } from '@pages/LoginPage';
 import { RegistrationPage } from '@pages/RegistrationPage';
 import { ExpensesPage } from '@pages/ExpensesPage';
 import { StatisticsPage } from '@pages/StatisticsPage';
+import { PrivacyPolicyPage } from '@pages/PrivacyPolicyPage';
 import { RootLayout, PrivateLayout } from './layouts';
 
 export const App: FC = () => {
@@ -29,6 +30,7 @@ export const App: FC = () => {
             <Route path='change-avatar' element={<ChangeAvatarPage />} />
           </Route>
         </Route>
+        <Route path='privacy-policy' element={<PrivacyPolicyPage />} />
         <Route path='*' element={<NotFoundPage />} />
       </Routes>
     </BrowserRouter>
