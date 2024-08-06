@@ -1,16 +1,7 @@
 import { useState, type FC } from 'react';
-import { AddExpenseButton } from '@features/expenses';
 import { CustomModal } from '@shared/ui/Modal';
 import { Button } from '@shared/ui/Button';
 import { CreateExpenseModal } from '@entities/expenses/ui/CreateExpenseModal';
-
-const body = {
-  userId: '668563b023117556efc4d036',
-  category: 'Food',
-  currency: '$',
-  amount: 1000,
-  details: 'jasdlskajdasld',
-};
 
 export const FiltersAndAddButton: FC = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -38,10 +29,9 @@ export const FiltersAndAddButton: FC = () => {
           Add Expense
         </h1>
         <CreateExpenseModal />
-        <AddExpenseButton {...body} />
         <Button
           title='Cancel'
-          className='mt-[24px] h-[72px] w-[526px] rounded-[15px] border border-bright-green bg-transparent text-[32px] font-bold text-bright-green'
+          className=' h-[72px] w-[526px] rounded-[15px] border border-bright-green bg-transparent text-[32px] font-bold text-bright-green'
           onClick={handleOnClick}
         />
       </CustomModal>

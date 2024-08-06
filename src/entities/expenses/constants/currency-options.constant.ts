@@ -9,7 +9,6 @@ export const currencyOptions = [
   'BGN',
   'HUF',
   'GEL',
-  'GEL',
   'DKK',
   'ISK',
   'CZK',

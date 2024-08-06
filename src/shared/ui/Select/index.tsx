@@ -1,42 +1,40 @@
 import {
   type ChangeEvent,
-  type MouseEvent,
   useCallback,
   useMemo,
   useState,
   type FC,
+  type MouseEvent,
 } from 'react';
+import { useField, useFormikContext } from 'formik';
 import { Icon } from '@shared/icons/Icon';
 import { cn } from '@shared/lib/cn';
 
 interface SelectProps {
-  label?: string;
   name: string;
   options: string[];
   placeholder?: string;
-  value?: string;
   className?: string;
   inputClassName?: string;
 }
 
 export const Select: FC<SelectProps> = ({
-  label,
   name,
   options,
   placeholder,
-  value,
   className,
   inputClassName,
 }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const [inputValue, setInputValue] = useState(value ?? '');
+  const [field, meta] = useField<string>(name);
+  const { setFieldValue } = useFormikContext();
 
   const filteredOptions = useMemo(
     () =>
       options.filter((option) =>
-        option.toLowerCase().includes(inputValue.toLowerCase())
+        option.toLowerCase().includes(field.value.toLowerCase())
       ),
-    [options, inputValue]
+    [options, field.value]
   );
 
   const handleOnFocus = useCallback(() => {
@@ -46,39 +44,45 @@ export const Select: FC<SelectProps> = ({
   const handleOnBlur = useCallback(() => {
     setTimeout(() => {
       setIsOpen(false);
+      field.onBlur(name);
     }, 150);
-  }, []);
+  }, [field, name]);
 
-  const handleOnChange = useCallback((event: ChangeEvent<HTMLInputElement>) => {
-    setInputValue(event.target.value);
-  }, []);
+  const handleOnChange = useCallback(
+    (event: ChangeEvent<HTMLInputElement>) => {
+      setFieldValue(name, event.target.value).catch(() => {
+        // Error occurred, but we're handling it silently
+        // You might want to set an error state here if appropriate
+      });
+    },
+    [setFieldValue, name]
+  );
 
-  const handleOnClick = useCallback((e: MouseEvent<HTMLOptionElement>) => {
-    e.preventDefault();
-    setInputValue(e.currentTarget.value);
-    setIsOpen(false);
-  }, []);
+  const handleOnClick = useCallback(
+    (e: MouseEvent<HTMLOptionElement>) => {
+      setFieldValue(name, e.currentTarget.value).catch(() => {
+        // Error occurred, but we're handling it silently
+        // You might want to set an error state here if appropriate
+      });
+      setIsOpen(false);
+    },
+    [setFieldValue, name]
+  );
 
   return (
     <fieldset className={cn('relative w-full', className)}>
-      {label ? (
-        <label htmlFor={name} className='mb-2 block text-[20px]'>
-          {label}
-        </label>
-      ) : null}
       <div className='relative w-full'>
         <input
+          {...field}
           type='text'
           onFocus={handleOnFocus}
-          name={name}
-          id={name}
-          value={inputValue}
           onBlur={handleOnBlur}
           onChange={handleOnChange}
           placeholder={placeholder}
           className={cn(
             'h-[64px] w-full rounded-[15px] border border-white bg-transparent pl-5 pr-12',
-            inputClassName
+            inputClassName,
+            meta.touched && meta.error ? 'border-red-500' : ''
           )}
         />
         <Icon
@@ -89,22 +93,30 @@ export const Select: FC<SelectProps> = ({
           )}
         />
       </div>
-      {isOpen ? (
-        <div className='absolute z-10 mt-2 w-full overflow-hidden rounded-[15px] border border-white bg-modal-background'>
-          <ul className='max-h-[408px] w-full overflow-y-auto rounded-[15px]'>
-            {filteredOptions.map((option) => (
-              <option
-                key={option}
-                value={option}
-                onClick={handleOnClick}
-                className='flex h-[64px] w-full items-center rounded-[15px] bg-transparent pl-5 hover:cursor-pointer'
-              >
-                {option}
-              </option>
-            ))}
-          </ul>
-        </div>
-      ) : null}
+      <div
+        className={
+          isOpen
+            ? 'absolute z-10 mt-2 w-full overflow-hidden rounded-[15px] border border-white bg-modal-background'
+            : 'hidden'
+        }
+      >
+        <ul className='max-h-[408px] w-full overflow-y-auto rounded-[15px]'>
+          {filteredOptions.map((option) => (
+            <option
+              key={option}
+              onClick={handleOnClick}
+              className='flex h-[64px] w-full items-center rounded-[15px] bg-transparent pl-5 hover:cursor-pointer'
+            >
+              {option}
+            </option>
+          ))}
+        </ul>
+      </div>
+      <div
+        className={meta.touched && meta.error ? 'mt-1 text-red-500' : 'hidden'}
+      >
+        {meta.error}
+      </div>
     </fieldset>
   );
 };
