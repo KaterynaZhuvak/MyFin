@@ -13,6 +13,7 @@ import { cn } from '@shared/lib/cn';
 interface SelectProps {
   name: string;
   options: string[];
+  maxLength?: number;
   placeholder?: string;
   className?: string;
   inputClassName?: string;
@@ -21,6 +22,7 @@ interface SelectProps {
 export const Select: FC<SelectProps> = ({
   name,
   options,
+  maxLength,
   placeholder,
   className,
   inputClassName,
@@ -75,6 +77,8 @@ export const Select: FC<SelectProps> = ({
         <input
           {...field}
           type='text'
+          id={name}
+          maxLength={maxLength}
           onFocus={handleOnFocus}
           onBlur={handleOnBlur}
           onChange={handleOnChange}
@@ -95,7 +99,7 @@ export const Select: FC<SelectProps> = ({
       </div>
       <div
         className={
-          isOpen
+          isOpen && filteredOptions.length > 0
             ? 'absolute z-10 mt-2 w-full overflow-hidden rounded-[15px] border border-white bg-modal-background'
             : 'hidden'
         }

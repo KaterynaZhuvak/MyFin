@@ -1,2 +1,2 @@
-export { addExpenseApi } from './api';
+export { CreateExpense } from './ui/CreateExpense';
 export type { CreateExpenseInterface } from './interfaces';
