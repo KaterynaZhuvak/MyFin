@@ -2,6 +2,7 @@ import { Field, Form, Formik, type FormikValues } from 'formik';
 import { type FC } from 'react';
 import { useMutation } from '@tanstack/react-query';
 import { NavLink } from 'react-router-dom';
+import { DateTime } from 'luxon';
 import { queryClient } from '@shared/api/query-client';
 import { useStore } from '@shared/lib/useStore';
 import { Button } from '@shared/ui/Button';
@@ -11,6 +12,7 @@ import { expenseCategories } from '@entities/expenses/constants/category-options
 import { AmountAndCurrency, Datepicker } from '@entities/expenses';
 import { Icon } from '@shared/icons/Icon';
 import { addExpenseApi } from '@features/expenses/api';
+import { monthOptions } from '@entities/expenses/constants/month-options.constant';
 
 const initialValues = {
   category: '',
@@ -37,14 +39,28 @@ export const CreateExpense: FC = () => {
     if (!userId) {
       return;
     }
-    const { category, currency, amount, details } = values;
+    const { category, currency, amount, details, month, day, year } = values;
+    const monthNumber = monthOptions.indexOf(month as string) + 1;
+
+    const date = DateTime.utc(
+      Number(year),
+      monthNumber,
+      Number(day)
+    ).toString();
+
+    if (!date) {
+      return;
+    }
+
     const payload: CreateExpenseInterface = {
       userId,
       category: category as string,
       currency: currency as string,
       amount: Number(amount),
+      date,
       details: details as string,
     };
+
     mutation.mutate(payload);
   };
 

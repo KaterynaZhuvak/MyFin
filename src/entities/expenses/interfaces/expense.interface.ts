@@ -6,5 +6,6 @@ export interface ExpenseInterface {
   amount: number;
   createdAt: Date;
   updatedAt: Date;
+  date: string;
   details: string;
 }
