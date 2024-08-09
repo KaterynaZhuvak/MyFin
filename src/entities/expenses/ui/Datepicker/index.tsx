@@ -6,7 +6,7 @@ import { Select } from '@shared/ui/Select';
 export const Datepicker: FC = () => {
   const { setFieldValue } = useFormikContext();
 
-  const handleOnChange = (event: ChangeEvent<HTMLInputElement>): void => {
+  const onInputChange = (event: ChangeEvent<HTMLInputElement>): void => {
     setFieldValue(event.currentTarget.name, event.target.value).catch(() => {
       // Error occurred, but we're handling it silently
       // You might want to set an error state here if appropriate
@@ -31,14 +31,14 @@ export const Datepicker: FC = () => {
           type='text'
           name='day'
           className='h-[64px] w-[76px] border border-x-0 border-white bg-transparent p-[0_20px]'
-          onChange={handleOnChange}
+          onChange={onInputChange}
           placeholder='DD'
           maxLength={2}
         />
         <input
           type='text'
           name='year'
-          onChange={handleOnChange}
+          onChange={onInputChange}
           className='h-[64px] w-[76px] rounded-[15px] rounded-l-none border border-l-0  border-white bg-transparent p-[0_20px_0_10px]'
           placeholder='YYYY'
           maxLength={4}

@@ -1,5 +1,4 @@
 import {
-  type ChangeEvent,
   useCallback,
   useMemo,
   useState,
@@ -39,28 +38,18 @@ export const Select: FC<SelectProps> = ({
     [options, field.value]
   );
 
-  const handleOnFocus = useCallback(() => {
+  const onInputFocus = useCallback(() => {
     setIsOpen(true);
   }, []);
 
-  const handleOnBlur = useCallback(() => {
+  const onInputBlur = useCallback(() => {
     setTimeout(() => {
       setIsOpen(false);
       field.onBlur(name);
     }, 150);
   }, [field, name]);
 
-  const handleOnChange = useCallback(
-    (event: ChangeEvent<HTMLInputElement>) => {
-      setFieldValue(name, event.target.value).catch(() => {
-        // Error occurred, but we're handling it silently
-        // You might want to set an error state here if appropriate
-      });
-    },
-    [setFieldValue, name]
-  );
-
-  const handleOnClick = useCallback(
+  const onOptionClick = useCallback(
     (e: MouseEvent<HTMLOptionElement>) => {
       setFieldValue(name, e.currentTarget.value).catch(() => {
         // Error occurred, but we're handling it silently
@@ -79,9 +68,8 @@ export const Select: FC<SelectProps> = ({
           type='text'
           id={name}
           maxLength={maxLength}
-          onFocus={handleOnFocus}
-          onBlur={handleOnBlur}
-          onChange={handleOnChange}
+          onFocus={onInputFocus}
+          onBlur={onInputBlur}
           placeholder={placeholder}
           className={cn(
             'h-[64px] w-full rounded-[15px] border border-white bg-transparent pl-5 pr-12',
@@ -108,7 +96,7 @@ export const Select: FC<SelectProps> = ({
           {filteredOptions.map((option) => (
             <option
               key={option}
-              onClick={handleOnClick}
+              onClick={onOptionClick}
               className='flex h-[64px] w-full items-center rounded-[15px] bg-transparent pl-5 hover:cursor-pointer'
             >
               {option}

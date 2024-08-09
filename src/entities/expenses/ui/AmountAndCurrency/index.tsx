@@ -5,7 +5,7 @@ import { Select } from '@shared/ui/Select';
 
 export const AmountAndCurrency: FC = () => {
   return (
-    <fieldset className='flex flex-row '>
+    <fieldset className='flex flex-row items-end'>
       <div className='max-w-[106px]'>
         <label htmlFor='currency' className='text-[20px] text-white'>
           Amount
@@ -22,7 +22,7 @@ export const AmountAndCurrency: FC = () => {
         placeholder='UAH'
         name='currency'
         inputClassName='rounded-l-none border-l-0'
-        className='flex w-[106px] items-end'
+        className='w-[106px]'
         options={currencyOptions}
       />
     </fieldset>

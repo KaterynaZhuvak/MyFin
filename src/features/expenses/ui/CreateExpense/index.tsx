@@ -34,7 +34,7 @@ export const CreateExpense: FC = () => {
     },
   });
 
-  const handleOnSubmit = (values: FormikValues): void => {
+  const onFormSubmit = (values: FormikValues): void => {
     const userId = userStore.getUserData()?._id;
     if (!userId) {
       return;
@@ -72,7 +72,7 @@ export const CreateExpense: FC = () => {
           Back to All expenses
         </NavLink>
       </div>
-      <Formik initialValues={initialValues} onSubmit={handleOnSubmit}>
+      <Formik initialValues={initialValues} onSubmit={onFormSubmit}>
         <Form className='ml-[136px] flex max-h-[932px] max-w-[746px] flex-col gap-10 rounded-[20px] bg-modal-background p-[64px_107px_104px_112px]'>
           <h1 className='text-center text-[34px] font-bold leading-10'>
             New Expense
