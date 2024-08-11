@@ -1,9 +1,15 @@
 import { Field } from 'formik';
 import { type FC } from 'react';
-import { currencyOptions } from '@entities/expenses/constants/currency-options.constant';
 import { Select } from '@shared/ui/Select';
+import { useStore } from '@shared/lib/useStore';
 
 export const AmountAndCurrency: FC = () => {
+  const { currenciesStore } = useStore();
+
+  const currencyOptions = currenciesStore.getCurrencies().map((currency) => {
+    return currency.name;
+  });
+
   return (
     <fieldset className='flex flex-row items-end'>
       <div className='max-w-[106px]'>

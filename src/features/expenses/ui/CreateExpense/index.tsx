@@ -8,7 +8,6 @@ import { useStore } from '@shared/lib/useStore';
 import { Button } from '@shared/ui/Button';
 import { Select } from '@shared/ui/Select';
 import { type CreateExpenseInterface } from '@features/expenses';
-import { expenseCategories } from '@entities/expenses/constants/category-options.constant';
 import { AmountAndCurrency, Datepicker } from '@entities/expenses';
 import { Icon } from '@shared/icons/Icon';
 import { addExpenseApi } from '@features/expenses/api';
@@ -25,7 +24,11 @@ const initialValues = {
 };
 
 export const CreateExpense: FC = () => {
-  const { userStore } = useStore();
+  const { userStore, categoriesStore } = useStore();
+
+  const categoriesOptions = categoriesStore.getCategories().map((category) => {
+    return category.name;
+  });
 
   const mutation = useMutation({
     mutationFn: addExpenseApi,
@@ -83,7 +86,7 @@ export const CreateExpense: FC = () => {
             </label>
             <Select
               name='category'
-              options={expenseCategories}
+              options={categoriesOptions}
               placeholder='Select a category'
               className='w-[526px]'
             />

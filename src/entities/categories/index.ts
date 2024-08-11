@@ -1,0 +1,1 @@
+export { categoriesApi } from './api';

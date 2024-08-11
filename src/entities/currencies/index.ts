@@ -1,0 +1,1 @@
+export { currenciesApi } from './api';

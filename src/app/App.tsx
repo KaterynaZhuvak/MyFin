@@ -20,7 +20,6 @@ export const App: FC = () => {
           <Route index element={<HomePage />} />
           <Route path='login' element={<LoginPage />} />
           <Route path='registration' element={<RegistrationPage />} />
-          <Route path='*' element={<NotFoundPage />} />
         </Route>
         <Route element={<PrivateLayout />}>
           <Route path='expenses'>
