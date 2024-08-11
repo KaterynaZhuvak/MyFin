@@ -19,12 +19,14 @@ export const PrivateLayout: FC = () => {
   return (
     <>
       <PrivateHeader />
-      <main className='flex size-full flex-row'>
+      <main className='flex w-full flex-row'>
         <Sidebar />
 
-        <BackToButton />
+        <div className='flex w-full flex-col'>
+          <BackToButton />
 
-        <Outlet />
+          <Outlet />
+        </div>
       </main>
     </>
   );
