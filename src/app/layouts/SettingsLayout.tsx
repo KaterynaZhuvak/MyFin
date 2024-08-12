@@ -1,7 +1,15 @@
-import { Suspense, type FC } from 'react';
-import { NavLink, Outlet } from 'react-router-dom';
+import { Suspense, useEffect, type FC } from 'react';
+import { NavLink, Outlet, useNavigate } from 'react-router-dom';
 
-export const SettingsPage: FC = () => {
+export const SettingsLayout: FC = () => {
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (window.location.pathname === '/settings') {
+      navigate('/settings/app');
+    }
+  }, [navigate]);
+
   return (
     <div className='w-full flex-col'>
       <div className='flex gap-[32px] pl-[24px] pt-[40px]'>
