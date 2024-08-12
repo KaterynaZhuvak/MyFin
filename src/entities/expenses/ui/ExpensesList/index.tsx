@@ -5,11 +5,14 @@ import { useStore } from '@shared/lib/useStore';
 import { Expense } from '../Expense';
 
 export const ExpensesList: FC = () => {
-  const { expensesStore } = useStore();
+  const { expensesStore, userStore } = useStore();
+
   const { isLoading, isError, data, error } = useQuery({
     queryKey: ['expenses'],
     queryFn: async () => {
-      const response = await expensesApi();
+      const userId = userStore.getUserData()?._id;
+      if (!userId) return;
+      const response = await expensesApi(userId);
       expensesStore.setExpenses(response.expenses);
       return response;
     },
