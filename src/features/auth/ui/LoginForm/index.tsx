@@ -55,7 +55,7 @@ export const LoginForm: FC = observer(() => {
           }
           label='Password'
         />
-        <AuthButton />
+        <AuthButton title='Log In' />
       </Form>
     </Formik>
   );
