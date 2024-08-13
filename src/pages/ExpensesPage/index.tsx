@@ -4,9 +4,11 @@ import { ExpensesFiltersWidget } from '@widgets/Expenses/ui/ExpensesFiltersWidge
 
 export const ExpensesPage: FC = () => {
   return (
-    <main className='size-full  p-[40px_74px_94px_24px]'>
+    <main className='w-full p-[0_16px] desktop:p-[40px_74px_94px_24px]'>
       <ExpensesFiltersWidget />
+
       <ExpensesTotalMoneyAmount />
+
       <ExpensesList />
     </main>
   );

@@ -45,8 +45,12 @@ export const PrivateLayout: FC = () => {
       <PrivateHeader />
       <main className='flex size-full flex-row'>
         <Sidebar />
-        <BackToButton />
-        <Outlet />
+
+        <div className='flex w-full flex-col'>
+          <BackToButton />
+
+          <Outlet />
+        </div>
       </main>
     </>
   );

@@ -44,13 +44,15 @@ export const Sidebar: FC = observer(() => {
     ${sidebarStore.isOpen ? 'left-0' : 'left-[-100%]'}
     absolute
     flex
-    size-full
-    tablet:w-[378px]
+    w-full
     flex-col
     bg-[#060606]
-    p-[110px_0_80px_0]
+    p-[110px_0_560px_0]
     duration-300
+    z-10
 
+    min-[870px]:w-[378px]
+    min-[870px]:min-w-[378px]
     tablet:p-[340px_0_168px_0]
     tablet:static
   `;

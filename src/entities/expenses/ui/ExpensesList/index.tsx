@@ -27,11 +27,11 @@ export const ExpensesList: FC = () => {
       {isLoading ? (
         <div>Loading...</div>
       ) : (
-        <ul>
+        <ul className='m-[0_auto] w-full max-w-[343px] tablet:max-w-[966px]'>
           {data?.expenses.map((expense, index) => (
             <Expense
               key={expense._id}
-              bg={index % 2 === 0 ? 'bg-[#262626]' : 'bg-[#0F0F0F]'}
+              bg={index % 2 === 0 ? 'bg-[#262626]' : 'bg-inherit'}
               expense={expense}
             />
           ))}

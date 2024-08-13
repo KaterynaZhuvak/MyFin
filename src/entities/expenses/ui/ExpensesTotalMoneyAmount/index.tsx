@@ -23,7 +23,7 @@ export const ExpensesTotalMoneyAmount: FC = () => {
   }
 
   return (
-    <h2 className='m-[40px_0] text-[24px] font-bold leading-10'>
+    <h2 className='m-[40px_0] text-[16px] font-bold leading-10 tablet:text-[24px]'>
       In Total for this period:{' '}
       {isLoading ? (
         'Loading...'
