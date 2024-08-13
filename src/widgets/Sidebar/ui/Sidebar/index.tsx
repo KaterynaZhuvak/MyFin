@@ -50,6 +50,7 @@ export const Sidebar: FC = observer(() => {
     bg-[#060606]
     p-[110px_0_80px_0]
     duration-300
+    z-[999]
 
     tablet:p-[340px_0_168px_0]
     tablet:static
