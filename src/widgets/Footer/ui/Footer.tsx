@@ -1,4 +1,5 @@
 import { useState, type FC } from 'react';
+import { NavLink } from 'react-router-dom';
 import { Icon } from '@shared/icons/Icon';
 import { OurTeamModal } from '@entities/home/OurTeamModal';
 
@@ -18,13 +19,12 @@ export const Footer: FC = () => {
           >
             Contact us
           </button>
-          <button
-            type='button'
-            disabled
+          <NavLink
+            to='/privacy-policy'
             className='text-[16px] tracking-[0.02rem] hover:text-hover-green disabled:text-disabled-green tablet:text-[20px]'
           >
             Privacy policy
-          </button>
+          </NavLink>
         </div>
         <p className='text-[12px] tablet:text-[16px]'>
           &#169;{new Date().getFullYear()} MyFin. All Rights Reserved
