@@ -7,7 +7,7 @@ export const expensesApi = async (
   limit = 12
 ): Promise<ExpensesResponse> => {
   const response = await axiosInstance.get<ExpensesResponse>(
-    `/expenses/${userId}?limit=${limit.toString()}&page=${page.toString()}`
+    `/expenses/by-users/${userId}?limit=${limit.toString()}&page=${page.toString()}`
   );
   return response.data;
 };
