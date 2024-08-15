@@ -15,7 +15,7 @@ export const LogoutButton: FC = () => {
   };
   return (
     <button
-      className='text-left text-[20px] font-bold text-white hover:text-[#1D664F]'
+      className='text-left text-[20px] font-bold text-white hover:text-bright-green'
       type='submit'
       onClick={onLogoutClick}
     >
