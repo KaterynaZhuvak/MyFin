@@ -14,6 +14,7 @@ export const ExpensesList: FC = () => {
       if (!userId) return;
       const response = await expensesApi(userId);
       expensesStore.setExpenses(response.expenses);
+      expensesStore.setAmount(response.amount);
       return response;
     },
   });
@@ -27,7 +28,7 @@ export const ExpensesList: FC = () => {
       {isLoading ? (
         <div>Loading...</div>
       ) : (
-        <ul className='m-[0_auto] w-full max-w-[343px] tablet:max-w-[966px]'>
+        <ul className='w-full max-w-[343px] tablet:max-w-[966px]'>
           {data?.expenses.map((expense, index) => (
             <Expense
               key={expense._id}
