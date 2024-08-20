@@ -1,5 +1,5 @@
 import { type FC } from 'react';
-import { useExpensesQuery } from '@entities/expenses/model/useExpensesQuery';
+import { useExpensesQuery } from '@entities/expenses/model';
 import { Expense } from '../Expense';
 
 export const ExpensesList: FC = () => {

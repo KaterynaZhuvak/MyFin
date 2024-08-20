@@ -27,7 +27,7 @@ export const useExpensesAmount = (): UseExpensesAmountHookResult => {
     return () => {
       disposer();
     };
-  });
+  }, [expensesStore]);
 
   return {
     amount,

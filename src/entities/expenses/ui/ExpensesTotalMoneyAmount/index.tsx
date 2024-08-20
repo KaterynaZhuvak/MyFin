@@ -1,6 +1,6 @@
 import { type FC } from 'react';
 import { observer } from 'mobx-react';
-import { useExpensesAmount } from '@entities/expenses/model/useExpensesAmount';
+import { useExpensesAmount } from '@entities/expenses/model';
 
 export const ExpensesTotalMoneyAmount: FC = observer(() => {
   const { amount, isLoading } = useExpensesAmount();

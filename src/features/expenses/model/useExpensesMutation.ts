@@ -13,7 +13,6 @@ interface UseExpensesMutationHookResponse {
     Error,
     CreateExpenseInterface
   >;
-
   onFormSubmit: (values: FormikValues) => void;
 }
 

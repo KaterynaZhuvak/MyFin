@@ -6,7 +6,7 @@ import { Button } from '@shared/ui/Button';
 import { Select } from '@shared/ui/Select';
 import { AmountAndCurrency, Datepicker } from '@entities/expenses';
 import { Icon } from '@shared/icons/Icon';
-import { useExpensesMutation } from '@features/expenses/model/useExpensesMutation';
+import { useExpensesMutation } from '@features/expenses/model';
 
 const initialValues = {
   category: '',

@@ -6,8 +6,8 @@ import { axiosInstance } from '@shared/api/axios';
 import { PrivateHeader } from '@widgets/PrivateHeader';
 import { Sidebar } from '@widgets/Sidebar';
 import { BackToButton } from '@widgets/Sidebar/ui/BackToButton';
-import { useCurrenciesQuery } from '@entities/currencies/model/useCurrenciesQuery';
-import { useCategoriesQuery } from '@entities/categories/model/useCategoriesQuery';
+import { useCurrenciesQuery } from '@entities/currencies';
+import { useCategoriesQuery } from '@entities/categories';
 
 setupAuthInterceptors(axiosInstance);
 
