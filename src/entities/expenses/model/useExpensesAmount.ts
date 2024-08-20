@@ -19,7 +19,7 @@ export const useExpensesAmount = (): UseExpensesAmountHookResult => {
     const disposer = autorun(() => {
       const updatedAmount = expensesStore.getAmount();
       setAmount(updatedAmount);
-      if (updatedAmount) {
+      if (updatedAmount || updatedAmount === 0) {
         expensesStore.setLoading(false);
       }
     });

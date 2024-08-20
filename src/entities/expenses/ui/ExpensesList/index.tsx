@@ -24,6 +24,11 @@ export const ExpensesList: FC = () => {
           ))}
         </ul>
       )}
+      {data?.expenses.length === 0 && (
+        <div className='text-[18px] font-bold tablet:text-[30px]'>
+          No expenses yet
+        </div>
+      )}
     </>
   );
 };
