@@ -1,8 +1,9 @@
-import { useQuery } from '@tanstack/react-query';
+import { useQuery, type UseQueryResult } from '@tanstack/react-query';
 import { useStore } from '@shared/lib/useStore';
 import { currenciesApi } from '../api';
+import type { Currency } from '../interfaces';
 
-export const useCurrenciesQuery = (): void => {
+export const useCurrenciesQuery = (): UseQueryResult<Currency[]> => {
   const { currenciesStore } = useStore();
 
   return useQuery({
