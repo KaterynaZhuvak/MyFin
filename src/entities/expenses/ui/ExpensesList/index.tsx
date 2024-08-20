@@ -1,26 +1,12 @@
 import { type FC } from 'react';
-import { useQuery } from '@tanstack/react-query';
-import { expensesApi } from '@entities/expenses/api';
-import { useStore } from '@shared/lib/useStore';
+import { useExpensesQuery } from '@entities/expenses/model/useExpensesQuery';
 import { Expense } from '../Expense';
 
 export const ExpensesList: FC = () => {
-  const { expensesStore, userStore } = useStore();
-
-  const { isLoading, isError, data, error } = useQuery({
-    queryKey: ['expenses'],
-    queryFn: async () => {
-      const userId = userStore.getUserData()?._id;
-      if (!userId) return;
-      const response = await expensesApi(userId);
-      expensesStore.setExpenses(response.expenses);
-      expensesStore.setAmount(response.amount);
-      return response;
-    },
-  });
+  const { isLoading, isError, data, error } = useExpensesQuery();
 
   if (isError) {
-    return <div>{error.message}</div>;
+    return <div>{error?.message}</div>;
   }
 
   return (

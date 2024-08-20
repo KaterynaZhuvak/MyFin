@@ -6,9 +6,9 @@ import { useStore } from '@shared/lib/useStore';
 export const AmountAndCurrency: FC = () => {
   const { currenciesStore } = useStore();
 
-  const currencyOptions = currenciesStore.getCurrencies().map((currency) => {
-    return currency.name;
-  });
+  const currencyOptions = currenciesStore
+    .getCurrencies()
+    .map((currency) => currency.name);
 
   return (
     <fieldset className='flex flex-row items-end'>

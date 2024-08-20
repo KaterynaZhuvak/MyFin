@@ -1,0 +1,29 @@
+import { useQuery } from '@tanstack/react-query';
+import { useStore } from '@shared/lib/useStore';
+import { expensesApi } from '../api';
+import type { ExpensesResponse } from '../interfaces';
+
+interface UseExpensesQueryHookResponse {
+  isLoading: boolean;
+  isError: boolean;
+  data: ExpensesResponse | undefined;
+  error: Error | null;
+}
+
+export const useExpensesQuery = (): UseExpensesQueryHookResponse => {
+  const { expensesStore, userStore } = useStore();
+
+  const { isLoading, isError, data, error } = useQuery({
+    queryKey: ['expenses'],
+    queryFn: async () => {
+      const userId = userStore.getUserData()?._id;
+      if (!userId) return;
+      const response = await expensesApi(userId);
+      expensesStore.setExpenses(response.expenses);
+      expensesStore.setAmount(response.amount);
+      return response;
+    },
+  });
+
+  return { isLoading, isError, data, error };
+};

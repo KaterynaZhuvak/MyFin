@@ -1,17 +1,12 @@
-import { Field, Form, Formik, type FormikValues } from 'formik';
+import { Field, Form, Formik } from 'formik';
 import { type FC } from 'react';
-import { useMutation } from '@tanstack/react-query';
 import { NavLink } from 'react-router-dom';
-import { DateTime } from 'luxon';
-import { queryClient } from '@shared/api/query-client';
 import { useStore } from '@shared/lib/useStore';
 import { Button } from '@shared/ui/Button';
 import { Select } from '@shared/ui/Select';
-import { type CreateExpenseInterface } from '@features/expenses';
 import { AmountAndCurrency, Datepicker } from '@entities/expenses';
 import { Icon } from '@shared/icons/Icon';
-import { addExpenseApi } from '@features/expenses/api';
-import { monthOptions } from '@entities/expenses/constants/month-options.constant';
+import { useExpensesMutation } from '@features/expenses/model/useExpensesMutation';
 
 const initialValues = {
   category: '',
@@ -24,48 +19,13 @@ const initialValues = {
 };
 
 export const CreateExpense: FC = () => {
-  const { userStore, categoriesStore } = useStore();
+  const { categoriesStore } = useStore();
 
   const categoriesOptions = categoriesStore.getCategories().map((category) => {
     return category.name;
   });
 
-  const mutation = useMutation({
-    mutationFn: addExpenseApi,
-    onSuccess: async () => {
-      await queryClient.invalidateQueries({ queryKey: ['expenses'] });
-    },
-  });
-
-  const onFormSubmit = (values: FormikValues): void => {
-    const userId = userStore.getUserData()?._id;
-    if (!userId) {
-      return;
-    }
-    const { category, currency, amount, details, month, day, year } = values;
-    const monthNumber = monthOptions.indexOf(month as string) + 1;
-
-    const date = DateTime.utc(
-      Number(year),
-      monthNumber,
-      Number(day)
-    ).toString();
-
-    if (!date) {
-      return;
-    }
-
-    const payload: CreateExpenseInterface = {
-      userId,
-      category: category as string,
-      currency: currency as string,
-      amount: Number(amount),
-      date,
-      details: details as string,
-    };
-
-    mutation.mutate(payload);
-  };
+  const { mutation, onFormSubmit } = useExpensesMutation();
 
   return (
     <section>

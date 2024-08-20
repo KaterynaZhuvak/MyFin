@@ -11,7 +11,7 @@ interface ExpenseProps {
 }
 
 export const Expense: FC<ExpenseProps> = ({ expense, bg }) => {
-  const formattedDate = formatDate(expense.createdAt);
+  const formattedDate = formatDate(expense.date);
   const { icon, style } = EXPENSE_CATEGORIES[expense.category];
 
   return (
