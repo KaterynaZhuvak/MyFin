@@ -7,8 +7,9 @@ import { Select } from '@shared/ui/Select';
 import { AmountAndCurrency, Datepicker } from '@entities/expenses';
 import { Icon } from '@shared/icons/Icon';
 import { useExpensesMutation } from '@features/expenses/model';
+import { type ExpenseSubmitValuesInterface } from '@features/expenses/interfaces';
 
-const initialValues = {
+const initialValues: ExpenseSubmitValuesInterface = {
   category: '',
   currency: '',
   amount: '',
@@ -75,7 +76,7 @@ export const CreateExpense: FC = () => {
               </label>
 
               <p className='text-end text-[16px] text-[#9C9C9C]'>
-                No more than 100 characters
+                No more than 15 characters
               </p>
             </div>
 

@@ -15,16 +15,16 @@ export const ExpensesList: FC = () => {
         <div>Loading...</div>
       ) : (
         <ul className='w-full max-w-[343px] tablet:max-w-[966px]'>
-          {data?.expenses.map((expense, index) => (
+          {data?.expenses.map((expense) => (
             <Expense
               key={expense._id}
-              bg={index % 2 === 0 ? 'bg-[#262626]' : 'bg-inherit'}
+              bg='odd:bg-[#262626]'
               expense={expense}
             />
           ))}
         </ul>
       )}
-      {data?.expenses.length === 0 && (
+      {!data?.expenses.length && (
         <div className='text-[18px] font-bold tablet:text-[30px]'>
           No expenses yet
         </div>

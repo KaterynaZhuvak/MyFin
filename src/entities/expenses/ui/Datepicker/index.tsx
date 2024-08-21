@@ -1,6 +1,6 @@
+import { Info } from 'luxon';
 import { useFormikContext } from 'formik';
 import { type ChangeEvent, type FC } from 'react';
-import { monthOptions } from '@entities/expenses/constants/month-options.constant';
 import { Select } from '@shared/ui/Select';
 
 export const Datepicker: FC = () => {
@@ -24,7 +24,7 @@ export const Datepicker: FC = () => {
           className='w-full min-w-[120px] max-w-[152px]'
           inputClassName='rounded-r-none border-r-0'
           name='month'
-          options={monthOptions}
+          options={Info.months()}
           placeholder='MM'
           maxLength={9}
         />

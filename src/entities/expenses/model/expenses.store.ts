@@ -3,8 +3,7 @@ import { type ExpenseInterface } from '../interfaces';
 
 export class ExpensesStore {
   private expenses: ExpenseInterface[] = [];
-  private amount: number | null = null;
-  private loading = true;
+  private amount = 0;
 
   constructor() {
     makeAutoObservable(this);
@@ -23,18 +22,10 @@ export class ExpensesStore {
   }
 
   getAmount(): number {
-    return this.amount ?? 0;
+    return this.amount;
   }
 
   setAmount(amount: number): void {
     this.amount = amount;
-  }
-
-  getLoading(): boolean {
-    return this.loading;
-  }
-
-  setLoading(loading: boolean): void {
-    this.loading = loading;
   }
 }

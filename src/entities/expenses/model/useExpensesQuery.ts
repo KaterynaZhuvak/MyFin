@@ -1,14 +1,7 @@
 import { useQuery } from '@tanstack/react-query';
 import { useStore } from '@shared/lib/useStore';
 import { expensesApi } from '../api';
-import type { ExpensesResponse } from '../interfaces';
-
-interface UseExpensesQueryHookResponse {
-  isLoading: boolean;
-  isError: boolean;
-  data: ExpensesResponse | undefined;
-  error: Error | null;
-}
+import { type UseExpensesQueryHookResponse } from '../interfaces/useExpensesQueryHookRespose.interface';
 
 export const useExpensesQuery = (): UseExpensesQueryHookResponse => {
   const { expensesStore, userStore } = useStore();
