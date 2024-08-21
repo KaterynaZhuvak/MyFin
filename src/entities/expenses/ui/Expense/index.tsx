@@ -14,7 +14,7 @@ export const Expense: FC<ExpenseProps> = ({ expense }) => {
   const { icon, style } = EXPENSE_CATEGORIES[expense.category];
 
   return (
-    <li className='flex h-[56px] w-full max-w-[343px] items-center justify-between rounded-[10px] p-[0_16px] odd:bg-[#262626] tablet:h-[74px] tablet:max-w-[966px] desktop:p-[0_40px]'>
+    <li className='flex h-[56px] w-full items-center justify-between rounded-[10px] p-[0_16px] odd:bg-[#262626] tablet:h-[74px] desktop:p-[0_40px]'>
       <div className='flex items-center gap-2'>
         <div
           className={cn(

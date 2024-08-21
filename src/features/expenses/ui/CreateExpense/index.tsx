@@ -29,8 +29,8 @@ export const CreateExpense: FC = () => {
   const { mutation, onFormSubmit } = useExpensesMutation();
 
   return (
-    <section>
-      <div className='mb-24 mt-10 flex items-center gap-1'>
+    <section className='p-[8px_12px]'>
+      <div className='mb-6 mt-2 flex items-center gap-1 desktop:mb-24 desktop:mt-10'>
         <Icon
           name='arrow'
           className='size-[24px] rotate-90 tablet:size-[32px]'
@@ -45,7 +45,7 @@ export const CreateExpense: FC = () => {
       </div>
 
       <Formik initialValues={initialValues} onSubmit={onFormSubmit}>
-        <Form className='m-[0_auto] flex max-h-[932px] min-w-[300px] max-w-[90%] flex-col justify-center gap-10 rounded-[20px] bg-modal-background p-[16px] max-[1439px]:items-center tablet:min-w-[480px] desktop:ml-[136px] desktop:max-w-[746px] desktop:p-[64px_107px_104px_112px]'>
+        <Form className='m-[0_auto] flex max-h-[932px] min-w-[300px] flex-col items-center justify-center gap-10 rounded-[20px] bg-modal-background p-[16px] tablet:min-w-[480px] tablet:max-w-[746px] desktop:p-[64px_107px_104px_112px]'>
           <h1 className='text-center text-[24px] font-bold leading-10 desktop:text-[34px]'>
             New Expense
           </h1>
@@ -59,18 +59,18 @@ export const CreateExpense: FC = () => {
               name='category'
               options={categoriesOptions}
               placeholder='Select a category'
-              className='w-full max-w-[526px]'
+              className='w-full '
             />
           </div>
 
-          <div className='flex flex-col gap-3 tablet:flex-row tablet:items-end'>
+          <div className='flex w-full max-w-[526px] flex-col gap-10 desktop:flex-row'>
             <Datepicker />
 
             <AmountAndCurrency />
           </div>
 
           <fieldset className='flex w-full max-w-[526px] flex-col gap-3'>
-            <div className='flex flex-row items-end justify-between'>
+            <div className='flex items-end justify-between'>
               <label htmlFor='details' className='text-[20px] text-white'>
                 Details
               </label>

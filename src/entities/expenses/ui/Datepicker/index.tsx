@@ -21,7 +21,7 @@ export const Datepicker: FC = () => {
 
       <div className='flex flex-row'>
         <Select
-          className='w-full min-w-[120px] max-w-[152px]'
+          className='w-full min-w-40 tablet:min-w-[126px] desktop:max-w-[152px]'
           inputClassName='rounded-r-none border-r-0'
           name='month'
           options={Info.months()}
@@ -32,7 +32,7 @@ export const Datepicker: FC = () => {
         <input
           type='text'
           name='day'
-          className='h-[64px] w-full min-w-[65px] max-w-[76px] border border-x-0 border-white bg-transparent p-[0_20px]'
+          className='h-[64px] w-full border border-x-0 border-white bg-transparent p-[0_0_0_10px] tablet:max-w-[76px]'
           onChange={onInputChange}
           placeholder='DD'
           maxLength={2}
@@ -42,7 +42,7 @@ export const Datepicker: FC = () => {
           type='text'
           name='year'
           onChange={onInputChange}
-          className='h-[64px] w-full min-w-[70px] max-w-[76px] rounded-[15px] rounded-l-none border border-l-0  border-white bg-transparent p-[0_20px_0_10px]'
+          className='h-[64px] w-full min-w-[71px] rounded-[15px] rounded-l-none border border-l-0  border-white bg-transparent p-[0_0_0_10px] tablet:max-w-[76px]'
           placeholder='YYYY'
           maxLength={4}
         />

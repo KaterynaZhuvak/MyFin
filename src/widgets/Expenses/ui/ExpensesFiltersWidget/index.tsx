@@ -6,7 +6,7 @@ export const ExpensesFiltersWidget: FC = () => {
   const viewport = window.innerWidth;
 
   return (
-    <section className=' flex w-full flex-row items-center justify-between tablet:w-full tablet:max-w-[964px]'>
+    <section className=' flex w-full flex-row items-center justify-between tablet:w-full'>
       <Icon
         name='filters'
         className='block size-[24px] cursor-pointer stroke-white tablet:hidden'

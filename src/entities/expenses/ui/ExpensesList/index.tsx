@@ -14,7 +14,7 @@ export const ExpensesList: FC = () => {
       {isLoading ? (
         <div>Loading...</div>
       ) : (
-        <ul className='w-full max-w-[343px] tablet:max-w-[966px]'>
+        <ul className='w-full'>
           {data?.expenses.map((expense) => (
             <Expense key={expense._id} expense={expense} />
           ))}
