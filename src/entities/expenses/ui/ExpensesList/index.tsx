@@ -16,11 +16,7 @@ export const ExpensesList: FC = () => {
       ) : (
         <ul className='w-full max-w-[343px] tablet:max-w-[966px]'>
           {data?.expenses.map((expense) => (
-            <Expense
-              key={expense._id}
-              bg='odd:bg-[#262626]'
-              expense={expense}
-            />
+            <Expense key={expense._id} expense={expense} />
           ))}
         </ul>
       )}

@@ -7,17 +7,14 @@ import { cn } from '@shared/lib/cn';
 
 interface ExpenseProps {
   expense: ExpenseInterface;
-  bg: string;
 }
 
-export const Expense: FC<ExpenseProps> = ({ expense, bg }) => {
+export const Expense: FC<ExpenseProps> = ({ expense }) => {
   const formattedDate = formatDate(expense.date);
   const { icon, style } = EXPENSE_CATEGORIES[expense.category];
 
   return (
-    <li
-      className={`flex h-[56px] w-full max-w-[343px] justify-between rounded-[10px] p-[0_16px] tablet:h-[74px] tablet:max-w-[966px] desktop:p-[0_40px] ${bg} items-center`}
-    >
+    <li className='flex h-[56px] w-full max-w-[343px] items-center justify-between rounded-[10px] p-[0_16px] odd:bg-[#262626] tablet:h-[74px] tablet:max-w-[966px] desktop:p-[0_40px]'>
       <div className='flex items-center gap-2'>
         <div
           className={cn(
