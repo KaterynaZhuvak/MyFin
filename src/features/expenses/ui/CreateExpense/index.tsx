@@ -8,6 +8,7 @@ import { AmountAndCurrency, Datepicker } from '@entities/expenses';
 import { Icon } from '@shared/icons/Icon';
 import { useExpensesMutation } from '@features/expenses/model';
 import { type ExpenseSubmitValuesInterface } from '@features/expenses/interfaces';
+import { CustomAlert } from '@shared/ui/CustomAlert';
 
 const initialValues: ExpenseSubmitValuesInterface = {
   category: '',
@@ -29,7 +30,7 @@ export const CreateExpense: FC = () => {
   const { mutation, onFormSubmit } = useExpensesMutation();
 
   return (
-    <section className='p-[8px_12px]'>
+    <section className='relative p-[8px_12px]'>
       <div className='mb-6 mt-2 flex items-center gap-1 desktop:mb-24 desktop:mt-10'>
         <Icon
           name='arrow'
@@ -106,6 +107,12 @@ export const CreateExpense: FC = () => {
           </div>
         </Form>
       </Formik>
+
+      <CustomAlert
+        isPending={mutation.isPending}
+        isError={mutation.isError}
+        isSuccess={mutation.isSuccess}
+      />
     </section>
   );
 };
