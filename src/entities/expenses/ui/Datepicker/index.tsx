@@ -1,6 +1,6 @@
 import { Info } from 'luxon';
 import { useFormikContext } from 'formik';
-import { type ChangeEvent, type FC } from 'react';
+import type { ChangeEvent, FC } from 'react';
 import { Select } from '@shared/ui/Select';
 
 export const Datepicker: FC = () => {

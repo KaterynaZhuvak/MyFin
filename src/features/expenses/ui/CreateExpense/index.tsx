@@ -4,11 +4,14 @@ import { NavLink } from 'react-router-dom';
 import { useStore } from '@shared/lib/useStore';
 import { Button } from '@shared/ui/Button';
 import { Select } from '@shared/ui/Select';
-import { AmountAndCurrency, Datepicker } from '@entities/expenses';
+import {
+  AmountAndCurrency,
+  CustomExpenseAlert,
+  Datepicker,
+} from '@entities/expenses';
 import { Icon } from '@shared/icons/Icon';
 import { useExpensesMutation } from '@features/expenses/model';
 import { type ExpenseSubmitValuesInterface } from '@features/expenses/interfaces';
-import { CustomAlert } from '@shared/ui/CustomAlert';
 
 const initialValues: ExpenseSubmitValuesInterface = {
   category: '',
@@ -22,10 +25,6 @@ const initialValues: ExpenseSubmitValuesInterface = {
 
 export const CreateExpense: FC = () => {
   const { categoriesStore } = useStore();
-
-  const categoriesOptions = categoriesStore.getCategories().map((category) => {
-    return category.name;
-  });
 
   const { mutation, onFormSubmit } = useExpensesMutation();
 
@@ -58,7 +57,9 @@ export const CreateExpense: FC = () => {
 
             <Select
               name='category'
-              options={categoriesOptions}
+              options={categoriesStore
+                .getCategories()
+                .map((category) => category.name)}
               placeholder='Select a category'
               className='w-full '
             />
@@ -108,7 +109,7 @@ export const CreateExpense: FC = () => {
         </Form>
       </Formik>
 
-      <CustomAlert
+      <CustomExpenseAlert
         isPending={mutation.isPending}
         isError={mutation.isError}
         isSuccess={mutation.isSuccess}

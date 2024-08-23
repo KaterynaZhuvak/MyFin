@@ -1,17 +1,18 @@
 import { useEffect, useState, type FC } from 'react';
+import cashImage from '../../../../shared/assets/images/cash-image.webp';
+import pigImage from '../../../../shared/assets/images/pig-image.webp';
 
 interface CustomAlertProps {
   isPending: boolean;
   isError: boolean;
   isSuccess: boolean;
-  open?: boolean;
 }
 
 let borderColor: string;
 let message: string;
 let buttonText: string;
 
-export const CustomAlert: FC<CustomAlertProps> = ({
+export const CustomExpenseAlert: FC<CustomAlertProps> = ({
   isPending,
   isError,
   isSuccess,
@@ -30,7 +31,7 @@ export const CustomAlert: FC<CustomAlertProps> = ({
 
   if (isPending) {
     borderColor = 'border-yellow-600';
-    message = 'Pending';
+    message = 'Creating expense';
     buttonText = 'Processing';
   } else if (isError) {
     borderColor = 'border-[#D9524C]';
@@ -48,9 +49,16 @@ export const CustomAlert: FC<CustomAlertProps> = ({
     >
       <div className='flex flex-col items-center justify-center gap-12'>
         <div
-          className={`${borderColor} flex size-[340px] items-center justify-center rounded-full border-4 bg-[#1C1C1C]`}
+          className={`${borderColor} flex size-[340px] flex-col items-center justify-center gap-6 rounded-full border-4 bg-[#1C1C1C]`}
         >
-          <span className='text-[16px]'>{message}</span>
+          <span className='text-[16px] font-bold'>{message}</span>
+          {isPending ? null : (
+            <img
+              src={isSuccess ? cashImage : pigImage}
+              alt={isSuccess ? 'Success' : 'Error'}
+              className='size-[160px]'
+            />
+          )}
         </div>
         <button
           onClick={onButtonClick}
