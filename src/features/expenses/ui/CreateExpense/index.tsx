@@ -4,11 +4,7 @@ import { NavLink } from 'react-router-dom';
 import { useStore } from '@shared/lib/useStore';
 import { Button } from '@shared/ui/Button';
 import { Select } from '@shared/ui/Select';
-import {
-  AmountAndCurrency,
-  CustomExpenseAlert,
-  Datepicker,
-} from '@entities/expenses';
+import { AmountAndCurrency, Datepicker } from '@entities/expenses';
 import { Icon } from '@shared/icons/Icon';
 import { useExpensesMutation } from '@features/expenses/model';
 import { type ExpenseSubmitValuesInterface } from '@features/expenses/interfaces';
@@ -108,12 +104,6 @@ export const CreateExpense: FC = () => {
           </div>
         </Form>
       </Formik>
-
-      <CustomExpenseAlert
-        isPending={mutation.isPending}
-        isError={mutation.isError}
-        isSuccess={mutation.isSuccess}
-      />
     </section>
   );
 };

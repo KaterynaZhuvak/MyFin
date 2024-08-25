@@ -4,6 +4,7 @@ import { SidebarStore } from '@widgets/Sidebar/model/sidebar.store';
 import { ExpensesStore } from '@entities/expenses/model/expenses.store';
 import { CategoriesStore } from '@entities/categories/model/categories.store';
 import { CurrenciesStore } from '@entities/currencies/model/currencies.store';
+import { AlertStore } from '@entities/alert/model/alert.store';
 
 export class RootStore {
   userStore: UserStore;
@@ -12,6 +13,7 @@ export class RootStore {
   expensesStore: ExpensesStore;
   categoriesStore: CategoriesStore;
   currenciesStore: CurrenciesStore;
+  alertStore: AlertStore;
 
   constructor() {
     this.userStore = new UserStore();
@@ -20,5 +22,6 @@ export class RootStore {
     this.expensesStore = new ExpensesStore();
     this.categoriesStore = new CategoriesStore();
     this.currenciesStore = new CurrenciesStore();
+    this.alertStore = new AlertStore();
   }
 }
