@@ -1,9 +1,9 @@
 import { type FC } from 'react';
-import { type ExpenseInterface } from '@entities/expenses/interfaces/expense.interface';
 import { formatDate } from '@shared/lib/formatDate';
 import { Icon } from '@shared/icons/Icon';
 import { EXPENSE_CATEGORIES } from '@entities/expenses/constants/icon.constant';
 import { cn } from '@shared/lib/cn';
+import { type ExpenseInterface } from '@entities/expenses/interfaces';
 
 interface ExpenseProps {
   expense: ExpenseInterface;

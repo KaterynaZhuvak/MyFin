@@ -11,7 +11,7 @@ import {
 } from '../interfaces';
 
 export const useExpensesMutation = (): UseExpensesMutationHookResponse => {
-  const { userStore } = useStore();
+  const { userStore, categoriesStore, currenciesStore } = useStore();
   const { createAlert, updateAlert } = useAlert();
 
   const mutation = useMutation({
@@ -34,6 +34,8 @@ export const useExpensesMutation = (): UseExpensesMutationHookResponse => {
       return;
     }
     const { category, currency, amount, details, month, day, year } = values;
+    const categoryId = categoriesStore.getCategoryIdByName(category);
+    const currencyId = currenciesStore.getCurrencyIdByName(currency);
 
     const monthNumber = Info.months().indexOf(month) + 1;
 
@@ -45,14 +47,15 @@ export const useExpensesMutation = (): UseExpensesMutationHookResponse => {
       },
       { zone: 'utc' }
     ).toString();
+
     if (!date) {
       return;
     }
     const payload: CreateExpenseInterface = {
       userId,
       date,
-      category,
-      currency,
+      categoryId,
+      currencyId,
       details,
       amount: Number(amount),
     };
