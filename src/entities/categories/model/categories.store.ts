@@ -15,4 +15,9 @@ export class CategoriesStore {
   setCategories(categories: Category[]): void {
     this.categories = categories;
   }
+
+  getCategoryIdByName(name: string): string {
+    const category = this.categories.find((item) => item.name === name);
+    return category?._id ?? '';
+  }
 }

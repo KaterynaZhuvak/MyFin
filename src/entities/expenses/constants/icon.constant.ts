@@ -50,8 +50,8 @@ export const EXPENSE_CATEGORIES: Record<
     icon: 'house',
     style: 'bg-gradient-to-tr from-[#E15A9E] to-[#E09189]  ',
   },
-  Restaraunts: {
-    icon: 'restaraunt',
+  Restaurants: {
+    icon: 'restaurant',
     style: 'bg-gradient-to-tr from-[#F7AF42] to-[#E58B20]  ',
   },
 };

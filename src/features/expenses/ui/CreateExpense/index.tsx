@@ -22,14 +22,10 @@ const initialValues: ExpenseSubmitValuesInterface = {
 export const CreateExpense: FC = () => {
   const { categoriesStore } = useStore();
 
-  const categoriesOptions = categoriesStore.getCategories().map((category) => {
-    return category.name;
-  });
-
   const { mutation, onFormSubmit } = useExpensesMutation();
 
   return (
-    <section className='p-[8px_12px]'>
+    <section className='relative p-[8px_12px]'>
       <div className='mb-6 mt-2 flex items-center gap-1 desktop:mb-24 desktop:mt-10'>
         <Icon
           name='arrow'
@@ -57,7 +53,9 @@ export const CreateExpense: FC = () => {
 
             <Select
               name='category'
-              options={categoriesOptions}
+              options={categoriesStore
+                .getCategories()
+                .map((category) => category.name)}
               placeholder='Select a category'
               className='w-full '
             />

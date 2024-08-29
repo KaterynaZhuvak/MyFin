@@ -14,4 +14,9 @@ export class CurrenciesStore {
   setCurrencies(currencies: Currency[]): void {
     this.currencies = currencies;
   }
+
+  getCurrencyIdByName(name: string): string {
+    const currency = this.currencies.find((item) => item.name === name);
+    return currency?._id ?? '';
+  }
 }

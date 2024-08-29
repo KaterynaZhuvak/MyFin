@@ -10,19 +10,23 @@ import {
 } from '../interfaces';
 
 export const useExpensesMutation = (): UseExpensesMutationHookResponse => {
-  const { userStore } = useStore();
+  const { userStore, categoriesStore, currenciesStore } = useStore();
+
   const mutation = useMutation({
     mutationFn: addExpenseApi,
     onSuccess: async () => {
       await queryClient.invalidateQueries({ queryKey: ['expenses'] });
     },
   });
+
   const onFormSubmit = (values: ExpenseSubmitValuesInterface): void => {
     const userId = userStore.getUserData()?._id;
     if (!userId) {
       return;
     }
     const { category, currency, amount, details, month, day, year } = values;
+    const categoryId = categoriesStore.getCategoryIdByName(category);
+    const currencyId = currenciesStore.getCurrencyIdByName(currency);
 
     const monthNumber = Info.months().indexOf(month) + 1;
 
@@ -34,14 +38,15 @@ export const useExpensesMutation = (): UseExpensesMutationHookResponse => {
       },
       { zone: 'utc' }
     ).toString();
+
     if (!date) {
       return;
     }
     const payload: CreateExpenseInterface = {
       userId,
       date,
-      category,
-      currency,
+      categoryId,
+      currencyId,
       details,
       amount: Number(amount),
     };
