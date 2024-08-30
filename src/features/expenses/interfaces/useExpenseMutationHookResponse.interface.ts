@@ -1,12 +1,6 @@
-import { type UseMutationResult } from '@tanstack/react-query';
-import { type CreateExpenseInterface } from './createExpense.interface';
 import { type ExpenseSubmitValuesInterface } from './expenseSubmitValues.interface';
 
 export interface UseExpensesMutationHookResponse {
-  mutation: UseMutationResult<
-    CreateExpenseInterface,
-    Error,
-    CreateExpenseInterface
-  >;
+  isPending: boolean;
   onFormSubmit: (values: ExpenseSubmitValuesInterface) => void;
 }

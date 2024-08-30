@@ -22,7 +22,7 @@ const initialValues: ExpenseSubmitValuesInterface = {
 export const CreateExpense: FC = () => {
   const { categoriesStore } = useStore();
 
-  const { mutation, onFormSubmit } = useExpensesMutation();
+  const { isPending, onFormSubmit } = useExpensesMutation();
 
   return (
     <section className='relative p-[8px_12px]'>
@@ -92,7 +92,7 @@ export const CreateExpense: FC = () => {
               title='Add Expense'
               isSubmit
               className='gradient mb-6 h-[72px] w-full max-w-[526px] rounded-[15px] text-[32px] font-bold'
-              disabled={mutation.isPending}
+              disabled={isPending}
             />
 
             <NavLink

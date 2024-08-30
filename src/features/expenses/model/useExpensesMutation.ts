@@ -52,5 +52,7 @@ export const useExpensesMutation = (): UseExpensesMutationHookResponse => {
     };
     mutation.mutate(payload);
   };
-  return { mutation, onFormSubmit };
+  const { isPending } = mutation;
+
+  return { isPending, onFormSubmit };
 };

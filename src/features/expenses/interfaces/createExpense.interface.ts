@@ -1,11 +1,14 @@
 import { type ExpenseInterface } from '@entities/expenses/interfaces';
 
-interface FD {
+interface ExpenseCategoryAndCurrency {
   category: string;
   currency: string;
 }
-type DF = Omit<
+
+type ExpenseWithoutMetadata = Omit<
   ExpenseInterface,
   '_id' | 'createdAt' | 'updatedAt' | 'category' | 'currency'
 >;
-export type CreateExpenseInterface = FD & DF;
+
+export type CreateExpenseInterface = ExpenseCategoryAndCurrency &
+  ExpenseWithoutMetadata;
