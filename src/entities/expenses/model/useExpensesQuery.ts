@@ -13,7 +13,6 @@ export const useExpensesQuery = (): UseExpensesQueryHookResponse => {
       if (!userId) return;
       const response = await expensesApi(userId);
       expensesStore.setExpenses(response.expenses);
-      expensesStore.setAmount(response.amount);
       return response;
     },
   });

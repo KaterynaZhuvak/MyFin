@@ -11,7 +11,7 @@ interface ExpenseProps {
 
 export const Expense: FC<ExpenseProps> = ({ expense }) => {
   const formattedDate = formatDate(expense.date);
-  const { icon, style } = EXPENSE_CATEGORIES[expense.category];
+  const { icon, style } = EXPENSE_CATEGORIES[expense.category.name];
 
   return (
     <li className='flex h-[56px] w-full items-center justify-between rounded-[10px] p-[0_16px] odd:bg-[#262626] tablet:h-[74px] desktop:p-[0_40px]'>
@@ -26,7 +26,7 @@ export const Expense: FC<ExpenseProps> = ({ expense }) => {
         </div>
 
         <span className='hidden text-[24px] desktop:block'>
-          {expense.category}
+          {expense.category.name}
         </span>
 
         <span className=' hidden desktop:block'>•</span>
@@ -41,7 +41,7 @@ export const Expense: FC<ExpenseProps> = ({ expense }) => {
       </div>
 
       <span className='text-[16px] font-bold text-[#AE6B6B] desktop:text-[24px]'>
-        -{expense.amount} {expense.currency}
+        -{expense.amount} {expense.currency.symbol}
       </span>
     </li>
   );

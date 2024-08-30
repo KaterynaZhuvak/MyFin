@@ -1,8 +1,8 @@
 import { type ExpenseInterface } from '@entities/expenses/interfaces';
 
 interface FD {
-  categoryId: string;
-  currencyId: string;
+  category: string;
+  currency: string;
 }
 type DF = Omit<
   ExpenseInterface,
