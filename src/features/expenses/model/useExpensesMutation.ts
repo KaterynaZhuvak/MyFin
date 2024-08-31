@@ -45,8 +45,8 @@ export const useExpensesMutation = (): UseExpensesMutationHookResponse => {
     const payload: CreateExpenseInterface = {
       userId,
       date,
-      category: categoryId,
-      currency: currencyId,
+      categoryId,
+      currencyId,
       details,
       amount: Number(amount),
     };

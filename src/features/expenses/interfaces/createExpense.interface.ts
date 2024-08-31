@@ -1,8 +1,8 @@
 import { type ExpenseInterface } from '@entities/expenses/interfaces';
 
 interface ExpenseCategoryAndCurrency {
-  category: string;
-  currency: string;
+  categoryId: string;
+  currencyId: string;
 }
 
 type ExpenseWithoutMetadata = Omit<
