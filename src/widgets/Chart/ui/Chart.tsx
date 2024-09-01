@@ -1,4 +1,4 @@
-import { type FC, useMemo } from 'react';
+import { type FC, useMemo, type ReactElement } from 'react';
 // import { observer } from 'mobx-react';
 import { PieChart, Pie, Cell } from 'recharts';
 import { expenses } from '../model/expenses';
@@ -20,7 +20,7 @@ const renderCustomizedLabel = ({
   innerRadius: number;
   outerRadius: number;
   percent: number;
-}): Element => {
+}): ReactElement => {
   const radius = innerRadius + (outerRadius - innerRadius) * 1.3;
   const x = cx + radius * Math.cos(-midAngle * RADIAN);
   const y = cy + radius * Math.sin(-midAngle * RADIAN);
