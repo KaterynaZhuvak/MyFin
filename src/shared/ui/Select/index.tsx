@@ -61,7 +61,7 @@ export const Select: FC<SelectProps> = ({
   );
 
   return (
-    <fieldset className={cn('relative w-full', className)}>
+    <div className={cn('relative w-full', className)}>
       <div className='relative w-full'>
         <input
           {...field}
@@ -104,11 +104,6 @@ export const Select: FC<SelectProps> = ({
           ))}
         </ul>
       </div>
-      <div
-        className={meta.touched && meta.error ? 'mt-1 text-red-500' : 'hidden'}
-      >
-        {meta.error}
-      </div>
-    </fieldset>
+    </div>
   );
 };
