@@ -1,5 +1,5 @@
 import { type FC } from 'react';
-import { Outlet } from 'react-router';
+import { Navigate, Outlet, useLocation } from 'react-router';
 import { NavLink } from 'react-router-dom';
 
 const isActiveStyles = ({ isActive }: { isActive: boolean }): string =>
@@ -8,6 +8,12 @@ const isActiveStyles = ({ isActive }: { isActive: boolean }): string =>
     : 'text-[29px] font-normal underline';
 
 export const StatisticsPage: FC = () => {
+  const location = useLocation();
+
+  if (location.pathname === '/statistics') {
+    return <Navigate to='statistics-for-this-month' replace />;
+  }
+
   return (
     <section className='size-full'>
       <div className='mb-[32px] flex gap-[40px]'>
