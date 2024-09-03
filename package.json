@@ -10,11 +10,10 @@
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "lint:fix": "eslint . --ext ts,tsx --report-unused-disable-directives --fix",
     "pre-commit": "lint-staged",
-    "prepare": "husky install",
     "preview": "vite preview",
-    "test": "husky",
     "storybook": "storybook dev -p 6006",
-    "storybook:build": "storybook build"
+    "storybook:build": "storybook build",
+    "test": "husky"
   },
   "dependencies": {
     "@radix-ui/react-avatar": "^1.1.0",
@@ -26,6 +25,7 @@
     "clsx": "^2.1.1",
     "formik": "^2.4.6",
     "js-cookie": "^3.0.5",
+    "luxon": "^3.5.0",
     "mobx": "^6.12.4",
     "mobx-react": "^9.1.1",
     "react": "^18.2.0",
@@ -53,6 +53,7 @@
     "@storybook/react-vite": "^8.2.5",
     "@storybook/test": "^8.2.5",
     "@types/js-cookie": "^3.0.6",
+    "@types/luxon": "^3.4.2",
     "@types/react": "^18.2.66",
     "@types/react-dom": "^18.2.22",
     "@types/react-modal": "^3.16.3",
