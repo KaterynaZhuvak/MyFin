@@ -11,14 +11,12 @@ interface ExpensesTotalMoneyAmountQuery {
 
 export const useExpensesTotalMoneyAmountQuery =
   (): ExpensesTotalMoneyAmountQuery => {
-    const { expensesStore, userStore } = useStore();
+    const { expensesStore } = useStore();
 
     const { isLoading, isError, data, error } = useQuery({
       queryKey: ['expenses', { type: 'amount' }],
       queryFn: async () => {
-        const userId = userStore.getUserData()?._id;
-        if (!userId) return;
-        const response = await expensesTotalAmountApi(userId);
+        const response = await expensesTotalAmountApi();
         expensesStore.setAmount(response);
         return response;
       },

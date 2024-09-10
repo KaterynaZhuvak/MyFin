@@ -4,14 +4,12 @@ import { expensesApi } from '../api';
 import { type UseExpensesQueryHookResponse } from '../interfaces/useExpensesQueryHookRespose.interface';
 
 export const useExpensesQuery = (): UseExpensesQueryHookResponse => {
-  const { expensesStore, userStore } = useStore();
+  const { expensesStore } = useStore();
 
   const { isLoading, isError, data, error } = useQuery({
     queryKey: ['expenses'],
     queryFn: async () => {
-      const userId = userStore.getUserData()?._id;
-      if (!userId) return;
-      const response = await expensesApi(userId);
+      const response = await expensesApi(1, 12);
       expensesStore.setExpenses(response.expenses);
       return response;
     },
