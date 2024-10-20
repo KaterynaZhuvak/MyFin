@@ -13,6 +13,8 @@ import { CreateExpensePage } from '@pages/CreateExpensePage';
 import { AppSettings } from '@entities/settings/app';
 import { UserSettings } from '@entities/settings/user';
 import { PrivacyPolicyPage } from '@pages/PrivacyPolicyPage';
+import { StatisticsForThisMonth } from '@pages/StatisticsForThisMonth';
+import { ComparativeAnalysis } from '@pages/ComparativeAnalysis';
 import { RootLayout, PrivateLayout } from './layouts';
 
 export const App: FC = () => {
@@ -25,11 +27,21 @@ export const App: FC = () => {
           <Route path='registration' element={<RegistrationPage />} />
         </Route>
         <Route element={<PrivateLayout />}>
+
           <Route path='expenses'>
             <Route index element={<ExpensesPage />} />
             <Route path='create' element={<CreateExpensePage />} />
           </Route>
-          <Route path='statistics' element={<StatisticsPage />} />
+          <Route path='statistics/*' element={<StatisticsPage />}>
+            <Route
+              path='statistics-for-this-month'
+              element={<StatisticsForThisMonth />}
+            />
+            <Route
+              path='comparative-analysis'
+              element={<ComparativeAnalysis />}
+            />
+          </Route>
           <Route path='budgets' element={<BudgetsPage />} />
           <Route path='settings' element={<SettingsPage />}>
             <Route path='app' element={<AppSettings />} />
