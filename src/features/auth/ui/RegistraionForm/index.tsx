@@ -117,7 +117,7 @@ export const RegistrationForm: FC = observer(() => {
           label='Repeat Password'
         />
 
-        <AuthButton />
+        <AuthButton title='Register' />
       </Form>
     </Formik>
   );

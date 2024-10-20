@@ -12,6 +12,7 @@ export const OurTeamModal: FC<OurTeamModalProps> = ({ isOpen, setIsOpen }) => {
   return (
     <CustomModal
       isOpen={isOpen}
+      label='Our Team'
       onRequestClose={() => {
         setIsOpen(false);
       }}
