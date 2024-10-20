@@ -1,6 +1,5 @@
 export interface ExpenseInterface {
   _id: string;
-  userId: string;
   category: {
     _id: string;
     name: string;

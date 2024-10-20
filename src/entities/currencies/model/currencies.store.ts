@@ -3,6 +3,8 @@ import { type Currency } from '../interfaces';
 
 export class CurrenciesStore {
   private currencies: Currency[] = [];
+  private localCurrency = '$';
+
   constructor() {
     makeAutoObservable(this);
   }
@@ -18,5 +20,13 @@ export class CurrenciesStore {
   getCurrencyIdByName(name: string): string {
     const currency = this.currencies.find((item) => item.name === name);
     return currency?._id ?? '';
+  }
+
+  setLocalCurrency(currency: string): void {
+    this.localCurrency = currency;
+  }
+
+  getLocalCurrency(): string {
+    return this.localCurrency;
   }
 }

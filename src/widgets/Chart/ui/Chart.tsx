@@ -1,9 +1,8 @@
-import { type FC, useMemo, type ReactElement } from 'react';
-// import { observer } from 'mobx-react';
+import { type FC, type ReactElement } from 'react';
 import { PieChart, Pie, Cell } from 'recharts';
-import { expenses } from '../model/expenses';
+import { useStore } from '@shared/lib/useStore';
 import { COLORS } from '../model/colors';
-// import { useStore } from '@shared/lib/useStore';
+import { useExpensesByCategoryQuery } from '../model/useExpensesByCategoryQuery';
 
 const RADIAN = Math.PI / 180;
 const renderCustomizedLabel = ({
@@ -40,56 +39,20 @@ const renderCustomizedLabel = ({
 };
 
 export const Chart: FC = () => {
-  // const { chartStore } = useStore();
-
-  const filteredData = useMemo(() => {
-    const data: Record<
-      string,
-      { amount: number; currency: string; _id: string }
-    > = {};
-
-    expenses.forEach(({ category, amount, currency, _id }) => {
-      // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition -- it's nessesary condition
-      if (!data[category]) {
-        data[category] = { amount, currency, _id };
-      } else {
-        data[category].amount += amount;
-      }
-    });
-
-    return Object.entries(data).map(
-      ([category, { amount, currency, _id }]) => ({
-        category,
-        amount,
-        currency,
-        _id,
-      })
-    );
-  }, []);
-
-  // useEffect(() => {
-  //   const loadData = async (): Promise<void> => {
-  //     await expenses.loadChartData();
-  //   };
-
-  //   void loadData();
-  // }, [expenses]);
-
-  if (expenses.length === 0) {
-    return <div>No data available for this month.</div>;
-  }
+  const { data } = useExpensesByCategoryQuery();
+  const { currenciesStore } = useStore();
 
   return (
     <div className='ml-[25px] flex gap-[30px]'>
       <ul className='flex flex-col justify-center'>
-        {filteredData.map(({ category, amount, currency, _id }, index) => (
-          <li key={_id} className='mb-[20px] flex items-center gap-x-2'>
+        {data?.map(({ category, totalAmount }, index) => (
+          <li key={category} className='mb-[20px] flex items-center gap-x-2'>
             <div
               className='size-[30px] rounded-[5px]'
               style={{ background: COLORS[index % COLORS.length] }}
             />
             <p className='text-[20px] font-normal'>
-              - {category} ({amount} {currency})
+              - {category} ({totalAmount} {currenciesStore.getLocalCurrency()})
             </p>
           </li>
         ))}
@@ -97,7 +60,11 @@ export const Chart: FC = () => {
 
       <PieChart width={700} height={700}>
         <Pie
-          data={filteredData}
+          data={data?.map(({ category, totalAmount }) => ({
+            category,
+            totalAmount,
+            amount: totalAmount,
+          }))}
           cx='50%'
           cy='50%'
           innerRadius={160}
@@ -111,7 +78,7 @@ export const Chart: FC = () => {
           animationDuration={1500}
           animationEasing='ease-out'
         >
-          {filteredData.map((_, index) => (
+          {data?.map((_, index) => (
             <Cell
               key={`cell-${String(index)}`}
               fill={COLORS[index % COLORS.length]}

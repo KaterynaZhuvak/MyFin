@@ -35,30 +35,26 @@ export const Datepicker: FC = () => {
           placeholder='MM'
           maxLength={9}
         />
-        <div>
-          <Field
-            type='text'
-            name='day'
-            className={cn(
-              `${fieldBaseClass} border-x-0 tablet:max-w-[76px]`,
-              errors.day && 'border-red-500'
-            )}
-            placeholder='DD'
-            maxLength={2}
-          />
-        </div>
-        <div>
-          <Field
-            type='text'
-            name='year'
-            className={cn(
-              `${fieldBaseClass} min-w-[71px] rounded-[15px] rounded-l-none border-l-0 tablet:max-w-[76px]`,
-              errors.year && 'border-red-500'
-            )}
-            placeholder='YYYY'
-            maxLength={4}
-          />
-        </div>
+        <Field
+          type='text'
+          name='day'
+          className={cn(
+            `${fieldBaseClass} border-x-0 tablet:max-w-[76px]`,
+            errors.day && 'border-red-500'
+          )}
+          placeholder='DD'
+          maxLength={2}
+        />
+        <Field
+          type='text'
+          name='year'
+          className={cn(
+            `${fieldBaseClass} min-w-[71px] rounded-[15px] rounded-l-none border-l-0 tablet:max-w-[76px]`,
+            errors.year && 'border-red-500'
+          )}
+          placeholder='YYYY'
+          maxLength={4}
+        />
       </div>
       {isErrorOrTouched ? (
         <span className='text-red-500'>

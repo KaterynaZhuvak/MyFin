@@ -1,7 +1,11 @@
 import { axiosInstance } from '@shared/api/axios';
-import { type ExpenseInterface } from '../interfaces/expense.interface';
+import { type ExpensesByCategoryInterface } from '../interfaces/expensesByCategory.interface';
 
-export const expensesApi = async (): Promise<ExpenseInterface[]> => {
-  const response = await axiosInstance.get<ExpenseInterface[]>('/expenses');
+export const expensesByCategoryApi = async (): Promise<
+  ExpensesByCategoryInterface[]
+> => {
+  const response = await axiosInstance.get<ExpensesByCategoryInterface[]>(
+    '/expenses/by-category'
+  );
   return response.data;
 };
