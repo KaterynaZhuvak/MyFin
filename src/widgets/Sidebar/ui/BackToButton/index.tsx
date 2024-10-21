@@ -7,19 +7,22 @@ export const BackToButton: FC = () => {
 
   const backToBtnStyles = `
   flex
-  h-[18px]
-  cursor-pointer
   items-center
   gap-[4px]
-  bg-inherit
+
+  w-full
+  p-[12px_0_0_16px]
+
+  bg-[#000]
+
   font-[12px]
   text-[#adadad]
-  p-[0_10px]
+
   transition-all
   duration-300
+  cursor-pointer
 
   hover:text-[#ddd]
-  hover:drop-shadow-[0_0px_2px_#888]
 
   tablet:hidden
   `;

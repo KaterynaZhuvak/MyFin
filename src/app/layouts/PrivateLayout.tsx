@@ -6,11 +6,17 @@ import { axiosInstance } from '@shared/api/axios';
 import { PrivateHeader } from '@widgets/PrivateHeader';
 import { Sidebar } from '@widgets/Sidebar';
 import { BackToButton } from '@widgets/Sidebar/ui/BackToButton';
+import { useCurrenciesQuery } from '@entities/currencies';
+import { useCategoriesQuery } from '@entities/categories';
+
+setupAuthInterceptors(axiosInstance);
 
 export const PrivateLayout: FC = () => {
   const token = cookieManager.getCookie('accessToken');
 
-  setupAuthInterceptors(axiosInstance);
+  useCurrenciesQuery();
+
+  useCategoriesQuery();
 
   if (!token) {
     return <Navigate to='/login' />;
@@ -22,9 +28,11 @@ export const PrivateLayout: FC = () => {
       <main className='flex size-full flex-row'>
         <Sidebar />
 
-        <BackToButton />
+        <div className='flex w-full flex-col'>
+          <BackToButton />
 
-        <Outlet />
+          <Outlet />
+        </div>
       </main>
     </>
   );

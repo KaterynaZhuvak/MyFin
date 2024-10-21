@@ -27,7 +27,7 @@ export const App: FC = () => {
         </Route>
         <Route element={<PrivateLayout />}>
           <Route path='expenses' element={<ExpensesPage />} />
-          <Route path='statistics/*' element={<StatisticsPage />}>
+          <Route path='statistics' element={<StatisticsPage />}>
             <Route
               path='statistics-for-this-month'
               element={<StatisticsForThisMonth />}
