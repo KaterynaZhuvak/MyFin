@@ -26,8 +26,10 @@ export const App: FC = () => {
           <Route path='registration' element={<RegistrationPage />} />
         </Route>
         <Route element={<PrivateLayout />}>
-          <Route path='expenses' element={<ExpensesPage />} />
-          <Route path='statistics' element={<StatisticsPage />}>
+          <Route path='expenses'>
+            <Route index element={<ExpensesPage />} />
+          </Route>
+          <Route path='statistics/*' element={<StatisticsPage />}>
             <Route
               path='statistics-for-this-month'
               element={<StatisticsForThisMonth />}
