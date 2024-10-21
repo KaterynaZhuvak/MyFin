@@ -1,9 +1,7 @@
 import { type FC, useMemo, type ReactElement } from 'react';
-// import { observer } from 'mobx-react';
 import { PieChart, Pie, Cell } from 'recharts';
 import { expenses } from '../model/expenses';
 import { COLORS } from '../model/colors';
-// import { useStore } from '@shared/lib/useStore';
 
 const RADIAN = Math.PI / 180;
 const renderCustomizedLabel = ({
@@ -40,7 +38,6 @@ const renderCustomizedLabel = ({
 };
 
 export const Chart: FC = () => {
-  // const { chartStore } = useStore();
 
   const filteredData = useMemo(() => {
     const data: Record<
@@ -66,14 +63,6 @@ export const Chart: FC = () => {
       })
     );
   }, []);
-
-  // useEffect(() => {
-  //   const loadData = async (): Promise<void> => {
-  //     await expenses.loadChartData();
-  //   };
-
-  //   void loadData();
-  // }, [expenses]);
 
   if (expenses.length === 0) {
     return <div>No data available for this month.</div>;
