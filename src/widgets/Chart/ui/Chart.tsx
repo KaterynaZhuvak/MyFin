@@ -2,7 +2,6 @@ import { type FC, useMemo, type ReactElement } from 'react';
 import { PieChart, Pie, Cell } from 'recharts';
 import { expenses } from '../model/expenses';
 import { COLORS } from '../model/colors';
-// import { useGetExpenses } from '../model/useGetExpenses';
 
 const RADIAN = Math.PI / 180;
 const renderCustomizedLabel = ({
@@ -39,8 +38,6 @@ const renderCustomizedLabel = ({
 };
 
 export const Chart: FC = () => {
-  // const { isLoading, isError, data, error } = useGetExpenses();
-  // console.log(isLoading);
 
   const filteredData = useMemo(() => {
     const data: Record<
